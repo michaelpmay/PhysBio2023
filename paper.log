@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  31 JAN 2023 08:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  31 JAN 2023 10:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -224,32 +224,37 @@ File: CartoonAndControler.png Graphic file (type png)
 Package pdftex.def Info: CartoonAndControler.png  used on input line 93.
 (pdftex.def)             Requested size: 390.0pt x 193.83896pt.
 
-[2 <./CartoonAndControler.png>] [3] [4]
+[2 <./CartoonAndControler.png>]
+
+LaTeX Warning: Citation `Kobayashi:2004' on page 3 undefined on input line 106.
+
+
+[3] [4]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 124.
+               Default added (so using `tbp') on input line 125.
 
 [5] [6] [7] [8]
 <GranularityPerturbation.png, id=48, 1205.7045pt x 603.33405pt>
 File: GranularityPerturbation.png Graphic file (type png)
 <use GranularityPerturbation.png>
-Package pdftex.def Info: GranularityPerturbation.png  used on input line 270.
+Package pdftex.def Info: GranularityPerturbation.png  used on input line 271.
 (pdftex.def)             Requested size: 390.0pt x 195.15143pt.
  [9] [10 <./GranularityPerturbation.png>]
 <TimeDelayPerturbation.png, id=56, 1205.7045pt x 603.33405pt>
 File: TimeDelayPerturbation.png Graphic file (type png)
 <use TimeDelayPerturbation.png>
-Package pdftex.def Info: TimeDelayPerturbation.png  used on input line 288.
+Package pdftex.def Info: TimeDelayPerturbation.png  used on input line 289.
 (pdftex.def)             Requested size: 390.0pt x 195.15143pt.
  [11] [12 <./TimeDelayPerturbation.png>]
 <ParameterPerturbation.png, id=64, 1517.4291pt x 1197.39345pt>
 File: ParameterPerturbation.png Graphic file (type png)
 <use ParameterPerturbation.png>
-Package pdftex.def Info: ParameterPerturbation.png  used on input line 306.
+Package pdftex.def Info: ParameterPerturbation.png  used on input line 307.
 (pdftex.def)             Requested size: 390.0pt x 307.73389pt.
 
 
-LaTeX Warning: Reference `parameter' on page 13 undefined on input line 316.
+LaTeX Warning: Reference `parameter' on page 13 undefined on input line 317.
 
 [13] [14 <./ParameterPerturbation.png>] [15] [16] [17] [18] (./paper.aux)
 
@@ -257,10 +262,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 3093 strings out of 480608
- 39641 string characters out of 5903631
+ 3094 strings out of 480608
+ 39657 string characters out of 5903631
  283170 words of memory out of 5000000
- 18961 multiletter control sequences out of 15000+600000
+ 18962 multiletter control sequences out of 15000+600000
  543925 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  30i,14n,37p,1632b,269s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -281,7 +286,7 @@ ive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive
 20/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2020
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2020/
 texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on paper.pdf (18 pages, 4356849 bytes).
+Output written on paper.pdf (18 pages, 4357674 bytes).
 PDF statistics:
  139 PDF objects out of 1000 (max. 8388607)
  93 compressed objects within 1 object stream
