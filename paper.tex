@@ -231,26 +231,31 @@ For a given controller, the equilibrium distribution of the system ($\mathbf{P}^
 
 
 \subsection{Quantification and optimization of control performance}
-Score metrics of steady state distributions were made in order to enable optimization of the system by adjusting controllers. In the control of a SIMO stochastic system, a control input which tries to perfectly control one system will create increased noise in the other system because their inputs are shared. Therefore, a controller which strikes a balance between the two cells should be important when it is being optimized.
+%To quantify the performance of the controlled system, Score metrics of steady state distributions were made in order to enable optimization of the system by adjusting controllers.
 
- The control performance ($J$), is defined as the expected steady state squared Euclidean distance of the process from a specified target ($\mathbf{T}$) state according to $E\{(\mathbf{X}-\mathbf{T})^2\}$. This score can be rewritten in terms of a precomputed set of linear weights ($\mathbf{C}$) and the steady state probability distribution ($\mathbf{P}^*$ from Eq.\ (\ref{SSDist})) given by
-{\small \begin{align}
-J&= \lim_{t\rightarrow \infty}\mathbb{E}\{|\mathbf{X}(t)-\mathbf{T}|_2^2\} \nonumber \\ 
-&=\sum_{i,j,\ldots} P^*(x_1=i,x_2=j,\ldots) ((i-\mathbf T_1)^2 + (j-\mathbf T_2)^2 +\ldots)\nonumber  \\
-&=\sum_{i,j,\ldots} P^*_{ij\ldots}(t)C_{ij\ldots} =\mathbf{C}\mathbf{P}^*
+For the single-input-multiple-output control of the multiple cell system, any input signal that is applied to one cell in the population will be felt by all cells in the population. As a result, it is not possible to independently control any individual cell without introducing changes to the behavior of the others. Therefore, an effective controller must be able to strike a balance among the desired behaviors of all cells in the system.
+
+To quantify performance success, we define the performance error score, $J$, as the expected steady state squared Euclidean distance of the process from the specified target state, $\mathbf{T}$:
+ \begin{equation}
+ J = E\{(\mathbf{X}-\mathbf{T})^2\}.
+ \end{equation}
+This score is easily calculated by applying a linear operation on steady state probability distribution $\mathbf{P}^*$ from Eq.\ \ref{SSDist}) as follows:
+{ \begin{align}
+J&= \lim_{t\rightarrow \infty}\mathbb{E}\{|\mathbf{X}(t)-\mathbf{T}|_2^2\}, \nonumber \\ 
+&=\sum_{i_1,i_2,\ldots} P^*(x_1=i_1,x_2=i_2,\ldots) \left[(i-\mathbf T_1)^2 + (j-\mathbf T_2)^2 +\ldots\right],\nonumber  \\
+&=\sum_{i,j,\ldots} P^*_{ij\ldots}(t)C_{ij\ldots} =\mathbf{C}\mathbf{P}^*,
 \label{Euclid}
-\end{align}}
-Where $J$ is a scalar, $\mathbf{C}$ is a vector of weights given by the Euclidian distance, and $\mathbf{P}^*$ the vectorized steady state distribution of the FSP.
+\end{align}} where $\mathbf{C}$ is simply a vector that contains the squared Euclidian distance of each state from the specified target T, i.e., $C_i = |\mathbf{X}_i-\mathbf{T}|_2^2$. As a result of this calculation, $J$ is a non-negative scalar that is zero if any only if $\mathbf{P}^*$ is a delta distribution located exactly at the target vector $\mathbf{T}$.
 
-Two different controller designs were chosen at two different levels of information for the controller to use. A fully aware controller ($\mathbf{u}^{FAC}$) used direct observation of the protein count of both cells simultaneously while making its control input decision, while the partially aware controller $\mathbf{u}^{PAC}$) used only the direct observation of a single cell. 
-
+In this work, we explore two different controller designs that allow for the controller to use two different types of information. A fully aware controller ($\mathbf{u}^{FAC}$) uses direct observation of the protein count of two cells simultaneously while making its control input decision, while the partially aware controller $\mathbf{u}^{PAC}$) uses only the direct observation of a single cell:
 \begin{equation}
-\mathbf{u}^{FAC}=u(x_0,x_1)
+\mathbf{u}^{FAC}=u(x_1,x_2)
 \end{equation}
 \begin{equation}
-\mathbf{u}^{PAC}=u(x_0)
+\mathbf{u}^{PAC}=u(x_1)
 \end{equation}
-where $x_0$ and $x_1$ are discrete integers greater than or equal to 0 which represent the number of protein in cell one and cell two.  The $\mathbf{u}^{FAC}$ and $\mathbf{u}^{PAC}$ controllers were optimized to minimize $J$ in order to maximize the amount of probability near the target point, and both $\mathbf{u}^{FAC}$ and $\mathbf{u}^{PAC}$ were saved as lookup tables after being optimized.
+% XXX - Do we need to use 0 and 1.  Why not use 1 and 2 so that this can match better to the formulaton above?  I changed them to x1 and x2 here, but please chekc to make sure that this is sonsistent throughout text and figures.
+where $x_1$ and $x_2$ are discrete integers greater than or equal to zero that represent the number of proteins in cell one and cell two. In \cite{May2021}, the controllers $\mathbf{u}^{FAC}$ and $\mathbf{u}^{PAC}$ controllers were optimized to minimize $J$, and both $\mathbf{u}^{FAC}$ and $\mathbf{u}^{PAC}$ were saved as lookup tables after being optimized. In what follows, we will use these controllers exactly and without modification to explore how performance changes when the controllers are applied to systems that are approximations of the model under they were originally designed.
 
 \subsection{System Granularity Scalings}
 A granularity parameter ($\alpha$) was developed that linearly re-streches the dynamics of the system to occur over at a different range of protein while maintaining the general behavior of the model.  Any arbitrary propensity function ($w$) can be rescaled to a different level of discreteness by substituting all rate equations with $w'$ given by
