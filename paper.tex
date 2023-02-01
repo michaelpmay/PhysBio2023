@@ -258,26 +258,36 @@ In this work, we explore two different controller designs that allow for the con
 where $x_1$ and $x_2$ are discrete integers greater than or equal to zero that represent the number of proteins in cell one and cell two. In \cite{May2021}, the controllers $\mathbf{u}^{FAC}$ and $\mathbf{u}^{PAC}$ controllers were optimized to minimize $J$, and both $\mathbf{u}^{FAC}$ and $\mathbf{u}^{PAC}$ were saved as lookup tables after being optimized. In what follows, we will use these controllers exactly and without modification to explore how performance changes when the controllers are applied to systems that are approximations of the model under they were originally designed.
 
 \subsection{System Granularity Scalings}
-A granularity parameter ($\alpha$) was developed that linearly re-streches the dynamics of the system to occur over at a different range of protein while maintaining the general behavior of the model.  Any arbitrary propensity function ($w$) can be rescaled to a different level of discreteness by substituting all rate equations with $w'$ given by
-\begin{equation}
-w'(x)=w(x/\alpha)
-\end{equation}
-where $\alpha=M'/M$, $M$ the size of the original system, and $M'$ the size of the re-scaled system. When $\alpha <1 $ the system dynamics occur over a smaller range of protein counts, and when $\alpha >1$ the system dynamics occurs over a larger range of protein counts. 
+One of the major computational obstacles in using the CME or FSP formulations to analyze discrete stochastic chemical kinetics is that the dimension of the FSP scales linearly with each chemical species, and therefore exponentially with the number of independent species. To circumvent this issue, several previous studies have projected the FSP onto lower dimensional spaces based using various techniques such as time scale separations\cite{Peles2006}, Krylov subspaces\cite{Macnemara&Sidje?}, coarse meshes\cite{Munsky2008IEEE,Tapia2012CDC}, or principle orthogonal decompositions\cite{Vo2019}.
+% XXX - would be good to look for a few other examples outside of our own papers where the CME dimension is reduced by linear projections.
+On the other hand, an experimental obstacle to using CME analyses is that gene expression quantification based on fluorescence intensities (e.g., using fluorescent protein reporters) usually does not provide molecular resolution, but rather measures only relative changes in expression over time.
 
-The performance metric and controller must also be scaled by $1/\alpha$ before computing the appropriate functions of that state, e.g., ${u}^{\mathcal{C}} = {u}^{\mathcal{C}}(\mathbf{X}/\alpha)$ and 
-{\small \begin{align}
-J &= \sum_{i=0}^{M'}  \sum_{j=0}^{M'}P^*(x_1=i,x_2=j) ((i/\alpha - \mathbf T_1)^2 + (j/\alpha -\mathbf T_2)^2),\nonumber \\
+To address how variations in model or observation scales might impact the effectiveness of noise-based control, we use the controller optimized at one resolution and ask how effective it would be when applied to systems with the same dynamics but with different resolution. 
+To accomplish this rescaling, let $M$ denote some metric for the size of the original system (e.g., the average number of proteins at steady state and maximal UV) and let $M'$ denote the same metric for the system at a different resolution.  
+Toward this goal, we define a granularity parameter ($\alpha=M'/M$) that linearly scales the species populations to increase ($\alpha>1$) or decrease ($\alpha<1$) the maximum populations size, while maintaining the dynamics and general behavior of the model. To apply the granularity parameter, we assume that each propensity function, $w_{\mu}$, from Eqns.\ \ref{Props} is rescaled to a different level of discreteness by substituting
+\begin{equation}
+w'(\mathbf{X})=w(\mathbf{X}/\alpha).
+\end{equation}
+For example, the production and degradation of protein in cell one would become:
+\begin{equation}
+w'_1(\mathbf{X}) = u(\mathbf{X}/\alpha,t)  + \kappa \frac{(x_1/\alpha)^\eta}{(x_1/\alpha)^{\eta}+\beta^{\eta}} + k_0,\ w'_2(\mathbf{X}) = \gamma x_1/\alpha.
+\end{equation}
+% XXX - Please check this against what you did computationally. 
+After this rescaling, if $\alpha<1 $ the system dynamics will now occur over a smaller range of protein counts, and if $\alpha >1$ the system dynamics occurs over a larger range of protein counts. 
+
+We note that in transforming the propensity functions, the inputs to the controller have also be scaled by $1/\alpha$ before computing the appropriate functions of that state, e.g., ${u}^{\mathcal{C}} = {u}^{\mathcal{C}}(\mathbf{X}/\alpha)$. Because identification of the original control formulation, $\mathbf{u}^{FAC}(x_1,x_2)$ and $\mathbf{u}^{PAC}(x_1)$ only considered integer values for $(x_1,x_2)$, fractional number inputs for after rescaling $(x_1/\alpha,x_2/\alpha)$ are handled by 2D cubic interpolation of the nearest values.
+%\begin{equation}
+%u'=u(x_0 / \alpha, x_1 / \alpha) 
+%\end{equation}
+%\begin{equation}
+%u'=u(\alpha x_0)
+%\end{equation}
+Finally, to provide a consistency relative scoring, the definition of the performance score is also adjusted according to sale magnitudes, i.e.,:
+{\begin{align}
+J' &= \sum_{i=0}^{M'}  \sum_{j=0}^{M'}P^*(x_1=i,x_2=j) ((i/\alpha - \mathbf T_1)^2 + (j/\alpha -\mathbf T_2)^2),\nonumber \\
 & =\mathbf{C}'\mathbf{P}^*
 \label{EuclidV}
 \end{align}}
-Since $\mathbf{u}^{FAC}$ and $\mathbf{u}^{PAC}$ are both matrices, fractional number inputs after rescaling are handled by 2D cubic interpolation of the nearest values.
-
-\begin{equation}
-u'=u(x_0 / \alpha, x_1 / \alpha) 
-\end{equation}
-\begin{equation}
-u'=u(\alpha x_0)
-\end{equation}
 
 \subsection{Introduction of Observation/Actuation Time Delays}
 A time-delay SSA was developed by recording the piecewise constant history of the system and inputing the current control activation at time $t$ in the following delayed manner
