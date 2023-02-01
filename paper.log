@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  1 FEB 2023 11:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  1 FEB 2023 12:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -247,34 +247,34 @@ LaTeX Warning: No positions in optional float specifier.
 <GranularityPerturbation.png, id=51, 1205.7045pt x 603.33405pt>
 File: GranularityPerturbation.png Graphic file (type png)
 <use GranularityPerturbation.png>
-Package pdftex.def Info: GranularityPerturbation.png  used on input line 291.
+Package pdftex.def Info: GranularityPerturbation.png  used on input line 299.
 (pdftex.def)             Requested size: 390.0pt x 195.15143pt.
  [10] [11 <./GranularityPerturbation.png>]
 <TimeDelayPerturbation.png, id=59, 1205.7045pt x 603.33405pt>
 File: TimeDelayPerturbation.png Graphic file (type png)
 <use TimeDelayPerturbation.png>
-Package pdftex.def Info: TimeDelayPerturbation.png  used on input line 309.
+Package pdftex.def Info: TimeDelayPerturbation.png  used on input line 317.
 (pdftex.def)             Requested size: 390.0pt x 195.15143pt.
- [12 <./TimeDelayPerturbation.png>]
-<ParameterPerturbation.png, id=64, 1517.4291pt x 1197.39345pt>
+ [12] [13 <./TimeDelayPerturbation.png>]
+<ParameterPerturbation.png, id=68, 1517.4291pt x 1197.39345pt>
 File: ParameterPerturbation.png Graphic file (type png)
 <use ParameterPerturbation.png>
-Package pdftex.def Info: ParameterPerturbation.png  used on input line 327.
+Package pdftex.def Info: ParameterPerturbation.png  used on input line 335.
 (pdftex.def)             Requested size: 390.0pt x 307.73389pt.
 
 
-LaTeX Warning: Reference `parameter' on page 13 undefined on input line 337.
+LaTeX Warning: Reference `parameter' on page 14 undefined on input line 345.
 
-[13] [14 <./ParameterPerturbation.png>] [15] [16] [17] [18] (./paper.aux)
+[14] [15 <./ParameterPerturbation.png>] [16] [17] [18] [19] (./paper.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 3095 strings out of 480608
- 39664 string characters out of 5903631
- 284170 words of memory out of 5000000
- 18963 multiletter control sequences out of 15000+600000
+ 3096 strings out of 480608
+ 39674 string characters out of 5903631
+ 284180 words of memory out of 5000000
+ 18964 multiletter control sequences out of 15000+600000
  543925 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  30i,14n,37p,1632b,268s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -295,10 +295,10 @@ ive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive
 20/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2020
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2020/
 texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on paper.pdf (18 pages, 4359759 bytes).
+Output written on paper.pdf (19 pages, 4360796 bytes).
 PDF statistics:
- 139 PDF objects out of 1000 (max. 8388607)
- 93 compressed objects within 1 object stream
+ 143 PDF objects out of 1000 (max. 8388607)
+ 96 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

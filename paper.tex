@@ -126,7 +126,7 @@ Moreover, it was again seen that these control laws remained effective even in t
 In this paper, the analysis of this Single-Input-Multiple-Output (SIMO) multicellular control problem is extended to examine how the FAC and PAC controllers are affected by additional model uncertainties, including coarse grained approximations to the system dynamics, uncertainties or errors in system parameters, and delays in the biochemical sensors or optogenetic controllers through which the external feedback is implemented. In the next section, we briefly describe our methods to formulate the chemical master equation to analyze multiple individual cells in the same spatially homogeneous environment; we define the FAC and PAC controllers and their effects the dynamics of cells within that environment; and we explain how the control law is optimized to achieve desired performance objectives. Next, in the `Results' section, we explore how the granularity of the model formulation, the inaccuracy of parametric assumptions, and the inclusion of time delays would affect the FAC and PAC control performance. Finally, in `Conclusions' we summarize our findings and discuss the implications that these controllers, and their robustness to modeling errors, may have on future systems in synthetic biology.
 
 \section{Methods}
-In previous work~\cite{May2021}, a six-species gene regulation model was postulated for the light-activated association of two T7 split domains (species 1 and 2) to form active T7 polymerases (species 3) which could then in turn associate with inactive T7 promoters (species 4) to create an active gene construct (species 5) that would produce its eventual protein product (species 6). A second, far simpler single-species model was also postulated by assuming quasi-steady equilibrium for the first five species. Both models were independently parametrized by fitting to the same experimental data from Baumschlager, et al.~\cite{XXX}, and then extended to include a secondary self-activated promoter-gene construct for which the expression rate was defined by a Hill function (see Eqn.\ \ref{prodRate} below). In \cite{May2021}, we showed that a control law identified using the simple model would work to achieve differential control for the more complex model, thus motivating our current study's efforts to explore further how control performance changes upon additional simplifying assumptions or errors in model specification. 
+In previous work~\cite{May2021}, a six-species gene regulation model was postulated for the light-activated association of two T7 split domains (species 1 and 2) to form active T7 polymerases (species 3) which could then in turn associate with inactive T7 promoters (species 4) to create an active gene construct (species 5) that would produce its eventual protein product (species 6). A second, far simpler single-species model was also postulated by assuming quasi-steady equilibrium for the first five species. Both models were independently parametrized by fitting to the same experimental data from Baumschlager, et al.~\cite{XXX}, and then extended to include a secondary self-activated promoter-gene construct for which the expression rate was defined by a Hill function (see Eqn.\ \ref{prodRate} below). In \cite{May2021}, we showed that a control law identified using the simple model would work to achieve differential control for the more complex model, thus motivating our current study's efforts to explore further how control performance would change upon additional simplifying assumptions or errors in model specification.  In the following subsections, we discuss our methods to formulate this model, show how it is analyzed numerically, and discuss the specification of the control objective and the determination of an optimal controller.
 
 \subsection{Model}
 To examine how model approximations would affect the application of noise-enhanced control strategies, we start with the one species model from \cite{May2021} (see Fig.\ \ref{cartoons}A), which consists of two reactions: protein production and degradation.  The nonlinear light-activated protein production rate is given by
@@ -141,7 +141,7 @@ To examine how model approximations would affect the application of noise-enhanc
 %\label{rateeq}
 %\end{equation}
 %
-where $x$ is the instantaneous protein level; $\kappa$ is the maximum strength of the auto-regulation promoter; $\beta$ is the concentration at which auto-regulation promoter reaches half its strength; $\eta$ is the cooperativity in the auto-regulation promoter; $k_0$ is the promoter leakage rate; and $u(UV(t))$ is the T7 promoter strength. Through external feedback, the level of light excitation, and therefore the T7 promoter strength, $u(UV(t))$, can be modulated in response to the state of the system, thus removing explicit dependence on time. For example, in a system with the observation of two cells, one could define $u(UV(t)) = u(x_1,x_2)$ as shown in Fig.\ \ref{cartoons}C(top left) for the optimized control law $u=u^{\rm (FAC)}$, and for a system with the observation of only one cell, one could define $u(UV(t)) = u(x_1)$ as shown in Fig.\ \ref{cartoons}C(bottom left) for the optimized control law $u=u^{\rm (PAC)}$. Protein degradation is assumed to be a first order process with rate $\gamma$:
+where $x$ is the instantaneous protein level; $\kappa$ is the maximum strength of the auto-regulation promoter; $\beta$ is the concentration at which auto-regulation promoter reaches half its strength; $\eta$ is the cooperativity in the auto-regulation promoter; $k_0$ is the promoter leakage rate; and $u(UV(t))$ is the T7 promoter strength. Through external feedback, the level of light excitation, and therefore the T7 promoter strength, $u(UV(t))$, can be modulated in response to the state of the system, thus removing explicit dependence on time. For example, in a system with the observation of two cells, one could define $u(UV(t)) = u^{\rm (FAC)}(x_1,x_2)$ as shown in Fig.\ \ref{cartoons}C(top left) for the fully aware control law, and for a system with the observation of only one cell, one could define $u^{\rm (PAC)}(UV(t)) = u(x_1)$ as shown in Fig.\ \ref{cartoons}C(bottom left) for the partially aware control law. Protein degradation is assumed to be a first order process with rate $\gamma$:
 \begin{equation}
 \nu_2(x) = \gamma x.
 \end{equation}
@@ -186,15 +186,23 @@ w_3(\mathbf{X}) &= u(\mathbf{X},t)  + \kappa \frac{x_2^\eta}{x_2^{\eta}+\beta^{\
 &\vdots \nonumber\\
 w_{\rm 2N_c-1}(\mathbf{X}) &= u(\mathbf{X},t)  + \kappa \frac{x_N^\eta}{x_N^{\eta}+\beta^{\eta}} + k_0,\ w_{\rm 2N_c}(\mathbf{X}) = \gamma x_N.\label{Props}
  \end{align}
-With these stoichiometry and propensities, we can formulate and run the Gillespie stochastic simulation algorithm\cite{Gillespie1992,Gillespie1977} to generate representative trajectories of the stochastic process.
 
-For the same specifications of the stoichiometry and propensity functions, the chemical master equation can be formulated in matrix/vector form as:
+
+With these stoichiometry and propensities, we can formulate and run the Gillespie stochastic simulation algorithm\cite{Gillespie1992,Gillespie1977} to generate representative trajectories of the stochastic process. However, quantifying performance and designing an optimal controller requires a more direct analysis of the chemical master equation (CME).  For the same specifications of the stoichiometry and propensity functions, the CME is a linear ODE that describes how probability mass changes in time due to the specified reaction propensities and stoichiometries, which can be written:
+\begin{equation}
+\frac{d}{dt}P(\mathbf{X}_i)=\sum_{\mu=1}^{2{\rm N_c}}
+\left(
+-w_{\mu}(\mathbf{X}_i)P(\mathbf{X}_i)
++w_{\mu}(\mathbf{X}_i-\mathbf{s}_{\mu})P(\mathbf{X}_i-\mathbf{s}_{\mu})
+\right).\label{CMEindex}
+\end{equation}
+For convenience, the CME can also be formulated more compactly in matrix/vector form as:
 \begin{equation}
 \frac{d}{dt}\mathbf{P}=(\mathbf{A}_0+\textbf{Bu}^{\mathcal{C}})\mathbf{P},\label{CME}
 \end{equation}
 where $\mathbf{P} = [P(\mathbf{X}_1), P(\mathbf{X}_2), \ldots ]^T$ is the enumerated probability mass vector for all possible states of the system; $\mathbf{A}_0$ is the infinitesimal generator of the stochastic process due to the autoregulation promoter and degradation events;  $\textbf{u}^{\mathcal{C}} =[u^{\mathcal{C}}(\mathbf{X}_1), u^{\mathcal{C}}(\mathbf{X}_2), \ldots ]^T$ is the collection of control inputs associated with each state; and $\textbf{Bu}^{\mathcal{C}}$ is the contribution that these control inputs make to the infinitesimal generator when included into the feedback process. 
  
-More specifically, the open look infinitesimal generator, $\mathbf{A}_0$, is constructed according to:
+More specifically, the openloop infinitesimal generator, $\mathbf{A}_0$, is constructed according to:
 \begin{equation}
 [\mathbf{A}_0]_{ij} = \left\{
 \begin{array}{rl}
@@ -216,7 +224,7 @@ and the feedback infinitesimal generator, $\mathbf{Bu}^{\mathcal{C}}$, of the co
 \end{equation}
 where ${u}^{\mathcal{C}}(\mathbf{X}_j)$ is the specification of the $\mathcal{C}$ controller in terms of the state, or its partial observations.
 
-For a given controller, the equilibrium distribution of the system ($\mathbf{P}^*$) found by solving Eq.\ \ref{CME} is given by:
+For a given controller, the equilibrium distribution of the system ($\mathbf{P}^*$) can be found by solving Eq.\ \ref{CME} and is given by:
 \begin{equation}
 \mathbf{P}^*={\rm null}(\mathbf{A}+\textbf{Bu}^{\mathcal{C}}).\label{SSDist}
 \end{equation}
