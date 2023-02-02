@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  2 FEB 2023 11:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  2 FEB 2023 12:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -306,9 +306,6 @@ LaTeX Warning: Reference `parameter' on page 15 undefined on input line 380.
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
  3100 strings out of 480608
@@ -334,7 +331,7 @@ e/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
 020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/202
 0/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2020
 /texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on paper.pdf (20 pages, 4354615 bytes).
+Output written on paper.pdf (20 pages, 4354657 bytes).
 PDF statistics:
  142 PDF objects out of 1000 (max. 8388607)
  95 compressed objects within 1 object stream
