@@ -400,17 +400,14 @@ Figure \ref{Time} shows the joint and marginal distribution of each controller a
 
 This data taken together show that time much larger that $0.07 / \gamma = XXX min$ is detrimental to the FAC controller; delays beyond $0.2 / \gamma = XXX min$ are detrimental for the PAC controller; and the best choice in controller is dependent the level of time delay in the system.  For extreme levels of time delay, both systems lose their asymmetry, and their scores become much worse ($J=$1041 and 931). 
 
-
-
 \section{Conclusion}
 Key results from \cite{May2021} showed that noise was a key requirement for the development of a noise-exploiting controller, and that deterministic systems could not be controlled to two different stable points if they both started at the same initial condition. As a stochastic system becomes increasingly more granular, it also becomes less noisy and more similar to its ODE solution which is known to be impossible to control to two different fates, but here, we have shown that the removal of noise through system granularity led to better control performance.  Therefore, stochastic controllers may perform work best on models which are nearly deterministic, but not quite. Unfortunately, such systems were found to take longer time to achieve steady state.
 
 The ability to analyze the model at one system granularity apply it elsewhere might help analyze models for which the computational effort may be too large. Since the computation time of the FSP solution to the CME grows with the square of the number of states, this can cause an explosion in computational requirements for large systems. One alternative is to learn a controller at a computationally feasible number of states and apply them to large systems which cannot be solves for using the FSP. 
 
-Parameter perturbation analysis showed that there is room to improve control performance by adjusting system parameters, and that joint optimization of the controller with the system parameters may lead to better control performance. It also shows that populations of cells where each cell mightt have its own parameter combination could still be reasonably controlled for small changes in parameter scale, but large changes could be detrimental.
+Parameter perturbation analysis showed that there is room to improve control performance by adjusting system parameters, and that joint optimization of the controller with the system parameters may lead to better control performance. It also shows that populations of cells where each cell might have its own parameter combination could still be reasonably controlled for small changes in parameter scale, but large changes could be detrimental.
 
 Time delay analysis showed that increasing time delay decreased control performance. It was also found that a controller with less control information outperformed a controller with more information at higher levels of time delay. We believe this is happening because a controller with more information can afford to be more aggressive to implement its control, and time delay can cause this aggression to backfire. A controller was optimized which required no information in May et al which had a score of 402. This controller should be immune to time delay since no feedback is required for this controller. Here we saw both controllers did performed worse than 402 at very large time delay.
-
 
 
 \begin{thebibliography}{10}
