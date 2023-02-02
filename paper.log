@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  1 FEB 2023 15:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  2 FEB 2023 11:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -262,40 +262,62 @@ LaTeX Warning: Citation `Tapia2012CDC' on page 9 undefined on input line 261.
 LaTeX Warning: Citation `Vo2019' on page 9 undefined on input line 261.
 
 [9] [10]
-<GranularityPerturbation.png, id=53, 1205.7045pt x 603.33405pt>
+
+LaTeX Warning: Citation `Baumschlager' on page 11 undefined on input line 319.
+
+
+LaTeX Warning: Citation `XXX - look for elowitz paper or something similar that
+ tried to calibrate for single-molecule counts' on page 11 undefined on input l
+ine 319.
+
+[11]
+
+LaTeX Warning: Citation `XXX van kampen? Gillespei look for this' on page 12 un
+defined on input line 321.
+
+
+LaTeX Warning: Citation `XXX' on page 12 undefined on input line 321.
+
+<GranularityPerturbation.png, id=56, 1205.7045pt x 603.33405pt>
 File: GranularityPerturbation.png Graphic file (type png)
 <use GranularityPerturbation.png>
-Package pdftex.def Info: GranularityPerturbation.png  used on input line 314.
+Package pdftex.def Info: GranularityPerturbation.png  used on input line 331.
 (pdftex.def)             Requested size: 390.0pt x 195.15143pt.
- [11] [12 <./GranularityPerturbation.png>]
-<TimeDelayPerturbation.png, id=61, 1205.7045pt x 603.33405pt>
+[12] [13 <./GranularityPerturbation.png>]
+
+LaTeX Warning: Reference `XXX' on page 14 undefined on input line 343.
+
+<TimeDelayPerturbation.png, id=65, 1205.7045pt x 603.33405pt>
 File: TimeDelayPerturbation.png Graphic file (type png)
 <use TimeDelayPerturbation.png>
-Package pdftex.def Info: TimeDelayPerturbation.png  used on input line 332.
+Package pdftex.def Info: TimeDelayPerturbation.png  used on input line 352.
 (pdftex.def)             Requested size: 390.0pt x 195.15143pt.
- [13] [14 <./TimeDelayPerturbation.png>]
+[14 <./TimeDelayPerturbation.png>]
 <ParameterPerturbation.png, id=70, 1517.4291pt x 1197.39345pt>
 File: ParameterPerturbation.png Graphic file (type png)
 <use ParameterPerturbation.png>
-Package pdftex.def Info: ParameterPerturbation.png  used on input line 350.
+Package pdftex.def Info: ParameterPerturbation.png  used on input line 370.
 (pdftex.def)             Requested size: 390.0pt x 307.73389pt.
 
 
-LaTeX Warning: Reference `parameter' on page 15 undefined on input line 360.
+LaTeX Warning: Reference `parameter' on page 15 undefined on input line 380.
 
 [15] [16 <./ParameterPerturbation.png>] [17] [18] [19] [20] (./paper.aux)
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 3096 strings out of 480608
- 39657 string characters out of 5903631
+ 3100 strings out of 480608
+ 39824 string characters out of 5903631
  284181 words of memory out of 5000000
- 18964 multiletter control sequences out of 15000+600000
+ 18968 multiletter control sequences out of 15000+600000
  542677 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 30i,14n,37p,1632b,268s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 30i,14n,37p,1822b,268s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
@@ -312,7 +334,7 @@ e/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
 020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/202
 0/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2020
 /texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on paper.pdf (20 pages, 4352965 bytes).
+Output written on paper.pdf (20 pages, 4354615 bytes).
 PDF statistics:
  142 PDF objects out of 1000 (max. 8388607)
  95 compressed objects within 1 object stream
