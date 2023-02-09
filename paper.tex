@@ -90,7 +90,7 @@ Keywords: Optogenetic control, Stochastic gene regulation, Synthetic biology
 \section{Introduction}
 \begin{figure}
 \begin{center}
-\includegraphics[width=\columnwidth]{CartoonAndControler.png}
+\includegraphics[width=\columnwidth]{CartoonAndControler.pdf}
 \caption{{\bf Optogenetic control of multiple cells using a single light course}
 ({\bf A}) Schematic of the gene expression system. UV light activates T7 polymerase based transcription and protein expression from the first promoter-gene construct, and the protein actuates its own production via a second promoter-gene construct.
 ({\bf B}) Schematic of the optogenetic control system. An observer is partially (PAC) or fully (FAC) aware of cell expression. The controller modulates a single spatially homogeneous light signal in attempt to drive each genetically identical cell to its own specified state.  
@@ -101,6 +101,7 @@ Figure adapted from \cite{May2021}.}
 \vspace{-0.3in}
 \end{figure}
 % XXX - Please modify figure as follows: (1) switch panels A and B to match caption. (2) Change title of panel B (previously panel A) to "External Observer, controller and actuator".  (3) Change title of panel A (previously panel B) to "Internal gene regulation pathway". (4) Change title of panel C to "Feedback control law and resulting performance"
+% MMM - Made the edit
 
 Synthetic biology seeks to create modular\cite{Ng2019} and orthogonal\cite{Liu2018} components to sense and actuate\cite{Sheets2020} complex logical systems\cite{Groseclose2020}, and which are capable of performing a variety of advanced biological behaviors\cite{Shin2020}. 
 New optogenetic tools have increased our ability to actuate embedded systems within cells reliably and with strong control performance\cite{Sheets2020,Baumschlager2017,Chen2020,Lillacci2018}. Great advances in these two fields have enabled computer programmable control of cellular protein production through the use of external optogenetic inputs and smart microscope techniques\cite{Fox2021,Baumschlager2021,Lugagne2017}. These types of digital-synthetic actuators allow for fine-tuned, computer-modulated control of cellular systems that were previously impossible\cite{Rullan2018, Baumschlager2017} and with fast response times in comparison to chemical diffusion. 
@@ -148,6 +149,7 @@ where $x$ is the instantaneous protein level; $\kappa$ is the maximum strength o
 Parameters describing the auto-regulation promoter, $\kappa$, $\eta$, $\beta$, and $k_0$, and the degradation rate $\gamma$
 %were chosen to reproduce dynamics measured in \cite{Baumschlager2017} and 
 % XXX - I don't think that this is right.  Only the parameters u(UV) and gamma were fit to data.
+% MMM - yes that is right
 are presented in Table 1~\cite{May2021}. 
 
 \begin{table}[]
@@ -255,6 +257,7 @@ In this work, we explore two different controller designs that allow for the con
 \mathbf{u}^{PAC}=u(x_1)
 \end{equation}
 % XXX - Do we need to use 0 and 1.  Why not use 1 and 2 so that this can match better to the formulaton above?  I changed them to x1 and x2 here, but please chekc to make sure that this is sonsistent throughout text and figures.
+% MMM - Made the change to x1 x2
 where $x_1$ and $x_2$ are discrete integers greater than or equal to zero that represent the number of proteins in cell one and cell two. In \cite{May2021}, the controllers $\mathbf{u}^{FAC}$ and $\mathbf{u}^{PAC}$ controllers were optimized to minimize $J$, and both $\mathbf{u}^{FAC}$ and $\mathbf{u}^{PAC}$ were saved as lookup tables after being optimized. In what follows, we will use these controllers exactly and without modification to explore how performance changes when the controllers are applied to systems that are approximations of the model under they were originally designed.
 
 \subsection{Scaling for system granularity}
@@ -316,19 +319,20 @@ where $\tau$ is the time delay between observation and actuation, and ${u}^{\mat
 
 To assess the potential robustness of noise-enhanced control of the proposed synthetic auto-repression toggle switch, we adopt the model and  parameters from \cite{May2021} as well as the fully aware and partially aware controllers, $u^{\rm FAC}(x_1,x_2)$ and  $u^{\rm FAC}(x_1)$, respectively as described in the methods section.  In the following subsections, we explore how well these controllers would perform in the more realistic setting where the approximate model used to define the controller no longer matches exactly to the dynamics of the process that the controller is being used to manipulate. 
 
-We first explore how the model defined for a given assumed system size (i.e., in which protein numbers have a range of $M$) when applied to a system with larger or smaller systems sizes (i.e., where protein numbers now have a range of $M' = \alpha M$.  This modification could arise from two situations related to numerical convenience or inexact resolution in the measurement of concentrations. First, from the perspective of numerical convenience when optimizing a controller, it can be advantageous to reduce the assumed range of protein levels in order to reduce the dimension of the CME and FSP analyses, thereby achieving a more tractable optimization problem.  For example, the current model (see Methods) takes XXX seconds to solve the FSP analysis when $\alpha=1$ but the same analysis takes XXX seconds to solve when $\alpha=10$. Since numerical optimization of the controller can take many millions of calculation for different control laws, learning a controller using $\alpha=1$ that works for $\alpha=10$ would yield substantial savings in computational effort. The second situation under which sensitivity to system scaling could become important is when measurements are relative and do not provide single-molecule resolution. For example, in measurements like those on \cite{Baumschlager} which are based on fluorescence protein intensities, it is not clear how many proteins correspond to what level of fluorescence intensity, and the scalar $\alpha$ is an unknown quantity that must be estimated (e.g., through calibration with single-molecule measurements or dilution experiment\cite{XXX - look for elowitz paper or something similar that tried to calibrate for single-molecule counts}). 
+We first explore how the model defined for a given assumed system size (i.e., in which protein numbers have a range of $M$) when applied to a system with larger or smaller systems sizes (i.e., where protein numbers now have a range of $M' = \alpha M$.  This modification could arise from two situations related to numerical convenience or inexact resolution in the measurement of concentrations. First, from the perspective of numerical convenience when optimizing a controller, it can be advantageous to reduce the assumed range of protein levels in order to reduce the dimension of the CME and FSP analyses, thereby achieving a more tractable optimization problem.  For example, the current model (see Methods) takes 19.3 seconds to solve the FSP analysis when $\alpha=1$ but the same analysis takes 24619 seconds to solve when $\alpha=10$. Since numerical optimization of the controller can take many millions of calculation for different control laws, learning a controller using $\alpha=1$ that works for $\alpha=10$ would yield substantial savings in computational effort. The second situation under which sensitivity to system scaling could become important is when measurements are relative and do not provide single-molecule resolution. For example, in measurements like those on \cite{Baumschlager} which are based on fluorescence protein intensities, it is not clear how many proteins correspond to what level of fluorescence intensity, and the scalar $\alpha$ is an unknown quantity that must be estimated (e.g., through calibration with single-molecule measurements or dilution experiment\cite{XXX - look for elowitz paper or something similar that tried to calibrate for single-molecule counts}). 
 
 It is well established that the relative size of stochastic fluctuations (i.e., noise) in a chemical process decreases with the inverse square root of the process scale \cite{XXX van kampen? Gillespei look for this}. As the system size increases (with all species being scaled by the same factor), the dynamics approach those of a deterministic process with probability one (with zero-measure exceptions only for initial conditions lying on manifolds that separate attractors for different steady state behaviors)\cite{XXX}. For the purpose of noise-induced control, this introduces a tradeoff where noise is critical to break symmetry and enable differential control, yet noise is also deleterious to maintaining desired states once they have been achieved. Considering these competing objectives, it is not immediately clear how the reduction of noise through the addition of system granularity will affect control performance. 
 
 To shed light on this tradeoff, control performance scores for the $\mathbf{u}^{\rm FAC}$ and $\mathbf{u}^{\rm PAC}$ controllers were calculated at different levels of granularity ($\alpha$) between 0.1 and 2.0. 
 % XXX - Why only go up to 2?  Did it become intractable?
+% MMM - Non_Sparse Calculations are intractible after 2, but sparse versions of code will work fine
 Figure \ref{Volume} (Ai - Fi) shows the joint (left plots) and marginal (right plots) distributions of the two cells relative to the specified target position (circles in joint distributions and vertical dashed lines in marginal distributions) for the FAC controller and for $\mathbf{\alpha}$=.2 (A,B), 1 (C,D) and 2 (E,F). As the granularity changes from $\alpha$=0.2 , to $\alpha$=2, the distributions become focused at a point near the target, and the performance score improves from $J=$333 to 85 to 27, respectively. The PAC controller performance also improves considerably with alpha as shown in Fig.\ \ref{Volume} (G-L).
 % XXX - Please change the panel labels to A-F, G-L, and M.
-
+% MMM - made the change
 \subsection{Effects of changes to system granularity}
 \begin{figure*}[t!]
 \begin{center}
-\includegraphics[width=1\textwidth]{GranularityPerturbation.png}
+\includegraphics[width=1\textwidth]{GranularityPerturbation.eps}
 \vspace{-0.1in}
 \caption{Effects of Scale Changes. (A-F) Joint (A,C,D,) and marginal (B,D,F) probability distributions for the FAC control method at $\alpha=0.2$ (A,B), $\alpha=1$ (C,D) and $\alpha=2.0$ (E,F).  Target point shown as blue circle. (G-L) Same as (A-F), but for PAC controller. (M)  FAC (cyan) and PAC (magenta) controller performance as function of system volume. Horizontal dashed lines correspond to SSA analyses at $\alpha=100$. In all analyses, the system model and PAC and FAC controllers are unchanged from \cite{May2021} other than their adaptation to the new system volume size (see Methods).}
 \label{Volume}
@@ -336,16 +340,36 @@ Figure \ref{Volume} (Ai - Fi) shows the joint (left plots) and marginal (right p
 \vspace{-0.2in}
 \end{figure*}
 % XXX - This figure needs larger fonts for all the labels and axes. 
+% MMM - made the change
 % Update panel letters as written in caption
 % Add tic marks to left side of the A and C heat maps
 
 Figure \ref{Volume}M shows the trend of the performance score versus alpha for both the FAC (solid cyan line) and the PAC (solid magenta line) controller. This improvement in performance appears to approach a small value as the granularity goes to infinity, but since the size of the FSP increases with the square of the system size, systems much larger than $\alpha$=2 (where $\mathbf{A}_0\in \mathbb{R}^{10^4\times10^4}$) become more difficult to calculate. 
 % XXX - I would think you should be able to compute larger values of 10^6.  They would be slow, but should be doable in a few minutes per calculation.
+% MMM - constructing the FSP takes longer than solving it
 To bypass this limit in the FSP, sixteen SSA simulations were used to sample the CME of a system with a much larger volume of $\alpha$=100. Each SSA was ran for $5\times10^7$ minutes and only the last $4\times10^7$ minutes were sampled to estimate the stationary distribution and the calculate the performance score. The performance score estimates of this high granularity SSA using the FAC and PAC were 4.13 and 27.5 respectively, which are plotted as dashed lines in Fig.\ \ref{Volume}G. Although it is unclear if further performance improvements could be obtained with further increases to the system scale, for all cases considered so far, we found that both controllers monotonically improved with increased $\alpha$ and that $\mathbf{u}^{\rm FAC}$ always outperforms the $\mathbf{u}^{\rm PAC}$. 
 
-We note however, that the improved steady state performance for systems with larger scales, comes at a cost that they also take longer to reach a steady state distribution. This tradeoff is illustrated in Fig.\ \ref{XXX} which shows the performance score $J(t)$ as the system adapts to a change from the original target point $\mathbf{T} = [XXX,XXX]$ to its mirror point $\mathbf{T}_m = [XXX,XXX]$.  
+\begin{figure*}
+\begin{center}
+\includegraphics[width=1\textwidth]{GranularityScore.eps}
+\caption{}
+\label{}
+\end{center}
+\end{figure*}
+
+\begin{figure*}
+\begin{center}
+\includegraphics[width=1\textwidth]{CalculationSpeed.eps}
+\caption{}
+\label{Speed}
+\end{center}
+\end{figure*}
+
+We note however, that the improved steady state performance for systems with larger scales, comes at a cost that they also take longer to reach a steady state distribution. This tradeoff is illustrated in Fig.\ \ref{Score} which shows the performance score $J(t)$ as the system adapts to a change from the original target point $\mathbf{T} = [30,10]$ to its mirror point $\mathbf{T}_m = [10,30]$.  
 % XXX - Please add a new figure to show this point.  Start with an initial condition that is the steady state with target T and then flip it to T' = T(::-1).  Then solve for P(t) and calculated J(t) from this.    Finally, make a plot of J(t) versus t for the three cases \alpha = 0.2, 1, 2.
- From the figure, it is clear that the smaller systems XXX.
+One hundred SSA simulations of the flip-mirroring process were simulated while measuring the average score all simulations over time. Fig.\ \ref{Score} (A and B) shows the average score and protien counts of the simulation when $\alpha=1$, Fig. \ \ref{Score} (C,D) when $\alpha = 10$, and Fig. \ \ref{Score} (E,F) when $\alpha = 100$. 
+
+From the figures it is clear that the smaller $\alpha$ creates faster dynamic but also have higher scores due to inherit noise. When $\alpha = 10$, the system becomes much less noisy and have lower scores but takes some time to respond. When $\alpha$ is too large at 10, the system contains very small levels of noise, but the dynamics
  % XXX - update this to explain what you see in this new figure. 
 
 %These data suggest that increasing granularity increases steady state control performance even if the controller itself depends on noise for its implementation. Also, designing a controller to work for a system of one volume size can result in a controller that works even for another much larger volume.  This has practical significance, because it is relatively easy to search over a control law defined on a small $M\times M$ grid of states (e.g., when $M$=50 as in \cite{May2021}), but to implement the controller for a larger system which may be computationally prohibitive. This result implies that it may be possible to optimize controller using coarse-grained FSP analyses for small granularity problems and adapt these via interpolation for use with larger, more realistic systems, that exceed the computational limit of standard FSP computations.  
@@ -353,12 +377,13 @@ We note however, that the improved steady state performance for systems with lar
 
 \begin{figure*}
 \begin{center}
-\includegraphics[width=1\textwidth]{ParameterPerturbation.png}
-\caption{Effects of parametric variations on control performance.  ({\bf A}) Sensitivity of control performance score, $J$, to modifications in parameters applied to Cell 1 only, one at a time for parameters $\kappa$, XXX, XXX, XXX, and XXX (in order left to right).  ({\bf B}) Same as {\bf A}, but where modifications are made to the corresponding parameter in Cell 2. ({\bf C}) Same as ({\bf A}), but where the modification is made simultaneously to both cells. In all panels, trends lines are shown for the FAC (solid) and PAC (dashed) controllers. Controllers are unchanged from \cite{May2021}.}
+\includegraphics[width=1\textwidth]{ParameterPerturbation.pdf}
+\caption{Effects of parametric variations on control performance.  ({\bf A}) Sensitivity of control performance score, $J$, to modifications in parameters applied to Cell 1 only, one at a time for parameters $\kappa$, $\beta$, $\eta$, $k_0$, and $\gamma$ (in order left to right).  ({\bf B}) Same as {\bf A}, but where modifications are made to the corresponding parameter in Cell 2. ({\bf C}) Same as ({\bf A}), but where the modification is made simultaneously to both cells. In all panels, trends lines are shown for the FAC (solid) and PAC (dashed) controllers. Controllers are unchanged from \cite{May2021}.}
 \label{Parameter}
 \end{center}
 \end{figure*}
 % XXX - This figure needs much larger fonts for all the labels and axes.
+% MMM - Did the change
 % There are errors in the parameter names.  What is 'alpha'?
 % remove the A,B,C,D,E.
 % replace I, II, III with A, B, C
@@ -368,6 +393,7 @@ We note however, that the improved steady state performance for systems with lar
 
 Exact parameters are never known for any real biological process, and even genetically identical single-cell systems are expected to exhibit cell-to-cell heterogeneity in parameters due to extrinsic variations outside of the specific pathways of interest. These parameter uncertainties or variations between cells could influence system performance, such that a control law that is optimized for one fixed, but incorrect, set of parameters may or may not succeed if used to break symmetry and track a desired target state when applied to a system with different parameters. To explore the sensitivity of control performance to unknown errors in the model parameters, sensitivity analysis was performed for each model parameter and for the situation where the corresponding parameter was modified in either one cell at a time (i.e., to simulate extrinsic noise) or in both cells simultaneously (i.e., to simulate parameter errors).  For each perturbation analysis, both the $\mathbf{u}^{\rm FAC}$ and $\mathbf{u}^{\rm PAC}$ controller were analyzed over a range of parameters from one-half to two-fold of the original parameters.
 % XXX - How hard would it be to extend this to 10 fold in either direction?
+% MMM-Changes to parameters can dramatically change the location of the probability distribution which is contained in a bounded (50,50) area. A 10 fold increase to a parameter can push all the probability to the top corner of the space
  Figure \ref{Parameter}A shows the results for these parameter sweeps when a single parameter in Cell 1 is change while the parameters of Cell 2 is held fixed, and Fig.\ \ref{Parameter}B shows the opposite when changes Cell 1 has fixed parameters and Cell 2 is modified.  Finally, \ref{Parameter}B  shows the performance change when the corresponding parameter is changed in both Cell 1 and Cell 2 at the same time.
  
 Modification to parameters was found to produce a broad range of effects, where some changes increase performance, some decrease performance, and others have little or no effect. For example, increasing $\beta$ in Cell 1 worsens performance while increasing $\beta$ in Cell 2 improves performance (compare second column in Fig.\ \ref{Parameter}A and \ref{Parameter}B). In some cases, these effects were not monotonic; for example, increasing $\kappa$ in Cell 1 (Fig.\ \ref{Parameter}A, left column) would be highly advantageous up to a limit after which the control performance degrades rapidly. In other cases (such as for $k_0$), the effect of parameter perturbations on performance is insignificant even for relatively large ($s$=2) perturbations.Similarly, Fig.\ \ref{Parameter}C shows that when parameters of both Cell 1 and Cell 2 are jointly changed, these changes could also improve or detract from control performance.
@@ -381,7 +407,7 @@ In a few circumstances, changes in the parameters $\kappa$ or $\gamma$ led to th
 
 \begin{figure*}
 \begin{center}
-\includegraphics[width=1\textwidth]{TimeDelayPerturbation.png}
+\includegraphics[width=1\textwidth]{TimeDelayPerturbation.eps}
 \vspace{-0.1in}
 \caption{Effects of time delays on control performance. (A-F) Joint (A,C,E) and marginal (B,D,F) probability distributions for the FAC control method at three different time delays of $\tau/\gamma$=0.01 (A,B), 0.1 (C,D) and 1.0 (E,F) relative to the target point (blue circles). (G-L) Same as (A-F), but for PAC controller. (M) FAC and PAC performance as function of time delay show that PAC outperforms the FAC when time delay is greater than $0.07 /\gamma$. In all analyses, the system model and PAC and FAC controllers are unchanged from \cite{May2021}; specifically, the protein degradation rate is $\gamma = 0.0203$ as identified from \cite{Baumchager}.}
 \label{Time}
@@ -389,16 +415,17 @@ In a few circumstances, changes in the parameters $\kappa$ or $\gamma$ led to th
 \vspace{-0.2in}
 \end{figure*}
 % XXX - This figure needs larger fonts for all the labels and axes. 
+% MMM- Did the change
 % Update panel letters as written in caption
 % Add tic marks to left side of the A and C heat maps
 % Fix the ref to baumschlager paper.
 
 Feedback control can only be effective if one can quickly make measurements, compute adjustment to the control signal, and implement the needed change to the system. As the time required for any of these steps increases, control performance will be degraded, perhaps even leading to large fluctuations or instability. To explore how time delays would affect the noise-enhance controller $\mathbf{u}^{\rm FAC}$ and $\mathbf{u}^{\rm PAC}$, we generated large sets of time-delayed stochastic simulations (see Methods) for different lengths of the time delay. Each SSA was sub-sampled for 1000 times over 10000 minutes of simulation time after a burnin period of 10000 minutes.
 
-Figure \ref{Time} shows the joint and marginal distribution of each controller and time-delay pair and the resulting score, with panels A-F showing results for the FAC controller and panels G-L showing results for the PAC controller. Figure \ref{Time}M summarizes these results by plotting the score of both controllers versus the time delay. From the figures, it is clear that performance is rapidly degraded as the delay approaches and then exceeds the characteristic time scale of the process. At ver small time delays (below $\tau = 0.07/\gamma = XXX$ min), the FAC outperforms the PAC ($J=$87 versus 146 at $\tau = 0.01/\gamma = XXX$ min) but at moderate time delays (above $\tau = 0.07/\gamma = XXX$ min) the PAC outperforms the FAC ($J=$170 versus 219 at $\tau = 0.1/\gamma = XXX$ min). 
+Figure \ref{Time} shows the joint and marginal distribution of each controller and time-delay pair and the resulting score, with panels A-F showing results for the FAC controller and panels G-L showing results for the PAC controller. Figure \ref{Time}M summarizes these results by plotting the score of both controllers versus the time delay. From the figures, it is clear that performance is rapidly degraded as the delay approaches and then exceeds the characteristic time scale of the process. At very small time delays (below $\tau = 0.07/\gamma = 0.0142$ min), the FAC outperforms the PAC ($J=$87 versus 146 at $\tau = 0.01/\gamma = 0.00203$ min) but at moderate time delays (above $\tau = 0.07/\gamma = 0.0142$ min) the PAC outperforms the FAC ($J=$170 versus 219 at $\tau = 0.1/\gamma = 0.0203$ min). 
 % XXX - you can use the value of gamma=0.203 in Table 1 to write these in units of minutes.
 
-This data taken together show that time much larger that $0.07 / \gamma = XXX min$ is detrimental to the FAC controller; delays beyond $0.2 / \gamma = XXX min$ are detrimental for the PAC controller; and the best choice in controller is dependent the level of time delay in the system.  For extreme levels of time delay, both systems lose their asymmetry, and their scores become much worse ($J=$1041 and 931). 
+This data taken together show that time much larger that $0.07 / \gamma = 0.0142 min$ is detrimental to the FAC controller; delays beyond $0.2 / \gamma = 0.0406 min$ are detrimental for the PAC controller; and the best choice in controller is dependent the level of time delay in the system.  For extreme levels of time delay, both systems lose their asymmetry, and their scores become much worse ($J=$1041 and 931). A no-feedback controller was developed which required no inputs. Such a controller is immune to time delay, and received a score $J=402$. These data show that at large time delays above , attempting to improve control with feedback is worse than no-feedback.
 
 \section{Conclusion}
 Key results from \cite{May2021} showed that noise was a key requirement for the development of a noise-exploiting controller, and that deterministic systems could not be controlled to two different stable points if they both started at the same initial condition. As a stochastic system becomes increasingly more granular, it also becomes less noisy and more similar to its ODE solution which is known to be impossible to control to two different fates, but here, we have shown that the removal of noise through system granularity led to better control performance.  Therefore, stochastic controllers may perform work best on models which are nearly deterministic, but not quite. Unfortunately, such systems were found to take longer time to achieve steady state.
