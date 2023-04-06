@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.3.16)  9 FEB 2023 15:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.3.16)  3 APR 2023 12:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -299,61 +299,36 @@ input line 335.
 (pdftex.def)             Requested size: 390.0pt x 195.16226pt.
  [12]
 Package epstopdf Info: Source file: <GranularityScore.eps>
-(epstopdf)                    date: 2023-02-08 15:52:27
-(epstopdf)                    size: 5118600 bytes
+(epstopdf)                    date: 2023-03-15 16:26:58
+(epstopdf)                    size: 23471915 bytes
 (epstopdf)             Output file: <GranularityScore-eps-converted-to.pdf>
-(epstopdf)                    date: 2023-02-09 01:02:28
-(epstopdf)                    size: 704762 bytes
+(epstopdf)                    date: 2023-03-15 16:29:09
+(epstopdf)                    size: 783118 bytes
 (epstopdf)             Command: <repstopdf --outfile=GranularityScore-eps-conve
 rted-to.pdf GranularityScore.eps>
 (epstopdf)             \includegraphics on input line 354.
 Package epstopdf Info: Output file is already uptodate.
-<GranularityScore-eps-converted-to.pdf, id=241, 752.8125pt x 376.40625pt>
+<GranularityScore-eps-converted-to.pdf, id=241, 803.0pt x 301.125pt>
 File: GranularityScore-eps-converted-to.pdf Graphic file (type pdf)
 <use GranularityScore-eps-converted-to.pdf>
 Package pdftex.def Info: GranularityScore-eps-converted-to.pdf  used on input l
 ine 354.
-(pdftex.def)             Requested size: 390.0pt x 195.00294pt.
-Package epstopdf Info: Source file: <CalculationSpeed.eps>
-(epstopdf)                    date: 2023-02-08 16:10:12
-(epstopdf)                    size: 644144 bytes
-(epstopdf)             Output file: <CalculationSpeed-eps-converted-to.pdf>
-(epstopdf)                    date: 2023-02-09 00:23:35
-(epstopdf)                    size: 552477 bytes
-(epstopdf)             Command: <repstopdf --outfile=CalculationSpeed-eps-conve
-rted-to.pdf CalculationSpeed.eps>
-(epstopdf)             \includegraphics on input line 362.
-Package epstopdf Info: Output file is already uptodate.
-<CalculationSpeed-eps-converted-to.pdf, id=242, 435.6275pt x 346.29375pt>
-File: CalculationSpeed-eps-converted-to.pdf Graphic file (type pdf)
-<use CalculationSpeed-eps-converted-to.pdf>
-Package pdftex.def Info: CalculationSpeed-eps-converted-to.pdf  used on input l
-ine 362.
-(pdftex.def)             Requested size: 390.0pt x 310.02344pt.
+(pdftex.def)             Requested size: 390.0pt x 146.2522pt.
 
 
-LaTeX Warning: Reference `Score' on page 13 undefined on input line 368.
+LaTeX Warning: Reference `Score' on page 13 undefined on input line 361.
 
 
-LaTeX Warning: Reference `Score' on page 13 undefined on input line 370.
+LaTeX Warning: Reference `Score' on page 13 undefined on input line 363.
 
 
-LaTeX Warning: Reference `Score' on page 13 undefined on input line 370.
+LaTeX Warning: Reference `Score' on page 13 undefined on input line 363.
 
 
-LaTeX Warning: Reference `Score' on page 13 undefined on input line 370.
+LaTeX Warning: Reference `Score' on page 13 undefined on input line 363.
 
-[13 <./GranularityPerturbation-eps-converted-to.pdf>]
-
-pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./ParameterPerturbation.pdf)
-: PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<ParameterPerturbation.pdf, id=274, 1970.41148pt x 1656.21764pt>
-File: ParameterPerturbation.pdf Graphic file (type pdf)
-<use ParameterPerturbation.pdf>
-Package pdftex.def Info: ParameterPerturbation.pdf  used on input line 380.
-(pdftex.def)             Requested size: 390.0pt x 327.80069pt.
-[14 <./GranularityScore-eps-converted-to.pdf>] [15 <./CalculationSpeed-eps-conv
-erted-to.pdf>] [16 <./ParameterPerturbation.pdf>]
+[13 <./GranularityPerturbation-eps-converted-to.pdf>] [14 <./GranularityScore-e
+ps-converted-to.pdf>]
 Package epstopdf Info: Source file: <TimeDelayPerturbation.eps>
 (epstopdf)                    date: 2023-02-08 17:53:09
 (epstopdf)                    size: 2771391 bytes
@@ -363,32 +338,43 @@ Package epstopdf Info: Source file: <TimeDelayPerturbation.eps>
 (epstopdf)                    size: 957697 bytes
 (epstopdf)             Command: <repstopdf --outfile=TimeDelayPerturbation-eps-
 converted-to.pdf TimeDelayPerturbation.eps>
-(epstopdf)             \includegraphics on input line 411.
+(epstopdf)             \includegraphics on input line 374.
 Package epstopdf Info: Output file is already uptodate.
-<TimeDelayPerturbation-eps-converted-to.pdf, id=457, 1204.5pt x 602.25pt>
+<TimeDelayPerturbation-eps-converted-to.pdf, id=650, 1204.5pt x 602.25pt>
 File: TimeDelayPerturbation-eps-converted-to.pdf Graphic file (type pdf)
 <use TimeDelayPerturbation-eps-converted-to.pdf>
 Package pdftex.def Info: TimeDelayPerturbation-eps-converted-to.pdf  used on in
-put line 411.
+put line 374.
 (pdftex.def)             Requested size: 390.0pt x 195.00294pt.
 
 
-LaTeX Warning: Citation `Baumchager' on page 17 undefined on input line 413.
+LaTeX Warning: Citation `Baumchager' on page 15 undefined on input line 376.
 
 
-LaTeX Warning: Citation `Baumchager' on page 17 undefined on input line 413.
+LaTeX Warning: Citation `Baumchager' on page 15 undefined on input line 376.
 
-[17] [18 <./TimeDelayPerturbation-eps-converted-to.pdf>] [19] [20] [21]
-[22] (./paper.aux)
+[15 <./TimeDelayPerturbation-eps-converted-to.pdf>]
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./ParameterPerturbation.pdf)
+: PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
+<ParameterPerturbation.pdf, id=728, 1970.41148pt x 1656.21764pt>
+File: ParameterPerturbation.pdf Graphic file (type pdf)
+<use ParameterPerturbation.pdf>
+Package pdftex.def Info: ParameterPerturbation.pdf  used on input line 397.
+(pdftex.def)             Requested size: 390.0pt x 327.80069pt.
+[16] [17 <./ParameterPerturbation.pdf>] [18] [19] [20] [21] [22] (./paper.aux)
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 3178 strings out of 478994
- 42054 string characters out of 5858184
- 342011 words of memory out of 5000000
- 20636 multiletter control sequences out of 15000+600000
+ 3171 strings out of 478994
+ 41816 string characters out of 5858184
+ 342002 words of memory out of 5000000
+ 20630 multiletter control sequences out of 15000+600000
  413769 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,14n,74p,1825b,270s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -408,10 +394,10 @@ e/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
 021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/202
 1/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2021
 /texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on paper.pdf (22 pages, 4086797 bytes).
+Output written on paper.pdf (22 pages, 3614017 bytes).
 PDF statistics:
- 602 PDF objects out of 1000 (max. 8388607)
- 190 compressed objects within 2 object streams
+ 832 PDF objects out of 1000 (max. 8388607)
+ 189 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
