@@ -1,6 +1,4 @@
 \relax 
-\citation{May2021}
-\citation{May2021}
 \citation{Ng2019}
 \citation{Liu2018}
 \citation{Sheets2020}
@@ -9,12 +7,12 @@
 \citation{Sheets2020,Baumschlager2017,Chen2020,Lillacci2018}
 \citation{Fox2021,Baumschlager2021,Lugagne2017}
 \citation{Rullan2018,Baumschlager2017}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces {\bf  Optogenetic control of multiple cells using a single light course} ({\bf  A}) Schematic of the gene expression system. UV light activates T7 polymerase based transcription and protein expression from the first promoter-gene construct, and the protein actuates its own production via a second promoter-gene construct. ({\bf  B}) Schematic of the optogenetic control system. An observer is partially (PAC) or fully (FAC) aware of cell expression. The controller modulates a single spatially homogeneous light signal in attempt to drive each genetically identical cell to its own specified state. ({\bf  C}) The FAC (top) and PAC (bottom) control laws for two cells ($\mathbf  {u}^{XAC}(x_1,x_2)$ shown on left) break the symmetry between Cell 1 and Cell 2 and result in distinct marginal distributions for the cells' responses (right). Figure adapted from \cite  {May2021}.}}{2}{}\protected@file@percent }
-\newlabel{cartoons}{{1}{2}}
-\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{2}{}\protected@file@percent }
 \citation{}
 \citation{Guarino2020}
 \citation{Szymanska2015,May2021}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{2}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces {\bf  Optogenetic control of multiple cells using a single light input.} ({\bf  A}) Schematic of the light activated genetic system with autoregulation. ({\bf  B}) Diagram of the stochastic SIMO control problem using two optogenetic cells sharing an input. ({\bf  C}) Adapted from (PAPER). Noise exploiting controllers were optimized to a fully aware control input (I), and partially aware control input(III). Marginal distributions are solved using the finite state projection and show a break in symmetry using both controllers (II and IV) }}{3}{}\protected@file@percent }
+\newlabel{cartoons}{{1}{3}}
 \citation{Szymanska2015}
 \citation{Kobayashi:2004}
 \citation{May2021}
@@ -22,76 +20,46 @@
 \citation{May2021}
 \citation{XXX}
 \citation{May2021}
-\@writefile{toc}{\contentsline {section}{\numberline {2}Methods}{4}{}\protected@file@percent }
 \citation{May2021}
-\citation{May2021}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Methods}{5}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Model}{5}{}\protected@file@percent }
-\newlabel{prodRate}{{1}{5}}
-\citation{Gillespie1992,Gillespie1977}
+\citation{May2021}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Model Parameters}}{6}{}\protected@file@percent }
 \newlabel{table}{{1}{6}}
+\newlabel{prodRate}{{1}{6}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Stochastic analyses of the model}{6}{}\protected@file@percent }
-\newlabel{Stochs}{{3}{6}}
-\newlabel{Props}{{4}{6}}
+\citation{Gillespie1992,Gillespie1977}
+\newlabel{Stochs}{{3}{7}}
+\newlabel{Props}{{4}{7}}
 \newlabel{CMEindex}{{5}{7}}
 \newlabel{CME}{{6}{7}}
-\newlabel{InfA}{{7}{7}}
-\newlabel{InfB}{{8}{7}}
+\newlabel{InfA}{{7}{8}}
+\newlabel{InfB}{{8}{8}}
 \newlabel{SSDist}{{9}{8}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Quantification and optimization of control performance}{8}{}\protected@file@percent }
-\newlabel{Euclid}{{11}{8}}
 \citation{May2021}
 \citation{Peles2006}
 \citation{Macnemara&Sidje?}
 \citation{Munsky2008IEEE,Tapia2012CDC}
 \citation{Vo2019}
+\newlabel{Euclid}{{11}{9}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Scaling for system granularity}{9}{}\protected@file@percent }
-\newlabel{EuclidV}{{16}{10}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Observation and actuation time delays}{10}{}\protected@file@percent }
-\newlabel{timeDelaySSA}{{17}{10}}
+\newlabel{EuclidV}{{16}{11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Observation and actuation time delays}{11}{}\protected@file@percent }
+\newlabel{timeDelaySSA}{{17}{11}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Parameter sweeps using the FAC and PAC show a broad range of control performance in cell 1 ({\bf  A}), in cell 2 ({\bf  B}), and in both cells ({\bf  C}). }}{12}{}\protected@file@percent }
+\newlabel{Parameter}{{2}{12}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Results}{13}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Effects of Parameter Errors or Extrinsic Uncertainties}{13}{}\protected@file@percent }
 \citation{May2021}
 \citation{Baumschlager}
 \citation{XXX - look for elowitz paper or something similar that tried to calibrate for single-molecule counts}
 \citation{Kampen1961}
 \citation{XXX}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Results}{11}{}\protected@file@percent }
-\citation{May2021}
-\citation{May2021}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Effects of changes to system granularity}{12}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Effects of Scale Changes. (A-F) Joint (A,C,D,) and marginal (B,D,F) probability distributions for the FAC control method at $\alpha =0.2$ (A,B), $\alpha =1$ (C,D) and $\alpha =2.0$ (E,F). Target point shown as blue circle. (G-L) Same as (A-F), but for PAC controller. (M) FAC (cyan) and PAC (magenta) controller performance as function of system volume. Horizontal dashed lines correspond to SSA analyses at $\alpha =100$. In all analyses, the system model and PAC and FAC controllers are unchanged from \cite  {May2021} other than their adaptation to the new system volume size (see Methods).}}{13}{}\protected@file@percent }
-\newlabel{Volume}{{2}{13}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Effect of scale changes on control score. (A)Time series trajectory of score versus time shows that when the switch occurs at t=0, scores generally increase to a high value above 700, then drop over time. The time scale for $\alpha =1.0$ to reach steady state again is approx. 1000, 2000, and 4000 minutes for $\alpha =[1.0, 2.0, 4.0]$ respectively. Additionally, the noise floor of each system drops as a function of alpha. (B and C) time series plots of simulated SSA trajectories show that time scale to reach equilibrium changes with $\alpha $, and that an intermediate transition state becomes more visible $\alpha =4.0$. The low noise floor seen in (A) can be confimed in the trajectories as well. }}{14}{}\protected@file@percent }
-\newlabel{}{{3}{14}}
-\citation{May2021}
-\citation{Baumchager}
-\citation{May2021}
-\citation{Baumchager}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Effects of time delays on control performance. (A-F) Joint (A,C,E) and marginal (B,D,F) probability distributions for the FAC control method at three different time delays of $\tau /\gamma $=0.01 (A,B), 0.1 (C,D) and 1.0 (E,F) relative to the target point (blue circles). (G-L) Same as (A-F), but for PAC controller. (M) FAC and PAC performance as function of time delay show that PAC outperforms the FAC when time delay is greater than $0.07 /\gamma $. In all analyses, the system model and PAC and FAC controllers are unchanged from \cite  {May2021}; specifically, the protein degradation rate is $\gamma = 0.0203$ as identified from \cite  {Baumchager}.}}{15}{}\protected@file@percent }
-\newlabel{Time}{{4}{15}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Effects of Time Delays on Controller Performance}{15}{}\protected@file@percent }
-\citation{May2021}
-\citation{May2021}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Effects of Parameter Errors or Extrinsic Uncertainties}{16}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Effects of parametric variations on control performance. ({\bf  A}) Sensitivity of control performance score, $J$, to modifications in parameters applied to Cell 1 only, one at a time for parameters $\kappa $, $\beta $, $\eta $, $k_0$, and $\gamma $ (in order left to right). ({\bf  B}) Same as {\bf  A}, but where modifications are made to the corresponding parameter in Cell 2. ({\bf  C}) Same as ({\bf  A}), but where the modification is made simultaneously to both cells. In all panels, trends lines are shown for the FAC (solid) and PAC (dashed) controllers. Controllers are unchanged from \cite  {May2021}.}}{17}{}\protected@file@percent }
-\newlabel{Parameter}{{5}{17}}
-\citation{May2021}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Conclusion}{19}{}\protected@file@percent }
-\bibcite{May2021}{1}
-\bibcite{Ng2019}{2}
-\bibcite{Liu2018}{3}
-\bibcite{Sheets2020}{4}
-\bibcite{Groseclose2020}{5}
-\bibcite{Shin2020}{6}
-\bibcite{Baumschlager2017}{7}
-\bibcite{Chen2020}{8}
-\bibcite{Lillacci2018}{9}
-\bibcite{Fox2021}{10}
-\bibcite{Baumschlager2021}{11}
-\bibcite{Lugagne2017}{12}
-\bibcite{Rullan2018}{13}
-\bibcite{Guarino2020}{14}
-\bibcite{Munsky2012}{15}
-\bibcite{Szymanska2015}{16}
-\bibcite{Gillespie1992}{17}
-\bibcite{Gillespie1977}{18}
-\gdef \@abspage@last{22}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Effects of changes to system granularity}{15}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Systems with high granularity were shown to have increased control performance but slower response times.}}{16}{}\protected@file@percent }
+\newlabel{Volume}{{3}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Stochastic simulations of the time delayed system show decreasing control performance using either controller. }}{17}{}\protected@file@percent }
+\newlabel{Time}{{4}{17}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Effects of Time Delays on Controller Performance}{17}{}\protected@file@percent }
+\@writefile{lof}{\conten
