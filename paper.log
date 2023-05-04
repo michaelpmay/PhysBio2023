@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.3.16)  4 MAY 2023 00:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.3.16)  4 MAY 2023 01:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -219,14 +219,14 @@ LaTeX Warning: No \author given.
 
 {/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 
-pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./CartoonAndControler.pdf): 
-PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<CartoonAndControler.pdf, id=12, 1348.18684pt x 586.19pt>
-File: CartoonAndControler.pdf Graphic file (type pdf)
-<use CartoonAndControler.pdf>
-Package pdftex.def Info: CartoonAndControler.pdf  used on input line 100.
-(pdftex.def)             Requested size: 390.0pt x 169.57034pt.
-[2] [3 <./CartoonAndControler.pdf>]
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./CartoonAndController.pdf):
+ PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
+<CartoonAndController.pdf, id=12, 1438.22316pt x 925.79979pt>
+File: CartoonAndController.pdf Graphic file (type pdf)
+<use CartoonAndController.pdf>
+Package pdftex.def Info: CartoonAndController.pdf  used on input line 100.
+(pdftex.def)             Requested size: 390.0pt x 251.0429pt.
+[2] [3 <./CartoonAndController.pdf>]
 
 LaTeX Warning: Citation `Kobayashi:2004' on page 4 undefined on input line 119.
 
@@ -267,7 +267,7 @@ LaTeX Warning: Citation `Vo2019' on page 9 undefined on input line 270.
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./ParameterPerturbation.pdf)
 : PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<ParameterPerturbation.pdf, id=98, 1497.24371pt x 984.49606pt>
+<ParameterPerturbation.pdf, id=109, 1497.24371pt x 984.49606pt>
 File: ParameterPerturbation.pdf Graphic file (type pdf)
 <use ParameterPerturbation.pdf>
 Package pdftex.def Info: ParameterPerturbation.pdf  used on input line 329.
@@ -291,11 +291,11 @@ LaTeX Warning: Citation `XXX' on page 14 undefined on input line 353.
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./GranularityPerturbation.pd
 f): PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<GranularityPerturbation.pdf, id=126, 1148.78183pt x 494.384pt>
+<GranularityPerturbation.pdf, id=137, 1153.80058pt x 494.384pt>
 File: GranularityPerturbation.pdf Graphic file (type pdf)
 <use GranularityPerturbation.pdf>
 Package pdftex.def Info: GranularityPerturbation.pdf  used on input line 364.
-(pdftex.def)             Requested size: 390.0pt x 167.83939pt.
+(pdftex.def)             Requested size: 390.0pt x 167.10765pt.
 [15]
 
 LaTeX Warning: Reference `Score' on page 16 undefined on input line 384.
@@ -313,7 +313,7 @@ LaTeX Warning: Reference `Score' on page 16 undefined on input line 386.
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./TimeDelayPerturbation.pdf)
 : PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<TimeDelayPerturbation.pdf, id=176, 1135.09067pt x 481.61832pt>
+<TimeDelayPerturbation.pdf, id=190, 1135.09067pt x 481.61832pt>
 File: TimeDelayPerturbation.pdf Graphic file (type pdf)
 <use TimeDelayPerturbation.pdf>
 Package pdftex.def Info: TimeDelayPerturbation.pdf  used on input line 396.
@@ -322,7 +322,7 @@ Package pdftex.def Info: TimeDelayPerturbation.pdf  used on input line 396.
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./DelayAndGranularity.pdf): 
 PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<DelayAndGranularity.pdf, id=219, 1122.12228pt x 584.1012pt>
+<DelayAndGranularity.pdf, id=233, 1122.12228pt x 584.1012pt>
 File: DelayAndGranularity.pdf Graphic file (type pdf)
 <use DelayAndGranularity.pdf>
 Package pdftex.def Info: DelayAndGranularity.pdf  used on input line 425.
@@ -331,7 +331,7 @@ Package pdftex.def Info: DelayAndGranularity.pdf  used on input line 425.
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./ControlPoints.pdf): PDF in
 clusion: found PDF version <1.6>, but at most version <1.5> allowed
-<ControlPoints.pdf, id=269, 1237.965pt x 612.77228pt>
+<ControlPoints.pdf, id=283, 1237.965pt x 612.77228pt>
 File: ControlPoints.pdf Graphic file (type pdf)
 <use ControlPoints.pdf>
 Package pdftex.def Info: ControlPoints.pdf  used on input line 437.
@@ -340,7 +340,7 @@ Package pdftex.def Info: ControlPoints.pdf  used on input line 437.
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./ControlReference.pdf): PDF
  inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<ControlReference.pdf, id=270, 1207.29045pt x 777.1695pt>
+<ControlReference.pdf, id=284, 1207.29045pt x 777.1695pt>
 File: ControlReference.pdf Graphic file (type pdf)
 <use ControlReference.pdf>
 Package pdftex.def Info: ControlReference.pdf  used on input line 449.
@@ -350,7 +350,7 @@ Package pdftex.def Info: ControlReference.pdf  used on input line 449.
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./ControlGranularityAndFrequ
 ency.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> al
 lowed
-<ControlGranularityAndFrequency.pdf, id=388, 781.91623pt x 529.63374pt>
+<ControlGranularityAndFrequency.pdf, id=403, 781.91623pt x 529.63374pt>
 File: ControlGranularityAndFrequency.pdf Graphic file (type pdf)
 <use ControlGranularityAndFrequency.pdf>
 Package pdftex.def Info: ControlGranularityAndFrequency.pdf  used on input line
@@ -363,7 +363,7 @@ LaTeX Warning: There were undefined references.
  ) 
 Here is how much of TeX's memory you used:
  3190 strings out of 478994
- 42187 string characters out of 5858184
+ 42193 string characters out of 5858184
  340029 words of memory out of 5000000
  20647 multiletter control sequences out of 15000+600000
  413769 words of font info for 66 fonts, out of 8000000 for 9000
@@ -385,10 +385,10 @@ e/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
 021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/202
 1/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2021
 /texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on paper.pdf (25 pages, 1330312 bytes).
+Output written on paper.pdf (25 pages, 1336073 bytes).
 PDF statistics:
- 485 PDF objects out of 1000 (max. 8388607)
- 277 compressed objects within 3 object streams
+ 499 PDF objects out of 1000 (max. 8388607)
+ 285 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
