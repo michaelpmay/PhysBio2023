@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.3.16)  4 MAY 2023 01:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.3.16)  8 MAY 2023 10:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -267,11 +267,11 @@ LaTeX Warning: Citation `Vo2019' on page 9 undefined on input line 270.
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./ParameterPerturbation.pdf)
 : PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<ParameterPerturbation.pdf, id=109, 1497.24371pt x 984.49606pt>
+<ParameterPerturbation.pdf, id=109, 1497.24371pt x 999.8484pt>
 File: ParameterPerturbation.pdf Graphic file (type pdf)
 <use ParameterPerturbation.pdf>
 Package pdftex.def Info: ParameterPerturbation.pdf  used on input line 329.
-(pdftex.def)             Requested size: 390.0pt x 256.44365pt.
+(pdftex.def)             Requested size: 390.0pt x 260.44266pt.
 [11] [12 <./ParameterPerturbation.pdf>] [13]
 
 LaTeX Warning: Citation `Baumschlager' on page 14 undefined on input line 351.
@@ -291,11 +291,11 @@ LaTeX Warning: Citation `XXX' on page 14 undefined on input line 353.
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./GranularityPerturbation.pd
 f): PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<GranularityPerturbation.pdf, id=137, 1153.80058pt x 494.384pt>
+<GranularityPerturbation.pdf, id=137, 1239.98254pt x 494.384pt>
 File: GranularityPerturbation.pdf Graphic file (type pdf)
 <use GranularityPerturbation.pdf>
 Package pdftex.def Info: GranularityPerturbation.pdf  used on input line 364.
-(pdftex.def)             Requested size: 390.0pt x 167.10765pt.
+(pdftex.def)             Requested size: 390.0pt x 155.49037pt.
 [15]
 
 LaTeX Warning: Reference `Score' on page 16 undefined on input line 384.
@@ -309,38 +309,38 @@ LaTeX Warning: Reference `Score' on page 16 undefined on input line 386.
 
 LaTeX Warning: Reference `Score' on page 16 undefined on input line 386.
 
-[16 <./GranularityPerturbation.pdf>]
+
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./TimeDelayPerturbation.pdf)
 : PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<TimeDelayPerturbation.pdf, id=190, 1135.09067pt x 481.61832pt>
+<TimeDelayPerturbation.pdf, id=141, 1215.41075pt x 481.61832pt>
 File: TimeDelayPerturbation.pdf Graphic file (type pdf)
 <use TimeDelayPerturbation.pdf>
 Package pdftex.def Info: TimeDelayPerturbation.pdf  used on input line 396.
-(pdftex.def)             Requested size: 390.0pt x 165.47505pt.
-[17 <./TimeDelayPerturbation.pdf>]
+(pdftex.def)             Requested size: 390.0pt x 154.53989pt.
+[16 <./GranularityPerturbation.pdf>] [17 <./TimeDelayPerturbation.pdf>]
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./DelayAndGranularity.pdf): 
 PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<DelayAndGranularity.pdf, id=233, 1122.12228pt x 584.1012pt>
+<DelayAndGranularity.pdf, id=239, 1173.99602pt x 626.42932pt>
 File: DelayAndGranularity.pdf Graphic file (type pdf)
 <use DelayAndGranularity.pdf>
 Package pdftex.def Info: DelayAndGranularity.pdf  used on input line 425.
-(pdftex.def)             Requested size: 390.0pt x 203.00354pt.
+(pdftex.def)             Requested size: 390.0pt x 208.09874pt.
 [18 <./DelayAndGranularity.pdf>]
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./ControlPoints.pdf): PDF in
 clusion: found PDF version <1.6>, but at most version <1.5> allowed
-<ControlPoints.pdf, id=283, 1237.965pt x 612.77228pt>
+<ControlPoints.pdf, id=296, 737.86964pt x 383.85106pt>
 File: ControlPoints.pdf Graphic file (type pdf)
 <use ControlPoints.pdf>
 Package pdftex.def Info: ControlPoints.pdf  used on input line 437.
-(pdftex.def)             Requested size: 390.0pt x 193.04298pt.
+(pdftex.def)             Requested size: 390.0pt x 202.88951pt.
 
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./ControlReference.pdf): PDF
  inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<ControlReference.pdf, id=284, 1207.29045pt x 777.1695pt>
+<ControlReference.pdf, id=297, 1207.29045pt x 777.1695pt>
 File: ControlReference.pdf Graphic file (type pdf)
 <use ControlReference.pdf>
 Package pdftex.def Info: ControlReference.pdf  used on input line 449.
@@ -350,12 +350,12 @@ Package pdftex.def Info: ControlReference.pdf  used on input line 449.
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./ControlGranularityAndFrequ
 ency.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> al
 lowed
-<ControlGranularityAndFrequency.pdf, id=403, 781.91623pt x 529.63374pt>
+<ControlGranularityAndFrequency.pdf, id=403, 774.55272pt x 547.24849pt>
 File: ControlGranularityAndFrequency.pdf Graphic file (type pdf)
 <use ControlGranularityAndFrequency.pdf>
 Package pdftex.def Info: ControlGranularityAndFrequency.pdf  used on input line
  463.
-(pdftex.def)             Requested size: 390.0pt x 264.1697pt.
+(pdftex.def)             Requested size: 390.0pt x 275.5525pt.
 [21 <./ControlGranularityAndFrequency.pdf>] [22] [23] [24] [25] (./paper.aux)
 
 LaTeX Warning: There were undefined references.
@@ -385,10 +385,10 @@ e/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
 021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/202
 1/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2021
 /texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on paper.pdf (25 pages, 1336106 bytes).
+Output written on paper.pdf (25 pages, 1358607 bytes).
 PDF statistics:
- 499 PDF objects out of 1000 (max. 8388607)
- 285 compressed objects within 3 object streams
+ 505 PDF objects out of 1000 (max. 8388607)
+ 290 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
