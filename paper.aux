@@ -1,44 +1,42 @@
 \relax 
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces {\bf  Optogenetic control of multiple cells using a single light input.} ({\bf  A}) Schematic of the light activated genetic system with autoregulation. ({\bf  B}) Diagram of the stochastic SIMO control problem using two optogenetic cells sharing an input. ({\bf  C}) Adapted from (PAPER). Noise exploiting controllers were optimized to a fully aware control input (I), and partially aware control input(III). Marginal distributions are solved using the finite state projection and show a break in symmetry using both controllers (II and IV) }}{2}{}\protected@file@percent }
+\newlabel{cartoons}{{1}{2}}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{2}{}\protected@file@percent }
 \citation{Ng2019}
 \citation{Liu2018}
 \citation{Sheets2020}
-\citation{Groseclose2020}
 \citation{Shin2020}
 \citation{Sheets2020,Baumschlager2017,Chen2020,Lillacci2018}
 \citation{Fox2021,Baumschlager2021,Lugagne2017}
 \citation{Rullan2018,Baumschlager2017}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces {\bf  Optogenetic control of multiple cells using a single light input.} ({\bf  A}) Schematic of the light activated genetic system with autoregulation. ({\bf  B}) Diagram of the stochastic SIMO control problem using two optogenetic cells sharing an input. ({\bf  C}) Adapted from (PAPER). Noise exploiting controllers were optimized to a fully aware control input (I), and partially aware control input(III). Marginal distributions are solved using the finite state projection and show a break in symmetry using both controllers (II and IV) }}{2}{}\protected@file@percent }
-\newlabel{cartoons}{{1}{2}}
-\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{2}{}\protected@file@percent }
 \citation{}
 \citation{Guarino2020}
 \citation{Szymanska2015,May2021}
-\citation{Szymanska2015}
 \citation{Kobayashi:2004}
+\citation{Szymanska2015}
 \citation{May2021}
 \citation{}
 \citation{May2021}
 \citation{XXX}
 \citation{May2021}
-\@writefile{toc}{\contentsline {section}{\numberline {2}Methods}{4}{}\protected@file@percent }
 \citation{May2021}
-\citation{May2021}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Methods}{5}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Model}{5}{}\protected@file@percent }
 \newlabel{prodRate}{{1}{5}}
+\citation{Gillespie1992,Gillespie1977}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Model Parameters}}{6}{}\protected@file@percent }
 \newlabel{table}{{1}{6}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Stochastic analyses of the model}{6}{}\protected@file@percent }
 \newlabel{Stochs}{{3}{6}}
-\citation{Gillespie1992,Gillespie1977}
-\newlabel{Props}{{4}{7}}
+\newlabel{Props}{{4}{6}}
 \newlabel{CMEindex}{{5}{7}}
 \newlabel{CME}{{6}{7}}
 \newlabel{InfA}{{7}{7}}
-\newlabel{InfB}{{8}{8}}
+\newlabel{InfB}{{8}{7}}
+\citation{May2021}
 \newlabel{SSDist}{{9}{8}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Quantification and optimization of control performance}{8}{}\protected@file@percent }
 \newlabel{Euclid}{{11}{8}}
-\citation{May2021}
 \citation{Peles2006}
 \citation{Macnemara&Sidje?}
 \citation{Munsky2008IEEE,Tapia2012CDC}
@@ -46,32 +44,32 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Scaling for system granularity}{9}{}\protected@file@percent }
 \newlabel{EuclidV}{{16}{10}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Observation and actuation time delays}{10}{}\protected@file@percent }
-\newlabel{timeDelaySSA}{{17}{11}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Results}{11}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Effects of Parameter Errors or Extrinsic Uncertainties}{11}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Parameter sweeps using the FAC and PAC show a broad range of control performance in cell 1 ({\bf  A}), in cell 2 ({\bf  B}), and in both cells ({\bf  C}). }}{12}{}\protected@file@percent }
-\newlabel{Parameter}{{2}{12}}
+\newlabel{timeDelaySSA}{{17}{10}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Results}{10}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Effects of Parameter Errors or Extrinsic Uncertainties}{10}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Parameter sweeps using the FAC and PAC show a broad range of control performance in cell 1 ({\bf  A}), in cell 2 ({\bf  B}), and in both cells ({\bf  C}). Columns show each parameter in the model, rows show the cell which has its parameter perturbed. }}{11}{}\protected@file@percent }
+\newlabel{Parameter}{{2}{11}}
 \citation{May2021}
 \citation{Baumschlager}
 \citation{XXX - look for elowitz paper or something similar that tried to calibrate for single-molecule counts}
 \citation{Kampen1961}
 \citation{XXX}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Systems with high granularity were shown to have increased control performance but slower response times.}}{15}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Effects of changes to system granularity}{14}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Systems with increased granularity are less noisy and have better control performance. (A-C) Joint (left) and marginal (right) distributions for the FAC shows increased control performance and tighter distributions as $\alpha $ increases from 0.2 (top row) to 2.0 (bottom row) . (D-F) Joint (left) and marginal (left) distributions using the PAC controller at different levels of granularity.}}{15}{}\protected@file@percent }
 \newlabel{Volume}{{3}{15}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Effects of changes to system granularity}{15}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Effects of Time Delays on Controller Performance}{16}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Stochastic simulations of the time delayed system show decreasing control performance using either controller. }}{17}{}\protected@file@percent }
-\newlabel{Time}{{4}{17}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Stochastic simulations of the FAC driven system (A) and PAC driven system (B) show different failure modes at at different $(\tau ,\alpha )$ pairs (C).}}{18}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Effects of Time Delays on Controller Performance}{15}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Stochastic simulations of the time delayed system show decreasing control performance using either the FAC or PAC. (A-C) Joint (left) and marginal distributions (right) of the at different levels of time delay for the FAC. (D-F) Joint (left) and marginal distributions(right) at three levels of time delay using the PAC. (G) plots of RMSE control performance versus time delay for both FAC and PAC.}}{16}{}\protected@file@percent }
+\newlabel{Time}{{4}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Stochastic simulations of the FAC driven system and PAC driven system show different failure modes at at different $(\tau ,\alpha )$ pairs. (A-I)Joint probability distributions at different $[\tau ,\alpha ]$ pairs. $\alpha $ across columns and $\tau $ across rows. (J) Control performance measured over a domain of $(\tau ,\alpha )$ pairs show good control performance when both $\alpha $ is large and $\tau $ small. (K) Trajectories where good control was expected but not observed show oscillations instead.}}{18}{}\protected@file@percent }
 \newlabel{DG}{{5}{18}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Controllers optimized to a 2d domain of target points (A) show good control performance in the central region despite a broad range of targets (B and C). }}{19}{}\protected@file@percent }
-\newlabel{CtrlP}{{6}{19}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces The FAC and PAC control methods were used to optimize control inputs and probability distributions for static set points in a 2D domain. Optimized control inputs and probability distributions were optimized using the FAC control method(A and B) or the PAC control method (C and D). (E) Domains of control performance for the FAC method over a region of static target points show regions of good control and symmetry along the dashed line. (F) Domain of control performance over a set of static control points for the PAC control method.}}{20}{}\protected@file@percent }
+\newlabel{CtrlP}{{6}{20}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Finite state projections of the slowly driven system demonstrate good control performance under a variety of phase and frequency scenario. (A) Schematic of the control problem shows targeting the number of protein in two cells using a dynamically changing reference point by cycling through a set of individual stable points and under synchonous, phasse-lagged or frequency changes reference signal using only one control input. (B1-BN) shows the phase space of the reference phase space, error residuals, reference time series, FSP solution and RMSE respectively for the synchonous control method. (C1-C5) Shows the same data for the phase-lagged control input. (D1-D5) Shows the same analysis for the frequency-changed control.}}{22}{}\protected@file@percent }
+\newlabel{CR}{{7}{22}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Control performance analyzed over a domain of $f,\alpha $ pairs show worst control performance at moderate frequencies near $1e-2$ Tracking reference signals when $\alpha =5$ span a range between 50 and 150 species (A). Stochastic simulations driven using a phased lagged controller at $\alpha = 5$ and low frequency show tighter control compared to $\alpha =1$ (B). Systems driven at moderate frequency show worse control performance than high frequency or low frequency (C). Control performance only of phase-lagged system only improves with increasing $\alpha $ and low $f$.}}{23}{}\protected@file@percent }
+\newlabel{CRG}{{8}{23}}
 \citation{May2021}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Conclusion}{20}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Finite state projections of the slowly driven system demonstrate good control performance under a variety of phase and frequency scenario. }}{21}{}\protected@file@percent }
-\newlabel{CR}{{7}{21}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Stochastic simulations driven using a phased lagged controller show improved score at high granularity and low frequency.}}{22}{}\protected@file@percent }
-\newlabel{CRG}{{8}{22}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Conclusion}{24}{}\protected@file@percent }
 \bibcite{May2021}{1}
 \bibcite{Ng2019}{2}
 \bibcite{Liu2018}{3}
@@ -90,4 +88,4 @@
 \bibcite{Szymanska2015}{16}
 \bibcite{Gillespie1992}{17}
 \bibcite{Gillespie1977}{18}
-\gdef \@abspage@last{26}
+\gdef \@abspage@last{27}
