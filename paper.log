@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.3.16)  23 JUN 2023 13:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.3.16)  26 JUN 2023 02:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -215,152 +215,153 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 LaTeX Warning: No \author given.
 
-[1
 
-{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Cartoons.pdf): PDF inclusi
 on: found PDF version <1.6>, but at most version <1.5> allowed
-<Cartoons.pdf, id=12, 2039.12817pt x 690.22565pt>
+<Cartoons.pdf, id=1, 2039.12817pt x 690.22565pt>
 File: Cartoons.pdf Graphic file (type pdf)
 <use Cartoons.pdf>
-Package pdftex.def Info: Cartoons.pdf  used on input line 99.
+Package pdftex.def Info: Cartoons.pdf  used on input line 101.
 (pdftex.def)             Requested size: 390.0pt x 132.00786pt.
+[1
+
+{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 [2 <./Cartoons.pdf>]
 
-LaTeX Warning: Citation `Kobayashi:2004' on page 3 undefined on input line 119.
+LaTeX Warning: Citation `Kobayashi:2004' on page 3 undefined on input line 121.
 
 
-[3]
+
 Overfull \hbox (13.65692pt too wide) in paragraph at lines 128--129
 []\OT1/cmr/m/n/12 This pa-per ex-tends the anal-y-sis of the Single-Input-Multi
 ple-Output (SIMO)
  []
 
-[4]
+[3]
 
-LaTeX Warning: Citation `XXX' on page 5 undefined on input line 133.
+LaTeX Warning: Citation `XXX' on page 4 undefined on input line 135.
 
 
-Overfull \hbox (2.70287pt too wide) in paragraph at lines 133--134
+Overfull \hbox (2.70287pt too wide) in paragraph at lines 135--136
 []\OT1/cmr/m/n/12 Additionally, a sim-ple single-species model was de-vel-oped,
  as-sum-ing quasi-
  []
 
-
-Overfull \hbox (3.03806pt too wide) in paragraph at lines 140--150
+[4]
+Overfull \hbox (3.03806pt too wide) in paragraph at lines 142--152
 \OT1/cmr/m/n/12 pro-moter reaches half its strength; $\OML/cmm/m/it/12 ^^Q$ \OT
 1/cmr/m/n/12 is the co-op-er-a-tiv-ity in the auto-regulation
  []
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 161.
+               Default added (so using `tbp') on input line 163.
 
-[5] [6] [7] [8]
+[5] [6] [7]
 
-LaTeX Warning: Citation `Peles2006' on page 9 undefined on input line 271.
-
-
-LaTeX Warning: Citation `Macnemara&Sidje?' on page 9 undefined on input line 27
-1.
+LaTeX Warning: Citation `Peles2006' on page 8 undefined on input line 273.
 
 
-LaTeX Warning: Citation `Munsky2008IEEE' on page 9 undefined on input line 271.
+LaTeX Warning: Citation `Macnemara&Sidje?' on page 8 undefined on input line 27
+3.
+
+
+LaTeX Warning: Citation `Munsky2008IEEE' on page 8 undefined on input line 273.
 
 
 
-LaTeX Warning: Citation `Tapia2012CDC' on page 9 undefined on input line 271.
+LaTeX Warning: Citation `Tapia2012CDC' on page 8 undefined on input line 273.
 
 
-LaTeX Warning: Citation `Vo2019' on page 9 undefined on input line 271.
+LaTeX Warning: Citation `Vo2019' on page 8 undefined on input line 273.
 
 
-Overfull \hbox (8.44597pt too wide) in paragraph at lines 271--273
+Overfull \hbox (8.44597pt too wide) in paragraph at lines 273--275
 \OT1/cmr/m/n/12 crete stochas-tic chem-i-cal ki-net-ics by pro-ject-ing the FSP
  onto lower-dimensional
  []
 
-[9]
+[8] [9]
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./ParameterPerturbation.pdf)
 : PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<ParameterPerturbation.pdf, id=108, 1597.70901pt x 1043.88995pt>
+<ParameterPerturbation.pdf, id=109, 1597.70901pt x 1043.88995pt>
 File: ParameterPerturbation.pdf Graphic file (type pdf)
 <use ParameterPerturbation.pdf>
-Package pdftex.def Info: ParameterPerturbation.pdf  used on input line 331.
+Package pdftex.def Info: ParameterPerturbation.pdf  used on input line 351.
 (pdftex.def)             Requested size: 390.0pt x 254.80753pt.
 [10] [11 <./ParameterPerturbation.pdf>] [12]
 
-LaTeX Warning: Citation `Baumschlager' on page 13 undefined on input line 361.
+LaTeX Warning: Citation `Baumschlager' on page 13 undefined on input line 381.
 
 
 LaTeX Warning: Citation `XXX - look for elowitz paper or something similar that
  tried to calibrate for single-molecule counts' on page 13 undefined on input l
-ine 361.
-
-
-LaTeX Warning: Citation `Kampen1961' on page 13 undefined on input line 365.
-
-
-LaTeX Warning: Citation `XXX' on page 13 undefined on input line 365.
+ine 381.
 
 [13]
 
+LaTeX Warning: Citation `Kampen1961' on page 14 undefined on input line 385.
+
+
+LaTeX Warning: Citation `XXX' on page 14 undefined on input line 385.
+
+
+
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Granularity.pdf): PDF incl
 usion: found PDF version <1.6>, but at most version <1.5> allowed
-<Granularity.pdf, id=136, 1166.29721pt x 525.22223pt>
+<Granularity.pdf, id=137, 1166.29721pt x 525.22223pt>
 File: Granularity.pdf Graphic file (type pdf)
 <use Granularity.pdf>
-Package pdftex.def Info: Granularity.pdf  used on input line 376.
+Package pdftex.def Info: Granularity.pdf  used on input line 396.
 (pdftex.def)             Requested size: 390.0pt x 175.62395pt.
 [14]
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./TimeDelay.pdf): PDF inclus
 ion: found PDF version <1.6>, but at most version <1.5> allowed
-<TimeDelay.pdf, id=140, 1142.55862pt x 512.45653pt>
+<TimeDelay.pdf, id=141, 1142.55862pt x 512.45653pt>
 File: TimeDelay.pdf Graphic file (type pdf)
 <use TimeDelay.pdf>
-Package pdftex.def Info: TimeDelay.pdf  used on input line 403.
+Package pdftex.def Info: TimeDelay.pdf  used on input line 423.
 (pdftex.def)             Requested size: 390.0pt x 174.92102pt.
 [15 <./Granularity.pdf>] [16 <./TimeDelay.pdf>]
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./DelayAndGranularity.pdf): 
 PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<DelayAndGranularity.pdf, id=228, 1173.99602pt x 666.0413pt>
+<DelayAndGranularity.pdf, id=229, 1173.99602pt x 666.0413pt>
 File: DelayAndGranularity.pdf Graphic file (type pdf)
 <use DelayAndGranularity.pdf>
-Package pdftex.def Info: DelayAndGranularity.pdf  used on input line 432.
+Package pdftex.def Info: DelayAndGranularity.pdf  used on input line 452.
 (pdftex.def)             Requested size: 390.0pt x 221.25777pt.
 [17] [18 <./DelayAndGranularity.pdf>]
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./StaticControl.pdf): PDF in
 clusion: found PDF version <1.6>, but at most version <1.5> allowed
-<StaticControl.pdf, id=285, 1173.01237pt x 705.73967pt>
+<StaticControl.pdf, id=286, 1173.01237pt x 705.73967pt>
 File: StaticControl.pdf Graphic file (type pdf)
 <use StaticControl.pdf>
-Package pdftex.def Info: StaticControl.pdf  used on input line 449.
+Package pdftex.def Info: StaticControl.pdf  used on input line 469.
 (pdftex.def)             Requested size: 390.0pt x 234.63934pt.
-
+[19 <./StaticControl.pdf>]
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./DynamicControl.pdf): PDF i
 nclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<DynamicControl.pdf, id=286, 2729.6077pt x 2376.83981pt>
+<DynamicControl.pdf, id=346, 2729.6077pt x 2376.83981pt>
 File: DynamicControl.pdf Graphic file (type pdf)
 <use DynamicControl.pdf>
-Package pdftex.def Info: DynamicControl.pdf  used on input line 465.
+Package pdftex.def Info: DynamicControl.pdf  used on input line 485.
 (pdftex.def)             Requested size: 390.0pt x 339.57362pt.
-[19] [20 <./StaticControl.pdf>]
+[20] [21 <./DynamicControl.pdf>]
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Frequency.pdf): PDF inclus
 ion: found PDF version <1.6>, but at most version <1.5> allowed
-<Frequency.pdf, id=349, 796.69746pt x 573.01878pt>
+<Frequency.pdf, id=431, 796.69746pt x 573.01878pt>
 File: Frequency.pdf Graphic file (type pdf)
 <use Frequency.pdf>
-Package pdftex.def Info: Frequency.pdf  used on input line 492.
+Package pdftex.def Info: Frequency.pdf  used on input line 512.
 (pdftex.def)             Requested size: 390.0pt x 280.50186pt.
-[21] [22 <./DynamicControl.pdf>] [23 <./Frequency.pdf>] [24] [25] [26] [27]
-(./paper.aux)
+[22] [23 <./Frequency.pdf>] [24] [25] [26] [27] (./paper.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -368,31 +369,32 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  3189 strings out of 478994
  41832 string characters out of 5858184
- 341029 words of memory out of 5000000
+ 339028 words of memory out of 5000000
  20646 multiletter control sequences out of 15000+600000
  413769 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,14n,74p,1822b,270s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
-/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></
-usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></us
-r/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/
-local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/lo
-cal/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loca
-l/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/
-texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/tex
-live/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texliv
-e/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
-/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2
-021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/202
-1/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2021
-/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on paper.pdf (27 pages, 1186914 bytes).
+</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></
+usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
+sr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></us
+r/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/
+local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/lo
+cal/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loca
+l/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/
+texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/te
+xlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texli
+ve/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/
+2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2
+021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/202
+1/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2021/t
+exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on paper.pdf (27 pages, 1193620 bytes).
 PDF statistics:
- 538 PDF objects out of 1000 (max. 8388607)
- 308 compressed objects within 4 object streams
+ 542 PDF objects out of 1000 (max. 8388607)
+ 311 compressed objects within 4 object streams
  0 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -69,15 +69,17 @@
 
 \begin{abstract}
 
-Unnderstanding the effects of noise in control theory is important to ()
-Much work has been done to make control performance robust to noise, but the development of controllers which use noise to their advantage is not fully understood.
-Motivated by optogentics, we previously proposed a difficult control problem which requires the exploitation of noise in a stochastic system to break symmetry between two signals. We found multiple such controllers which could exploit noise to break symmetry between two cells under a variety of system information.
-This work extends that analysis to include stochastic systems that trace a moving target, are affected by time delay, intrinsic noise, or measurement uncertainty.
 
-Synthetic biology seeks to create modular components that generate complex and controllable biological behaviors, often at microscopic scales where important regulatory RNA or proteins are present in small numbers.  Intrinsic fluctuations at these scales cause biochemical `noise' that frequently results in undesired neussance effects. However, recent theoretical analyses have shown that noise can sometimes be used to one's advantage when seeking to manipulate nonlinear regulatory systems that would be difficult or impossible to control in a fully deterministic setting. Specifically, it was shown that a noise-exploiting optogenetic controller reminiscent of Maxwell's Demon could systematically force multiple identical systems to reach different independently-assigned stable points, even for a few special cases where the model is inexact or if observations were incomplete. This work expands upon those analyses to explore in greater detail how control performance is affected by errors or approximations in the model or by temporal delays in the observations. We find that noise-exploiting controllers can remain highly effective despite coarse approximations to the model's scale or incorrect estimations of key model parameters, and these controllers can even retain performance for significant time delays.  Together, these findings suggest that noise-exploiting control should be possible in real experiments where models are always approximate, where parameters are always uncertain, and where observations are corrupted by errors.
+
+Previous research has focused on robust control performance in the presence of noise, but understanding controllers that exploit noise remains incomplete. 
+Motivated by Maxwells-Demon, we previously proposed a difficult control problem which requires the exploitation of noise in a stochastic system to break symmetry between two signals. We found multiple such controllers which could exploit noise to break symmetry between two cells under a variety of system information.
+This work extends that analysis to include stochastic systems that trace a moving target, are affected by time delay, intrinsic noise, or measurement uncertainty.
+ We find that noise-exploiting controllers can remain highly effective despite coarse approximations to the model's scale or incorrect estimations of key model parameters, and these controllers can even retain performance for significant time delays.  Together, these findings suggest that noise-exploiting control should be possible where models are always approximate, where parameters are always uncertain, and where observations are corrupted by errors.
+
+
 
 \end{abstract}
-Keywords: Optogenetic control, Stochastic gene regulation, Synthetic biology
+Keywords: Stochastic Control, Gene Regulation, Optogenetics
 
 %
 % Uncomment for keywords
@@ -108,24 +110,24 @@ Keywords: Optogenetic control, Stochastic gene regulation, Synthetic biology
 % XXX - Please modify figure as follows: (1) switch panels A and B to match caption. (2) Change title of panel B (previously panel A) to "External Observer, controller and actuator".  (3) Change title of panel A (previously panel B) to "Internal gene regulation pathway". (4) Change title of panel C to "Feedback control law and resulting performance"
 % MMM - Made the edit
 
-Noise is a common theme throughout many areas of science, including control theory XXX, gene regulation XXX, mRNA dynamics XXX, and synthetic biology XXX. Excellent work has been done to enhance the robustness of control processes against noise. However, these systems are often controlled in spite of noise rather than working with it. Many stochastic systems can be modeled using a noise-free approach with additive noise. Nevertheless, a comprehensive analysis using the full master equation can uncover interesting properties, potentially leading to novel control mechanisms.
+Noise is a common theme throughout many areas of science, including control theory XXX, gene regulation XXX, mRNA dynamics XXX, and synthetic biology XXX. Excellent work has been done to enhance the robustness of control processes against noise. However, these systems are often controlled in spite of noise rather than working with it. Many stochastic systems can be modeled using a noise-free approach with additive noise but, a detailed analysis using the full master equation could uncover interesting properties, potentially leading to novel control mechanisms.
 
-The cell's drive towards homeostasis involves dealing with the inherently chaotic and noisy processes that reside within it. Brownian motion, stochastic gene regulation, and mRNA dynamics collectively generate a fundamentally noisy environment that cells must effectively manage. Despite these challenges, cells generally demonstrate strong capability to control these noisy processes. However, stochastic control theory is not well-developed, despite having substantial knowledge on how to model them.
+The cell's drive towards homeostasis requires dealing with the inherently chaotic and noisy processes that reside within it. Brownian motion, stochastic gene regulation, and mRNA dynamics collectively generate a fundamentally noisy environment that cells must effectively manage. Despite these challenges, cells generally demonstrate strong capability to control these noisy processes. However, stochastic control theory is not well-developed, despite having substantial knowledge on how to model them.
 
 Synthetic biology aims to develop modular\cite{Ng2019} and orthogonal \cite{Liu2018} components to sense and manipulate \cite{Sheets2020} complex logical systems, enabling them to exhibit a wide range of advanced biological behaviors\cite{Shin2020}. Advancements in optogenetics have enhanced our ability to reliably actuate embedded systems within cells, offering precise control\cite{Sheets2020,Baumschlager2017,Chen2020,Lillacci2018}. These developments have facilitated computer-programmable regulation of cellular protein production through external optogenetic inputs and smart microscope techniques\cite{Fox2021,Baumschlager2021,Lugagne2017}. These digital-synthetic actuators enable fine-tuned, computer-modulated control of cellular systems, previously unattainable, with faster response times compared to chemical diffusion\cite{Rullan2018, Baumschlager2017} . Classical and modern control methods like PID control and model predictive control have been implemented in such systems\cite{} which can control synthetic systems to different stable points. 
 % XXX Missing Citation above.
-Theoretical works have shown that stochastic systems can be guided towards unstable points by oscillating around those points \cite{Guarino2020}. However, new control techniques that leverage the complete probability distribution information of the system can exploit the inherent noise of protein production to achieve better control. Previous control efforts primarily focused on deterministic ordinary differential equation (ODE) formulations of the control problem, only a limited number of studies have delved into analyzing the full chemical master equation to harness noise to improve the control of biological processes \cite{Szymanska2015,May2021}.
+Theoretical works have shown that stochastic systems can be guided towards unstable points by oscillating around those points \cite{Guarino2020}. However, new control techniques that leverage the complete probability distribution information of the system can exploit the inherent noise of protein production to achieve better control. Previous control efforts primarily focusted on deterministic ordinary differential equation (ODE) formulations of the control problem, only a limited number of studies have delved into analyzing the full chemical master equation to harness noise to improve the control of biological processes \cite{Szymanska2015,May2021}.
 
 inspired by the genetic toggle switch from Kobayashi et al.\cite{Kobayashi:2004}, Szymanska et al.~\cite{Szymanska2015} showed that stochastic control was possible despite certain parameter errors and time delays due to maturation of fluorescent proteins and limited observation of the regulatory proteins. 
 To explore this concept in the context of more realistic models and parameters, May et al.~\cite{May2021} fit a simplified stochastic model to reproduce data measured in Baumschlager, et al.\cite{} for the expression from the XXX promoter under the optogenetic control of a UV-activated T7 polymerase (see model in Figure\ \ref{cartoons}A, top promoter).  An extended model showed that addition of a positive auto-regulation module (Figure\ \ref{cartoons}A, bottom promoter) could help to maintain an elevated expression phenotype in the presence of UV excitation.
 
-Using discrete stochastic models based on the chemical master equation, it was demonstrated that combining biochemical noise, nonlinear auto-regulation, and a single optogenetic feedback could control two genetically identical cells with different initial conditions to reach different desired signals at different frequency and phase (Figure \ref{cartoons}B). Figure\ \ref{cartoons}C(left) presents heat maps for two control laws, which a single external UV excitation signal based on observed cellular state.  Figure\ \ref{cartoons}C(right) shows the corresponding achievable marginal stationary distributions. Effective control was possible with both Fully Aware Feedback Controllers (FAC, Figure\ \ref{cartoons}C(top)) and Partially Aware Feedback Controllers (PAC, Figure\ \ref{cartoons}C(bottom)), even when the control model was an approximate simplification of the actual process dynamics.
 
-Using discrete stochastic models based on the chemical master equation, this study demonstrates simultaneous control of two genetically identical cells with different initial conditions, by exploiting noise, nonlinear auto-regulation, and using a single input.  Heat maps in Figure \ref{cartoons}C(left) illustrate two control laws based on observed cellular activity, while Figure\ \ref{cartoons}C(right) shows the corresponding achievable marginal stationary distributions. Effective control was achieved using both Fully Aware Feedback Controllers (FAC, Figure\ \ref{cartoons}C(top)) and Partially Aware Feedback Controllers (PAC, Figure\ \ref{cartoons}C(bottom)). 
 
 %The solutions of the controllers was carried out by solving the chemical master equation (i.e., the forward Komogorov equation) to estimate the probability of possible cellular states. For a two cell, single-input-single output (SIMO) control problem, the FAC performed the best (figure\ \ref{cartoons}C(top)), and the PAC (figure\ \ref{cartoons}C(bottom)) 2nd, and pMPC controllers 3rd. In all cases, the controller's knowledge and explicit treatment of intrinsic noise was critical to improve the control performance, break symmetry, and enable the SIMO control of all cells.
 
-This paper extends the analysis of the Single-Input-Multiple-Output (SIMO) multicellular control problem by examining the impact of model uncertainties on FAC and PAC controllers. These uncertainties include coarse-grained system dynamics, parameter errors, and controller delays. Our methods involve formulating the chemical master equation to analyze cells in a state space, defining the controllers and their effects on cell dynamics, and optimizing the control input for desired performance. In the 'Results' section, we explore the effects of model granularity Figure \ref{cartoons}D parameter inaccuracies, and time delays Figure \ref{cartoons}E on FAC and PAC performance and add a simple scheme for controlling cells to dynamically changing point.
+This paper extends the analysis of the Single-Input-Multiple-Output (SIMO) multicellular control problem by examining the impact of model uncertainties on FAC and PAC controllers. These uncertainties include coarse-grained system dynamics, parameter errors, and controller delays. Our methods involve formulating the chemical master equation to analyze cells in a state space, defining the controllers and their effects on cell dynamics, and optimizing the control input for desired performance. In the 'Results' section, we explore the effects of model granularity Figure \ref{cartoons}D parameter inaccuracies, and time delays Figure \ref{cartoons}E on FAC and PAC performance and add a simple scheme for controlling cells to dynamically changing point. Using discrete stochastic models based on the chemical master equation, we demonstrate that combining biochemical noise, nonlinear auto-regulation, and a single optogenetic feedback could control two genetically identical cells with different initial conditions to reach different desired signals at different frequency and phase (Figure \ref{cartoons}B). 
+
+Figure\ \ref{cartoons}C(left) presents heat maps for two control laws, which a single external UV excitation signal based on observed cellular state.  Figure\ \ref{cartoons}C(right) shows the corresponding achievable marginal stationary distributions. Effective control was possible with both Fully Aware Feedback Controllers (FAC, Figure\ \ref{cartoons}C(top)) and Partially Aware Feedback Controllers (PAC, Figure\ \ref{cartoons}C(bottom)), even when the control model was an approximate simplification of the actual process dynamics.
 
 \section{Methods}
 A gene regulation model consisting of six species was developed by May et al. \cite{May2021}. It described the light-activated association of two T7 split domains (species 1 and 2) to form an active T7 polymerase (species 3). These active polymerase could then associate with inactive T7 promoters (species 4), resulting in the formation of an active gene (species 5) that produced the desired protein product (species 6).
@@ -323,13 +325,23 @@ where $\tau$ is the time delay between observation and actuation, and ${u}^{\mat
 %In either case, steady state distributions of the perturbed models are solved using the FSP.
 % XXX - I don't think that we need this section in Methods -- but perhaps some of the text should be moved to the results if needed.
 
-\subsection{Dynamic setpoint control}
+\subsection{Dynamic Setpoint Control}
 
-static setpoint control is the control of a reference point which does not move over time. 
-dynamic setpont control targets a mvonig referenc peoint.
-synamis serpoint control is hard to deriuve, but the optimization of peicesice constangtof each static referenc pont is easy and can be stiched together. 
+Although the control to a static set point is at the limits of currently feasible calculations, the extension to dynamically moving set point is much harder and requires untractible numerical simulation or further mathematical exploration. These solutions require numerical simulations which scale poorly with the number of states and quickly become impossible to perform. Therefore, a simple alternative is to sweep over a set of steady state controllers in Piecewise fashion that mimics a dynamically moving path.
 
-
+We developed a dynamic set point controller which periodically sweeps over a predefined path in state space in a discrete number of steps. Let the path $\bf{r}$ be given by
+\begin{equation}
+\bf{r}(x)=[r_1(x_n),r_2(x-N)]
+\end{equation}
+where $x_n \in [0,n]$, $r_1$ and $r_1$ an arbitrary periodic function that describes the desired target state for $x_1$ and $x_2$. 
+Then $x_n$ can be broken down into n steps
+\begin{equation}
+x_n(t)=mod(n*t/T,n)
+\end{equation}
+And the path can be walked over in time using
+\begin{equation}
+r(t)=\bf{r}(x_n(t))
+\end{equation}
 
 \section{Results}
 
@@ -505,12 +517,14 @@ Suprisingly, the system is able to effectively control two signals to two differ
 \vspace{-0.2in}
 \end{figure*}
 
-systems driven at high frequency often have thier control performance reduced due to the response time scale of the system they are driving, but in a stochastic system the combination of high frequency dirving and noise could be catastriphic. 
+High-frequency driven systems often experience reduced control performance due to the system's slow response.  However, the combination of both high-frequency driving and noise could be catastrophic for system control performance. Conversely, increasing granularity may improve control performance but alters the system's time scale.
 
+To examine how driving frequency affects noise-exploiting control, Sixty-four SSA trajectories of the phase-separated dynamic controller were simulated over a two dimensional domain of points $(\alpha,f)$ for 16 cycles after reaching steady state. For each $(\alpha,f)$ pair the control performance of the steady state trajectories were calculated.
 
-Although the control of a dynamic reference point using a Piecewise controller is possible, the effect of cycling frequency is also important.
+Fig \ref{CRG}(A) shows the desired reference of a system with $\alpha = 5.0$, and Fig \ref{CRG}(A) shows the mean of the system response when $f=1e-4$. Fig \ref{CRG}(C) Shows control performance over time as $\alpha$ is held at $5.0$ and $f$ increases from 1e-4 to 1e-2 to 1e-0 with an average RMSE of 6.4, 16.3, and 14.4 respectively. I creasing frequency while alpha is fixed at $0.5$, $1.0$ and $2.0$ shows that control performance from 12 to 6.3.
 
-Sixty-four SSA trajectories of the phase-separated dynamic controller were simulated over a two dimensional domain of points $(\alpha,f)$ for 16 cycles after reaching steady state. Increasing $\alpha$ while holding $f$ constant at $XXX$ showed improved control performance at low frequency but little change at high frequency Fig \ref{CRG}(D). Analysis of control performance using varying frequency but constant $\alpha$ showed the worst performance at moderate $f$. 
+Heat maps of control performance of $(f,\alpha)$ pairs showed the worst performance at moderate $f$ and that control performance was best when both granularity was high and frequency was low.
+
 
 \section{Conclusion}
 
