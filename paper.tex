@@ -54,7 +54,7 @@
 %\usepackage{iopams}  
 \begin{document}
 
-\title{Optogenetic Maxwell Demon to Exploit Intrinsic Noise and Control Cell Differentiation Despite Time Delays and Extrinsic Variability}
+\title{Exploiting Intrinsic Noise to Control Cell Differentiation Dynamics in the Presence of Time Delays, Inexact Models, and Extrinsic Variability}
 \maketitle
 
 \author{M P May$^1$, B Munsky$^{1,2}$}
@@ -68,8 +68,6 @@
 %\end{indented}
 
 \begin{abstract}
-
-
 
 Previous research has focused on robust control performance in the presence of noise, but understanding controllers that exploit noise remains incomplete. 
 Motivated by Maxwells-Demon, we previously proposed a difficult control problem which requires the exploitation of noise in a stochastic system to break symmetry between two signals. We found multiple such controllers which could exploit noise to break symmetry between two cells under a variety of system information.
@@ -110,33 +108,48 @@ Keywords: Stochastic Control, Gene Regulation, Optogenetics
 % XXX - Please modify figure as follows: (1) switch panels A and B to match caption. (2) Change title of panel B (previously panel A) to "External Observer, controller and actuator".  (3) Change title of panel A (previously panel B) to "Internal gene regulation pathway". (4) Change title of panel C to "Feedback control law and resulting performance"
 % MMM - Made the edit
 
-Noise is a common theme throughout many areas of science, including control theory XXX, gene regulation XXX, mRNA dynamics XXX, and synthetic biology XXX. Excellent work has been done to enhance the robustness of control processes against noise. However, these systems are often controlled in spite of noise rather than working with it. Many stochastic systems can be modeled using a noise-free approach with additive noise but, a detailed analysis using the full master equation could uncover interesting properties, potentially leading to novel control mechanisms.
+Uncertain fluctuations, or `noise,' is a common theme throughout many fields of engineering, and is a frequent concern when attempting to control any human-made system such as vehicles\cite{XXX}, production machinery\cite{XXX}, or chemical processes\cite{XXX}.
+Noise arrises from many sources, occasionally from quantum events and thermally-induced fluctuations but more commonly from unknown or uncharacterized physical processes, and as such, these fluctuations usually cannot be efficiently reproduced or predicted using purely physical or mechanistic models.
+Rather, statistical models are usually employed where key mechanisms or dynamics are subject to stochastic variations or inputs that act as a proxy for random or un-modeled fluctuations elsewhere in the system.
+In this context, much effort has been placed on enhancing the robustness of controlled processes, where uncertain or unpredictable variations in internal or external parameters are modeled as intrinsic or extrinsic noise \cite{XXX}.
+For many macroscopic, human-engineered systems, the resulting system dynamics can be modeled effectively simply by combining a deterministic (i.e., noise-free) model with additive noise (usually assumed to be Gaussian under arguments based on the central limit theorem)\ref{XXX}, and most current approaches seek to control the system to minimize variations that result from the noisy inputs. 
 
-The cell's drive towards homeostasis requires dealing with the inherently chaotic and noisy processes that reside within it. Brownian motion, stochastic gene regulation, and mRNA dynamics collectively generate a fundamentally noisy environment that cells must effectively manage. Despite these challenges, cells generally demonstrate strong capability to control these noisy processes. However, stochastic control theory is not well-developed, despite having substantial knowledge on how to model them.
+Analyses of noise and control theory are equally relevant to understand the basic biological processes of gene transcription regulation\cite{XXX} or mRNA translation regulation \cite{XXX} or to modify these processes for practical use\cite{XXX}.
+However, at this mesoscopic scale of cellular biology, where transcription factors compete to activate or deactivate individual genes or where mRNA or protein molecules are present at just a few copies (or none at all) per cell, additive noise model is far less realistic.
+In this case, Brownian motion, discrete stochastic gene regulation, and mRNA dynamics collectively generate a fundamentally noisy environment that cells must effectively manage. 
+At this scale, the order or timing of a single reaction event (e.g., the binding of a transcription factor to a promoter) can have dramatic consequences that could last for several cellular generations (e.g., the activation or repression of a gene that promotes unfettered cell growth and differentiation). 
+The cell's drive towards homeostasis requires dealing with the inherently chaotic and noisy processes that reside within it, and despite these challenges, cells generally demonstrate strong capability to survive these noisy processes. 
+When seeking to understand how such systems evolve or react, the central limit theorem and the Gaussian noise may not apply, and a more detailed statistical analysis of probabilistic behavior is needed uncover hidden properties of cellular control mechanisms.
 
-Synthetic biology aims to develop modular\cite{Ng2019} and orthogonal \cite{Liu2018} components to sense and manipulate \cite{Sheets2020} complex logical systems, enabling them to exhibit a wide range of advanced biological behaviors\cite{Shin2020}. Advancements in optogenetics have enhanced our ability to reliably actuate embedded systems within cells, offering precise control\cite{Sheets2020,Baumschlager2017,Chen2020,Lillacci2018}. These developments have facilitated computer-programmable regulation of cellular protein production through external optogenetic inputs and smart microscope techniques\cite{Fox2021,Baumschlager2021,Lugagne2017}. These digital-synthetic actuators enable fine-tuned, computer-modulated control of cellular systems, previously unattainable, with faster response times compared to chemical diffusion\cite{Rullan2018, Baumschlager2017} . Classical and modern control methods like PID control and model predictive control have been implemented in such systems\cite{} which can control synthetic systems to different stable points. 
+One emerging field that is particularly dependent on the integration of control and noise is synthetic biology, which aims to develop modular\cite{Ng2019} and orthogonal \cite{Liu2018} components to sense and manipulate \cite{Sheets2020} complex logical systems, enabling them to exhibit a wide range of advanced biological behaviors\cite{Shin2020}. 
+Advances in optogenetics have enhanced the ability to reliably actuate embedded systems within cells, offering the potential to exert precise temporal and spatial control on cellular components\cite{Sheets2020,Baumschlager2017,Chen2020,Lillacci2018}.
+These developments have facilitated computer-programmable regulation of cellular protein production through external optogenetic inputs and smart microscope techniques\cite{Fox2021,Baumschlager2021,Lugagne2017}. 
+These digital-synthetic actuators enable fine-tuned, computer-modulated control of cellular systems, previously unattainable, with faster response times compared to chemical diffusion\cite{Rullan2018, Baumschlager2017} . 
+Classical and modern control methods like PID control and model predictive control have been implemented in such systems\cite{} to control synthetic systems to different stable points. 
 % XXX Missing Citation above.
-Theoretical works have shown that stochastic systems can be guided towards unstable points by oscillating around those points \cite{Guarino2020}. However, new control techniques that leverage the complete probability distribution information of the system can exploit the inherent noise of protein production to achieve better control. Previous control efforts primarily focusted on deterministic ordinary differential equation (ODE) formulations of the control problem, only a limited number of studies have delved into analyzing the full chemical master equation to harness noise to improve the control of biological processes \cite{Szymanska2015,May2021}.
 
-inspired by the genetic toggle switch from Kobayashi et al.\cite{Kobayashi:2004}, Szymanska et al.~\cite{Szymanska2015} showed that stochastic control was possible despite certain parameter errors and time delays due to maturation of fluorescent proteins and limited observation of the regulatory proteins. 
-To explore this concept in the context of more realistic models and parameters, May et al.~\cite{May2021} fit a simplified stochastic model to reproduce data measured in Baumschlager, et al.\cite{} for the expression from the XXX promoter under the optogenetic control of a UV-activated T7 polymerase (see model in Figure\ \ref{cartoons}A, top promoter).  An extended model showed that addition of a positive auto-regulation module (Figure\ \ref{cartoons}A, bottom promoter) could help to maintain an elevated expression phenotype in the presence of UV excitation.
-
-
+While most previous control efforts focussed on deterministic ordinary differential equation (ODE) formulations of the control problem, a few pioneering theoretical works have extended these analysis to include noise and have used stochastic simulations to show how systems can be guided towards unstable points by oscillating around those points \cite{Guarino2020}. 
+It has recently been shown that new control techniques that leverage the complete probability distribution information of the system could actually harness the noise of single-cell gene regulation to achieve more complicated control objectives. 
+For example, inspired by the genetic toggle switch from Kobayashi et al.\cite{Kobayashi:2004}, Szymanska et al.~\cite{Szymanska2015} showed that noise could be exploited to achieve independent control of multiple cells using a single input, even despite uncertain parameters or time delays due to maturation of fluorescent proteins or limited observation of the regulatory proteins. 
+In May et al.~\cite{May2021}, we identified a simplified stochastic model to reproduce data measured in Baumschlager, et al.\cite{XXX} for the expression from the XXX promoter under the optogenetic control of a UV-activated T7 polymerase (see model in Figure\ \ref{cartoons}A, top promoter).
+We then proposed the addition of a positive auto-regulation (Figure\ \ref{cartoons}A, bottom promoter) to help maintain an elevated expression phenotype in the presence of UV excitation, and we demonstrated how a Single-Input-Multiple-Output (SIMO) multicellular controller could control multiple cells to arbitrary phenotypes using only a single input. 
 
 %The solutions of the controllers was carried out by solving the chemical master equation (i.e., the forward Komogorov equation) to estimate the probability of possible cellular states. For a two cell, single-input-single output (SIMO) control problem, the FAC performed the best (figure\ \ref{cartoons}C(top)), and the PAC (figure\ \ref{cartoons}C(bottom)) 2nd, and pMPC controllers 3rd. In all cases, the controller's knowledge and explicit treatment of intrinsic noise was critical to improve the control performance, break symmetry, and enable the SIMO control of all cells.
 
-This paper extends the analysis of the Single-Input-Multiple-Output (SIMO) multicellular control problem by examining the impact of model uncertainties on FAC and PAC controllers. These uncertainties include coarse-grained system dynamics, parameter errors, and controller delays. Our methods involve formulating the chemical master equation to analyze cells in a state space, defining the controllers and their effects on cell dynamics, and optimizing the control input for desired performance. In the 'Results' section, we explore the effects of model granularity Figure \ref{cartoons}D parameter inaccuracies, and time delays Figure \ref{cartoons}E on FAC and PAC performance and add a simple scheme for controlling cells to dynamically changing point. Using discrete stochastic models based on the chemical master equation, we demonstrate that combining biochemical noise, nonlinear auto-regulation, and a single optogenetic feedback could control two genetically identical cells with different initial conditions to reach different desired signals at different frequency and phase (Figure \ref{cartoons}B). 
+This paper extends the analysis of the SIMO multicellular control problem by examining the impact of model uncertainties and fluctuating control objectives on the control performance. 
+These uncertainties include coarse-grained approximations of the system dynamics, errors or extrinsic variations in the system parameter, and time delays between the observation of the cellular dynamics and actuation of the control process. 
+In the following `Methods' we introduce our formulation of the chemical master equation to analyze the discrete stochastic distribution of cellular responses; we define multiple controllers and demonstrate the computation of their effects on cell dynamics; and we show how the control law can be optimized to improve performance.
+In the `Results' section, we explore the how model approximations, parameter inaccuracies, and time delays affect control performance, and we demonstrate a simple scheme for controlling cells to track a dynamically changing reference signal. 
+Using discrete stochastic models based on the chemical master equation, we demonstrate that combining biochemical noise, nonlinear auto-regulation, and a single optogenetic feedback could control two genetically identical cells with different initial conditions to follow different desired trajectories at different frequencies and phases. 
 
-Figure\ \ref{cartoons}C(left) presents heat maps for two control laws, which a single external UV excitation signal based on observed cellular state.  Figure\ \ref{cartoons}C(right) shows the corresponding achievable marginal stationary distributions. Effective control was possible with both Fully Aware Feedback Controllers (FAC, Figure\ \ref{cartoons}C(top)) and Partially Aware Feedback Controllers (PAC, Figure\ \ref{cartoons}C(bottom)), even when the control model was an approximate simplification of the actual process dynamics.
+%Figure\ \ref{cartoons}C(left) presents heat maps for two control laws, which a single external UV excitation signal based on observed cellular state.  Figure\ \ref{cartoons}C(right) shows the corresponding achievable marginal stationary distributions. Effective control was possible with both Fully Aware Feedback Controllers (FAC, Figure\ \ref{cartoons}C(top)) and Partially Aware Feedback Controllers (PAC, Figure\ \ref{cartoons}C(bottom)), even when the control model was an approximate simplification of the actual process dynamics.
 
 \section{Methods}
-A gene regulation model consisting of six species was developed by May et al. \cite{May2021}. It described the light-activated association of two T7 split domains (species 1 and 2) to form an active T7 polymerase (species 3). These active polymerase could then associate with inactive T7 promoters (species 4), resulting in the formation of an active gene (species 5) that produced the desired protein product (species 6).
+In May et al. \cite{May2021}, we developed two models for the description of an optogenetically controlled gene expression system.  These first model consisted of six species to describe the light-activated association of two T7 split domains (species 1 and 2) which combine to form an active T7 polymerase (species 3) under optogenetic excitation. These active polymerase could then associate with inactive T7 promoters (species 4), resulting in the formation of an active allele (species 5) that could then transcribe and translated to produce the desired protein product (species 6). The second, much simpler, single-species model was developed by assuming quasi-steady equilibrium for the first five species. Both models were independently parameterized using the same experimental data from Baumschlager et al. \cite{XXX}. Furthermore, an extension was made to each model to incorporate a secondary self-activated promoter-gene construct, where the expression rate was determined by a Hill function \ref{prodRate}. Through simulations, we showed that a feedback control law could be designed to force multiple cells to different and individually chosen equilibrium states using a single optogenetic control signal, and we also showed that although this control law was parametrized using the simple model, it could be used effectively to control the behavior of the more complicated system, thus demonstrating that control performance could remain high despite inaccuracies in the model. In the current work, we adopt the simpler of the two models and extend our analyses  to consider the effects of additional model inaccuracies, including coarse-grained model approximations, parameter errors, and time delays, and we also explore the possibility that a single optogenetic control signal could drive the system to track temporally-changing reference signals. Section \ref{sec:Model} introduces the model; Section \ref{sec:Stochastic} develops a Master Equation description of the models probabilistic dynamics; Section \ref{sec:Quantification} defines a control objective and optimizes that metric to obtain a baseline control law; and finally Sections \ref{sec:Scaling} and \ref{sec:Delay} introduces uncertainties into the model related t the granularity of the model approximation or the introduction of time delays, respectively. 
 
-Additionally, a simple single-species model was developed, assuming quasi-steady equilibrium for the first five species. Both models were independently parameterized using experimental data from Baumschlager et al. \cite{XXX}. Furthermore, an extension was made to incorporate a secondary self-activated promoter-gene construct, where the expression rate was determined by a Hill function \ref{prodRate}.
-
-\subsection{Model}
-To assess the impact of model approximations on the implementation of noise-enhanced control strategies, we begin with the one-species model proposed by May et al. \cite{May2021} (refer to Fig. \ref{cartoons}A). This model comprises of two reactions: nonlinear protein production and degradation and it is defined by the following equation:
- \begin{equation}
+\subsection{Model}\label{sec:Model}
+To assess the impact of model approximations on the implementation of noise-enhanced control strategies, we begin with the one-species model proposed by May et al. \cite{May2021} (refer to Fig. \ref{cartoons}A). This model comprises two reactions for production and degradation of the key protein. The nonlinear, UV-dependent production is defined by the following equation:
+\begin{equation}
 \nu_1(x,t)= \kappa\frac{x^\eta}{x^\eta+\beta^\eta}+ k_0 + u(UV(t)),
 \label{prodRate}
 \end{equation}
@@ -147,30 +160,25 @@ To assess the impact of model approximations on the implementation of noise-enha
 %\label{rateeq}
 %\end{equation}
 %
-where $x$ is the instantaneous protein level; $\kappa$ is the maximum strength of the auto-regulation promoter; $\beta$ is the concentration at which auto-regulation promoter reaches half its strength; $\eta$ is the cooperativity in the auto-regulation promoter; $k_0$ is the promoter leakage rate; and $u(UV(t))$ is the T7 promoter strength. 
+where $x$ is the instantaneous protein level; $\kappa$ is the maximum strength of the auto-regulation promoter; $\beta$ is the concentration at which auto-regulation promoter reaches its half maximal strength; $\eta$ is the cooperativity in the auto-regulation promoter; $k_0$ is the leakage rate from both promoters; and $u(UV(t))$ is the UV-dependent strength of the T7 promoter. 
 Feedback enables the external modulation of the light input using the state of the system, thereby controlling the T7 promoter strength as a function of state rather than time and eliminating the explicit time dependance in $u(UV(t))$.
-
-Protein degradation is assumed to be a first order process with rate $\gamma$:
+ Protein degradation is assumed to be a first order process with rate $\gamma$:
 \begin{equation}
 \nu_2(x) = \gamma x.
 \end{equation}
-Parameters describing the auto-regulation promoter, $\kappa$, $\eta$, $\beta$, and $k_0$, and the degradation rate $\gamma$
-%were chosen to reproduce dynamics measured in \cite{Baumschlager2017} and 
-% XXX - I don't think that this is right.  Only the parameters u(UV) and gamma were fit to data.
-% MMM - yes that is right
-are presented in Table 1~\cite{May2021}. 
+the baseline parameters describing the auto-regulation promoter, $\kappa$, $\eta$, $\beta$, and $k_0$, and the degradation rate $\gamma$ are presented in Table 1~\cite{May2021}. 
 
 \begin{table}[]
-\caption{Model Parameters}
+\caption{Baseline Model Parameters}
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
-Parameter & Value   & units                     \\ \hline
-$\kappa$         & 0.406   & Molecules Per Minute \\
-$\beta$          & 20.0    & Molecules            \\
-$\eta $           & 8.00    & unit less          \\
-$k_0$           & 0.0001  & Molecules per Minute \\
-$\gamma$         & 0.0203  & per Minute         \\
+Parameter & Value   & units                     \\ \hline \hline
+$\kappa$         & 0.406   & Molecules Per Minute \\ \hline
+$\beta$          & 20.0    & Molecules            \\  \hline
+$\eta $           & 8.00    & unit less          \\  \hline
+$k_0$           & 0.0001  & Molecules per Minute \\  \hline
+$\gamma$         & 0.0203  & per Minute         \\  \hline
 $u$              & dynamic & Molecules per Minute \\ \hline
 \end{tabular}
 \label{table}
@@ -178,11 +186,11 @@ $u$              & dynamic & Molecules per Minute \\ \hline
 \vspace{-0.2in}
 \end{table}
 
-\subsection{Stochastic analyses of the model}
+\subsection{Stochastic analyses of the model}\label{sec:Stochastic}
 %Solving discrete stochastic representations of chemical dynamics is critical to the development of noise-exploiting controllers, and can be analyzed using the Stochastic Simulation Algorithm (SSA) , or the Finite State Projection (FSP).
 %To recast the above ODE formulation into the discrete stochastic representation, 
 To describe the discrete behavior of the above model for a population system with $N_{\rm c}$ cells, we define the current state of the system as the tuple of the non-negative numbers of proteins in each cell: $\mathbf{X}_i = [x_{1},x_{2},\ldots,x_{N_c}]_i\in \mathbb{Z}_{\ge 0}$, where the index $i$ denotes the enumeration of the state within the countably infinite set of all possible states, $\mathbf{X}_i\in\mathcal{X}=\{\mathbf{X}_1,\mathbf{X}_2,\ldots\}$.
-The stoichiometry vector for a reaction in any given cell is then defined as the change in state following that reaction event (e.g., $\mathbf{X}_i \rightarrow \mathbf{X}_i + \mathbf{s}_\mu$), where the $2N_c$ possible reactions are defined in pairs corresponding to production (odd indices) and degradation (even indices) as:
+The stoichiometry vector, $\mathbf{s}_{\mu}$, for reaction number $\mu$ is then defined as the change in state following that reaction event (e.g., $\mathbf{X}_i \rightarrow \mathbf{X}_i + \mathbf{s}_\mu$), where the $2N_c$ possible reactions are defined in pairs corresponding to production ($\mu\in\{1,3,5,\ldots\}$) and degradation ($\mu\in\{2,4,6,\ldots\}$) as:
 \begin{align}
 \mathbf{s}_1 &= \mathbf{e}_1,\ \mathbf{s}_2 = -\mathbf{e}_1,\nonumber\\ 
 \mathbf{s}_3 &= \mathbf{e}_2,\ \mathbf{s}_4 = -\mathbf{e}_2,\nonumber\\
@@ -240,67 +248,68 @@ For a given controller, the equilibrium distribution of the system ($\mathbf{P}^
 \end{equation}
 
 
-\subsection{Quantification and optimization of control performance}
+\subsection{Quantification and optimization of control performance}\label{sec:Quantification}
 %To quantify the performance of the controlled system, Score metrics of steady state distributions were made in order to enable optimization of the system by adjusting controllers.
 
 In the SIMO control of the multiple cell process, any input signal applied to one cell affects all cells in the population. Thus, it is not possible to independently control individual cells without impacting others. An effective controller must strike a balance among the desired behaviors of all cells in the system.
 
-To quantify performance success, we define the performance error score, $J$, as the expected steady state squared Euclidean distance of the process from the specified target state, $\mathbf{T}$:
+To quantify performance success, we define the {\em steady state performance error}, $J$, as the expected steady state Euclidean distance of the process from the specified target state, $\mathbf{T}$:
  \begin{equation}
- J = E\{(\mathbf{X}-\mathbf{T})^2\}.
+ J = \mathbb{E}\{|\mathbf{X}-\mathbf{T}|_2\}.
  \end{equation}
-This score is easily calculated by applying a linear operation on steady state probability distribution $\mathbf{P}^*$ from Eq.\ \ref{SSDist}) as follows:
-{ \begin{align}
-J&= \lim_{t\rightarrow \infty}\mathbb{E}\{|\mathbf{X}(t)-\mathbf{T}|_2^2\}, \nonumber \\ 
-&=\sum_{i_1,i_2,\ldots} P^*(x_1=i_1,x_2=i_2,\ldots) \left[(i-\mathbf T_1)^2 + (j-\mathbf T_2)^2 +\ldots\right],\nonumber  \\
-&=\sum_{i,j,\ldots} P^*_{ij\ldots}(t)C_{ij\ldots} =\mathbf{C}\mathbf{P}^*,
+This score is easily calculated by applying a linear operation on steady state probability distribution $\mathbf{P}^*$ (Eq.\ \ref{SSDist}) as follows:
+\begin{align}
+J^2&= \lim_{t\rightarrow \infty}\mathbb{E}\{|\mathbf{X}(t)-\mathbf{T}|_2^2\}, \nonumber \\ 
+&=\sum_{i_1,i_2,\ldots} P^*(x_1=i_1,x_2=i_2,\ldots) \left[(i- T_1)^2 + (j- T_2)^2 +\ldots\right],\nonumber  \\
+&=\mathbf{C}\mathbf{P}^*,
 \label{Euclid}
-\end{align}} where $\mathbf{C}$ is simply a vector that contains the squared Euclidian distance of each state from the specified target T, i.e., $C_i = |\mathbf{X}_i-\mathbf{T}|_2^2$. As a result of this calculation, $J$ is a non-negative scalar that is zero if any only if $\mathbf{P}^*$ is a delta distribution located exactly at the target vector $\mathbf{T}$.
+\end{align}
+where $\mathbf{C}$ is simply a vector that contains the squared Euclidian distance of each state from the specified target T, i.e., $C_i = |\mathbf{X}_i-\mathbf{T}|_2^2$. As a result of this calculation, $J$ is a non-negative scalar that is zero if any only if $\mathbf{P}^*$ is a delta distribution located exactly at the target vector $\mathbf{T}$.
 
 
-We studied two controller designs: the fully aware controller ($\mathbf{u}^{FAC}$) that utilizes simultaneous protein count observations from both cells, and the partially aware controller ($\mathbf{u}^{PAC}$) that relies on observations from a single cell.
+We consider two controller designs: the fully aware controller ($\mathbf{u}^{FAC}$) that bases its control signal  on simultaneous protein count observations from both cells, and the partially aware controller ($\mathbf{u}^{PAC}$) that relies only on observations from a single cell:
 \begin{equation}
 \mathbf{u}^{FAC}=u(x_1,x_2)
 \end{equation}
 \begin{equation}
 \mathbf{u}^{PAC}=u(x_2)
 \end{equation}
-% XXX - Do we need to use 0 and 1.  Why not use 1 and 2 so that this can match better to the formulaton above?  I changed them to x1 and x2 here, but please chekc to make sure that this is sonsistent throughout text and figures.
-% MMM - Made the change to x1 x2
-where $x_1$ and $x_2$ are discrete integers greater than or equal to zero that represent the number of proteins in cell one and cell two. In \cite{May2021}, we optimized the controllers $\mathbf{u}^{FAC}$ and $\mathbf{u}^{PAC}$ to minimize $J$ and saved them as lookup tables. 
+where $x_1$ and $x_2$ are discrete integers greater than or equal to zero that represent the number of proteins in cell one and cell two. In \cite{May2021}, we optimized each of these controllers $\mathbf{u}^{FAC}$ and $\mathbf{u}^{PAC}$ to minimize $J$ for a single target state $\mathbf{T} = [XXX,XXX]$, and these controllers are assumed to be fixed for the current study unless noted otherwise. 
 
-\subsection{Scaling for system granularity}
-Previous studies have addressed the computational challenge of analyzing discrete stochastic chemical kinetics by projecting the FSP onto lower-dimensional spaces using techniques such as time scale separations \cite{Peles2006}, Krylov subspaces \cite{Macnemara&Sidje?}, coarse meshes \cite{Munsky2008IEEE,Tapia2012CDC}, or principle orthogonal decompositions \cite{Vo2019}. However, using CME analyses is often hindered by an experimental limitations.  Gene expression quantification based on fluorescence intensities, such as using fluorescent protein reporters, typically captures relative changes in expression over time rather than providing direct molecular counts.
-% XXX - would be good to look for a few other examples outside of our own papers where the CME dimension is reduced by linear projections.
+\subsection{Scaling for system granularity}\label{sec:Scaling}
+%Previous studies have addressed the computational challenge of analyzing discrete stochastic chemical kinetics by projecting the FSP onto lower-dimensional spaces using techniques such as time scale separations \cite{Peles2006}, Krylov subspaces \cite{Macnemara&Sidje?}, coarse meshes \cite{Munsky2008IEEE,Tapia2012CDC}, or principle orthogonal decompositions \cite{Vo2019}. 
+%
+%However, using CME analyses is often hindered by an experimental limitations.  Gene expression quantification based on fluorescence intensities, such as using fluorescent protein reporters, typically captures relative changes in expression over time rather than providing direct molecular counts.
+%% XXX - would be good to look for a few other examples outside of our own papers where the CME dimension is reduced by linear projections.
+%
+%It would be convenient to create a parameter that could increase or decrease the intrinsic noise of a system without changing the overall dynamics of the system. This would enable the analysis of models with more or less noise without the need of new unique models each time.  A rescaling of the system could decrease the intrinsic noise while maintaining the same general behavior. 
+%To accomplish this rescaling, let $M$ denote the size of the origional unscaled system and let $M'$ denote the size of the newly scaled system.
 
-It would be convenient to create a parameter that could increase or decrease the intrinsic noise of a system without changing the overall dynamics of the system. This would enable the analysis of models with more or less noise without the need of new unique models each time.  A rescaling of the system could decrease the intrinsic noise while maintaining the same general behavior. 
-To accomplish this rescaling, let $M$ denote the size of the origional unscaled system and let $M'$ denote the size of the newly scaled system.
-
-We define a granularity parameter ($\alpha=M'/M$) that linearly scales the species populations to increase ($\alpha>1$) or decrease ($\alpha<1$) the maximum populations size, while maintaining the dynamics and general behavior of the model. To apply the granularity parameter, we assume that each propensity function, $w_{\mu}$, from Eqns.\ \ref{Props} is rescaled to a different level of discreteness by substituting
+In realistic applications, models are never exact, but are often chosen as simplifications of known processes. For example, when analyzing discrete stochastic chemical kinetics, it is common to project the CME onto lower-dimensional spaces using finite state projection\cite{XXX}, time scale separations \cite{Peles2006}, Krylov subspaces \cite{Macnemara&Sidje?}, principle orthogonal decompositions \cite{Vo2019}, or other coarse meshes \cite{Munsky2008IEEE,Tapia2012CDC}. Similarly, measurements are also always inexact and in many cases may only provide information about relative change -- for example, although fluorescent proteins usually cannot be counted exactly, one may reasonably assume that a cell's total fluorescence intensity varies linearly with the fluorescent protein concentration. To explore how mismatches in assumed system scale (e.g., arising from model approximations or relative measurements) affect the controllability of the cellular process, we define a granularity parameter ($\alpha=M'/M$) that linearly scales each species' population to increase ($\alpha>1$) or decrease ($\alpha<1$), while maintaining the dynamics and general behavior of the model. To apply the granularity parameter, we assume that each propensity function, $w_{\mu}$, from Eqns.\ \ref{Props} is rescaled to a different level of discreteness by substituting
 \begin{equation}
 w'(\mathbf{X})=w(\mathbf{X}/\alpha).
 \end{equation}
 For example, the production and degradation of protein in cell one would become:
-\begin{equation}
-w'_1(\mathbf{X}) = u(\mathbf{X}/\alpha,t)  + \kappa \frac{(x_1/\alpha)^\eta}{(x_1/\alpha)^{\eta}+\beta^{\eta}} + k_0,\ w'_2(\mathbf{X}) = \gamma x_1/\alpha.
-\end{equation}
+\begin{align}
+w'_1(\mathbf{X}) &= u(\mathbf{X}/\alpha,t)  + \kappa \frac{(x_1/\alpha)^\eta}{(x_1/\alpha)^{\eta}+\beta^{\eta}} + k_0 \nonumber \\
+ w'_2(\mathbf{X}) &= \gamma x_1/\alpha.
+\end{align}
 % XXX - Please check this against what you did computationally. 
-
-We note that in transforming the propensity functions, the inputs to the controller must also be scaled by $1/\alpha$ before computing the appropriate functions of that state, e.g., ${u}^{\mathcal{C}} = {u}^{\mathcal{C}}(\mathbf{X}/\alpha)$. Because identification of the original control formulation, $\mathbf{u}^{FAC}(x_1,x_2)$ and $\mathbf{u}^{PAC}(x_1)$ only considered integer values for $(x_1,x_2)$, fractional number inputs for after rescaling $(x_1/\alpha,x_2/\alpha)$ are handled by 2D cubic interpolation of the nearest values.
+We note that in order to reuse a control law that has been defined for one level granularity and apply it to a system at another level of granularity, the inputs to the controller must also be scaled by $1/\alpha$ before computing the appropriate functions of that state, e.g., ${u}^{\mathcal{C}} = {u}^{\mathcal{C}}(\mathbf{X}/\alpha)$. Because identification of the original control formulation, $\mathbf{u}^{FAC}(x_1,x_2)$ and $\mathbf{u}^{PAC}(x_1)$ only considered integer values for $(x_1,x_2)$, fractional number inputs for after rescaling $(x_1/\alpha,x_2/\alpha)$ are handled by 2D cubic interpolation of the nearest values.
 %\begin{equation}
 %u'=u(x_0 / \alpha, x_1 / \alpha) 
 %\end{equation}
 %\begin{equation}
 %u'=u(\alpha x_0)
 %\end{equation}
-Finally, to provide a consistency relative scoring, the definition of the performance score is also adjusted according to sale magnitudes, i.e.,:
-{\begin{align}
-J' &= \sum_{i=0}^{M'}  \sum_{j=0}^{M'}P^*(x_1=i,x_2=j) ((i/\alpha - \mathbf T_1)^2 + (j/\alpha -\mathbf T_2)^2),\nonumber \\
+Finally, to provide a consistent metric for relative scoring, the definition of the performance score is also adjusted according to scale magnitudes. For example, in the two cell system the new steady state performance error would become:
+\begin{align}
+(J^2)' &= \sum_{i=0}^{M'}  \sum_{j=0}^{M'}P^*(x_1=i,x_2=j) ((i/\alpha - \mathbf T_1)^2 + (j/\alpha -\mathbf T_2)^2),\nonumber \\
 & =\mathbf{C}'\mathbf{P}^*
 \label{EuclidV}
-\end{align}}
+\end{align}
 
-\subsection{Observation and actuation time delays}
+\subsection{Observation and actuation time delays}\label{sec:Delay}
 
 Delays are inherent in optogenetic control systems due to biochemical reactions involved in observations, data analysis, decision making, and actuation dynamics. To investigate the effects of time delay on control actuation, we devised a time-delay stochastic simulation algorithm. This algorithm records the state history after each stochastic jump, enabling reconstruction of the population history of the species and control input.  Using this information, the time-delayed control signal at time $t$ can be specified as: 
 
