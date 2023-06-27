@@ -60,7 +60,7 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.6}Dynamic Setpoint Control}{11}}
 \newlabel{sec:Dynamic}{{2.6}{11}}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Results}{12}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Effects of Parameter Errors or Extrinsic Uncertainties}{12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Stochastic SIMO Optogenetic Control can Remain Effective Despite Small Parameter Errors or Extrinsic Uncertainties}{12}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Parameter sweeps using the FAC and PAC show a broad range of control performance in cell 1 ({\bf  A}), in cell 2 ({\bf  B}), and in both cells ({\bf  C}). Columns show each parameter in the model, rows show the cell which has its parameter perturbed. }}{13}}
 \newlabel{Parameter}{{2}{13}}
 \citation{May2021}
@@ -68,22 +68,22 @@
 \citation{XXX - look for elowitz paper or something similar that tried to calibrate for single-molecule counts}
 \citation{Kampen1961}
 \citation{XXX}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Systems with increased granularity are less noisy and have better control performance. (A-C) Joint (left) and marginal (right) distributions for the FAC shows increased control performance and tighter distributions as $\alpha $ increases from 0.2 (top row) to 2.0 (bottom row) . (D-F) Joint (left) and marginal (left) distributions using the PAC controller at different levels of granularity.}}{16}}
-\newlabel{Volume}{{3}{16}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Effects of changes to system granularity}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Systems with increased granularity are less noisy and have better control performance. (A-C) Joint (left) and marginal (right) distributions for the FAC shows increased control performance and tighter distributions as $\alpha $ increases from 0.2 (top row) to 2.0 (bottom row) . (D-F) Joint (left) and marginal (left) distributions using the PAC controller at different levels of granularity.}}{17}}
+\newlabel{Volume}{{3}{17}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Effects of Time Delays on Controller Performance}{17}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Stochastic simulations of the time delayed system show decreasing control performance using either the FAC or PAC. (A-C) Joint (left) and marginal distributions (right) of the at different levels of time delay for the FAC. (D-F) Joint (left) and marginal distributions(right) at three levels of time delay using the PAC. (G) plots of RMSE control performance versus time delay for both FAC and PAC.}}{18}}
 \newlabel{Time}{{4}{18}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Stochastic simulations of the FAC driven system and PAC driven system show different failure modes at at different $(\tau ,\alpha )$ pairs. (A-I)Joint probability distributions at different $[\tau ,\alpha ]$ pairs. $\alpha $ across columns and $\tau $ across rows. (J) Control performance measured over a domain of $(\tau ,\alpha )$ pairs show good control performance when both $\alpha $ is large and $\tau $ small. (K) Trajectories where good control was expected but not observed show oscillations instead.}}{19}}
-\newlabel{DG}{{5}{19}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces The FAC and PAC control methods were used to optimize control inputs and probability distributions for static set points in a 2D domain. Optimized control inputs and probability distributions were optimized using the FAC control method(A and B) or the PAC control method (C and D). (E) Domains of control performance for the FAC method over a region of static target points show regions of good control and symmetry along the dashed line. (F) Domain of control performance over a set of static control points for the PAC control method.}}{21}}
-\newlabel{CtrlP}{{6}{21}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Finite state projections of the slowly driven system demonstrate good control performance under a variety of phase and frequency scenario. (A) Schematic of the control problem shows targeting the number of protein in two cells using a dynamically changing reference point by cycling through a set of individual stable points and under synchonous, phasse-lagged or frequency changes reference signal using only one control input. (B1-BN) shows the phase space of the reference phase space, error residuals, reference time series, FSP solution and RMSE respectively for the synchonous control method. (C1-C5) Shows the same data for the phase-lagged control input. (D1-D5) Shows the same analysis for the frequency-changed control.}}{23}}
-\newlabel{CR}{{7}{23}}
-\citation{May2021}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Conclusion}{24}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Stochastic simulations of the FAC driven system and PAC driven system show different failure modes at at different $(\tau ,\alpha )$ pairs. (A-I)Joint probability distributions at different $[\tau ,\alpha ]$ pairs. $\alpha $ across columns and $\tau $ across rows. (J) Control performance measured over a domain of $(\tau ,\alpha )$ pairs show good control performance when both $\alpha $ is large and $\tau $ small. (K) Trajectories where good control was expected but not observed show oscillations instead.}}{20}}
+\newlabel{DG}{{5}{20}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces The FAC and PAC control methods were used to optimize control inputs and probability distributions for static set points in a 2D domain. Optimized control inputs and probability distributions were optimized using the FAC control method(A and B) or the PAC control method (C and D). (E) Domains of control performance for the FAC method over a region of static target points show regions of good control and symmetry along the dashed line. (F) Domain of control performance over a set of static control points for the PAC control method.}}{22}}
+\newlabel{CtrlP}{{6}{22}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Finite state projections of the slowly driven system demonstrate good control performance under a variety of phase and frequency scenario. (A) Schematic of the control problem shows targeting the number of protein in two cells using a dynamically changing reference point by cycling through a set of individual stable points and under synchonous, phasse-lagged or frequency changes reference signal using only one control input. (B1-BN) shows the phase space of the reference phase space, error residuals, reference time series, FSP solution and RMSE respectively for the synchonous control method. (C1-C5) Shows the same data for the phase-lagged control input. (D1-D5) Shows the same analysis for the frequency-changed control.}}{24}}
+\newlabel{CR}{{7}{24}}
 \@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Control performance analyzed over a domain of $f,\alpha $ pairs show worst control performance at moderate frequencies near $1e-2$ Tracking reference signals when $\alpha =5$ span a range between 50 and 150 species (A). Stochastic simulations driven using a phased lagged controller at $\alpha = 5$ and low frequency show tighter control compared to $\alpha =1$ (B). Systems driven at moderate frequency show worse control performance than high frequency or low frequency (C). Control performance only of phase-lagged system only improves with increasing $\alpha $ and low $f$.}}{25}}
 \newlabel{CRG}{{8}{25}}
+\citation{May2021}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Conclusion}{26}}
 \bibcite{May2021}{1}
 \bibcite{Ng2019}{2}
 \bibcite{Liu2018}{3}

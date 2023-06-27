@@ -387,7 +387,9 @@ r(t)=\bf{r}(x_n(t))
 
 \section{Results}
 
-\subsection{Effects of Parameter Errors or Extrinsic Uncertainties}
+\brian[Add a paragraph or two to explain the big picture here.  Use figure 1 to remind the reader of (1) the control goals, (2) the control law, (3) the resulting distributions, (4) the objective function and (5) the optimization of the control law to minimize the error.  Refer to the methods for each such calculation.  This section is critical to make sure the reader understands what is coming next.  Then provide an outline of the remaining subsections of the results section so that the reader knows what to expect.]
+
+\subsection{Stochastic SIMO Optogenetic Control can Remain Effective Despite Small Parameter Errors or Extrinsic Uncertainties}
 \begin{figure*}
 \begin{center}
 \includegraphics[width=1\textwidth]{ParameterPerturbation.pdf}
@@ -396,27 +398,27 @@ r(t)=\bf{r}(x_n(t))
 \end{center}
 \end{figure*}
 
+Real stochastic processes always have unknown or uncertain mechanisms and parameter values, and although model structures and parameter estimates can often be obtained through fitting to training data, these estimates will never be perfect due to unavoidable measurement errors or limited data sets. 
+Furthermore, even with plentiful and precise training data, model and parameter uncertainties are inevitable due to the fact that even genetically identical single-cells exhibit heterogeneity in parameters due to extrinsic variations.
+To asses the control performance to be expected under such parameter errors, we performed sensitivity analysis on each model parameter for each cell, then on both cells simultaneously. 
+For each parameter, both the $\mathbf{u}^{\rm FAC}$ and $\mathbf{u}^{\rm PAC}$ controllers were examined across a parameter perturbation range from one-tenth to ten-fold of the original values.
+Figure \ref{Parameter}A shows the results for these parameter sweeps when a single parameter in Cell 1 is varied (all other parameters are fixed), and Fig.\ \ref{Parameter}B shows the control performance as single parameters in Cell 2 is varied. 
+Finally, \ref{Parameter}B shows the performance change when a single parameter is changed simultaneously in both Cell 1 and Cell 2 at the same time while keeping other parameters fixed.
+In each case the baseline parameters is denoted as a vertical dashed line, and lower values of the RMSE ($J$ in Eq. \ref{XXX}) denote improved performance. 
+Solid lines are used to show the performance using the fully aware controller (FAC) that has access to both cells, and the dashed lines show the performance for the partially aware controller (PAC) that only has access to Cell 1.
 
-Real stochastic processes often have unknown parameter values, and even genetically identical single-cells often exhibit heterogeneity in parameters due to external variations. Parameter estimates can be obtained, but are not perfect measurements due to measurement limitations of stochastic processes.  To asses the sensitivity of control performance to parameter errors, sensitivity analysis was performed for each model parameter of each cell, then on both cells simultaneously. For each parameter perturbation, both the $\mathbf{u}^{\rm FAC}$ and $\mathbf{u}^{\rm PAC}$ controllers were examined across a parameter range from one-tenth to ten-fold of the original values.
-% XXX - How hard would it be to extend this to 10 fold in either direction?
-% MMM-Changes to parameters can dramatically change the location of the probability distribution which is contained in a bounded (50,50) area. A 10 fold increase to a parameter can push all the probability to the top corner of the space
- Figure \ref{Parameter}A shows the results for these parameter sweeps when a single parameter in Cell 1 is fixed, and Fig.\ \ref{Parameter}B shows the control performance as single parameters in Cell 2 are fixed while all other parameters are held constant.  Finally, \ref{Parameter}B  shows the performance change when the corresponding parameters are changed in both Cell 1 and Cell 2 at the same time while keeping other parameters fixed.
- 
-Modification of parameters was found to produce a broad range of effects. For example, increasing $\beta$ in Cell 1 worsens performance while increasing $\beta$ in Cell 2 improves performance (compare second column in Fig.\ \ref{Parameter}A and \ref{Parameter}B). In some cases, these effects were not monotonic; for example, increasing $\kappa$ in Cell 1 (Fig.\ \ref{Parameter}A, left column) would be highly advantageous up to a limit after which the control performance degrades rapidly. In other cases (such as for $k_0$), the effect of parameter perturbations on performance is insignificant even for relatively large ($s$=2) perturbations.Similarly, Fig.\ \ref{Parameter}C shows that when parameters of both Cell 1 and Cell 2 are jointly changed, these changes could also improve or detract from control performance.
-
-Modification of parameters was found to produce a broad range of effects. Increasing $\beta$ in Cell 1 was found to worsen performance, while increasing $\beta$ in Cell 2 improved performance (Fig. \ref{Parameter}A, B, second column). The effects of parameter modification were not always monotonic. For example, increasing $\kappa$ in Cell 1 initially improved performance but reached a limit beyond which control performance degraded rapidly (Fig. \ref{Parameter}A, left column). In contrast, perturbations in the parameter $k_0$ had insignificant effects on performance, even for relatively large perturbations (s=10) (Fig. \ref{Parameter}A). Similarly, when parameters of both Cell 1 and Cell 2 were jointly changed, control performance could be either improved or decreased (Fig. \ref{Parameter}C).
-
+Modification of parameters was found to produce a broad range of effects. 
+For example, increasing $\beta$ in Cell 1 quickly worsens performance while increasing $\beta$ in Cell 2 improves performance (compare second column in Fig.\ \ref{Parameter}A and \ref{Parameter}B). 
+In some cases, the effects on performance are not monotonic; for example, increasing $\kappa$ in Cell 1 (Fig.\ \ref{Parameter}A, leftmost column) would be highly advantageous up to a limit after which the control performance degrades rapidly. 
+In other cases (such as for the promoter leakage rate, $k_0$), the effect of parameter perturbations on performance is insignificant even for relatively large ($s$=10) perturbations, suggesting that this parameter is not important to control performance.
+Figure \ref{Parameter}C shows that even when parameters of both Cell 1 and Cell 2 are jointly changed, these changes could also improve or detract from control performance. 
+In particular, the analysis shows that control performance could be improved by modifying the system design either to increase the auto-regulation promoter strength ($\kappa$) or its cooperativity ($\eta$) or to decrease the promoter binding constant ($\beta$) or the protein degradation rate ($\gamma$). 
 %It was found that the $\mathbf{u}^{\rm FAC}$ often outperformed the $\mathbf{u}^{\rm PAC}$, but for large $s$ in a few parameters the inverse was found (figure \ref{parameter} (Row III, E and At).
 
-Changing parameters had similar effects on control performance for both $\mathbf{u}^{\rm FAC}$ (solid lines) and $\mathbf{u}^{\rm PAC}$ (dashed lines). Parameters such as $\kappa$ and $\gamma$ reached minima that performed better than the original values, indicating potential for system optimization beyond the original design. However, altering $k_0$ had no noticeable impact, possibly due to its small original value requiring a larger scaling for observable changes.
 
-% XXX - what is \eta?  From the table this should be the cooperativity with is very large.  Is this a mistake?
-% MMM - This was k_0, not eta
-In some parameters like $\kappa$ or $\gamma$, the PAC controller showed greater robustness to parameter errors than the FAC controller, even outperforming it. However, this effect is due to the mismatch between assumed and actual parameters, and re-optimizing both controllers for the new parameters will always yield better control performance for the FAC compared to the PAC.
+\brian[The remainder of this section is confusing and seems out of place.  Please revise to remove redundancies.]
 
-
-
-
+In most cases, changing parameters had similar effects on control performance for both $\mathbf{u}^{\rm FAC}$ (solid lines) and $\mathbf{u}^{\rm PAC}$ (dashed lines). However, for some parameters like $\kappa$ or $\gamma$, the PAC controller showed greater robustness to parameter errors than the FAC controller, and the PAC outperforms the FAC under several parameter perturbation conditions (compare dashed and solid lines). We note that this effect is due entirely to the mismatch between the assumed and actual parameters - if one were to recalibrate the model and re-optimizing the controllers for the new parameters, the FAC controller would always yield better control performance compared to the PAC.
 
 To assess the potential robustness of noise-enhanced control of the proposed synthetic auto-repression toggle switch, we adopted the model  from \cite{May2021} as well as the fully aware and partially aware controllers, $u^{\rm FAC}(x_1,x_2)$ and  $u^{\rm FAC}(x_1)$, respectively as described in the methods section.  In the following subsections, we explore how well these controllers would perform in the more realistic setting where the approximate model used to define the controller no longer matches exactly to the dynamics of the process that the controller is being used to manipulate. 
 

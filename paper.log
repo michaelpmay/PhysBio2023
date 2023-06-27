@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  27 JUN 2023 09:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  27 JUN 2023 09:40
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -376,129 +376,22 @@ LaTeX Warning: Citation `XXX' on page 3 undefined on input line 118.
 LaTeX Warning: Citation `XXX' on page 3 undefined on input line 118.
 
 
-LaTeX Warning: Citation `Ng2019' on page 3 undefined on input line 125.
-
-
-LaTeX Warning: Citation `Liu2018' on page 3 undefined on input line 125.
-
-
-LaTeX Warning: Citation `Sheets2020' on page 3 undefined on input line 125.
-
-
-LaTeX Warning: Citation `Shin2020' on page 3 undefined on input line 125.
-
-
-LaTeX Warning: Citation `Sheets2020' on page 3 undefined on input line 126.
-
-
-LaTeX Warning: Citation `Baumschlager2017' on page 3 undefined on input line 12
-6.
-
-
-LaTeX Warning: Citation `Chen2020' on page 3 undefined on input line 126.
-
-
-LaTeX Warning: Citation `Lillacci2018' on page 3 undefined on input line 126.
-
-
-LaTeX Warning: Citation `Fox2021' on page 3 undefined on input line 127.
-
-
-LaTeX Warning: Citation `Baumschlager2021' on page 3 undefined on input line 12
-7.
-
-
-LaTeX Warning: Citation `Lugagne2017' on page 3 undefined on input line 127.
-
-
-LaTeX Warning: Citation `Rullan2018' on page 3 undefined on input line 128.
-
-
-LaTeX Warning: Citation `Baumschlager2017' on page 3 undefined on input line 12
-8.
-
-
-LaTeX Warning: Citation `Guarino2020' on page 3 undefined on input line 132.
-
-
 LaTeX Warning: Citation `Kobayashi:2004' on page 3 undefined on input line 134.
 
 
 
-LaTeX Warning: Citation `Szymanska2015' on page 3 undefined on input line 134.
-
-
-LaTeX Warning: Citation `May2021' on page 3 undefined on input line 135.
-
-
 LaTeX Warning: Citation `XXX' on page 3 undefined on input line 135.
-
-
-LaTeX Warning: Reference `cartoons' on page 3 undefined on input line 135.
-
-
-LaTeX Warning: Reference `cartoons' on page 3 undefined on input line 136.
 
 [3]
 
-LaTeX Warning: Citation `May2021' on page 4 undefined on input line 149.
-
-
 LaTeX Warning: Citation `XXX' on page 4 undefined on input line 153.
 
-
-LaTeX Warning: Reference `prodRate' on page 4 undefined on input line 154.
-
-
-LaTeX Warning: Reference `sec:Model' on page 4 undefined on input line 158.
-
-
-LaTeX Warning: Reference `sec:Stochastic' on page 4 undefined on input line 158
-.
-
-
-LaTeX Warning: Reference `sec:Quantification' on page 4 undefined on input line
- 158.
-
-
-LaTeX Warning: Reference `sec:Scaling' on page 4 undefined on input line 158.
-
-
-LaTeX Warning: Reference `sec:Delay' on page 4 undefined on input line 158.
-
-[4]
-
-LaTeX Warning: Citation `May2021' on page 5 undefined on input line 161.
-
-
-LaTeX Warning: Reference `cartoons' on page 5 undefined on input line 161.
-
-[5]
-
-LaTeX Warning: Citation `May2021' on page 6 undefined on input line 181.
-
+[4] [5]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 183.
 
-[6]
-
-LaTeX Warning: Citation `Gillespie1992' on page 7 undefined on input line 218.
-
-
-LaTeX Warning: Citation `Gillespie1977' on page 7 undefined on input line 218.
-
-[7]
-
-LaTeX Warning: Reference `CME' on page 8 undefined on input line 258.
-
-[8]
-
-LaTeX Warning: Reference `SSDist' on page 9 undefined on input line 274.
-
-
-LaTeX Warning: Citation `May2021' on page 9 undefined on input line 292.
-
+[6] [7] [8]
 
 LaTeX Warning: Citation `XXX' on page 9 undefined on input line 305.
 
@@ -519,14 +412,7 @@ LaTeX Warning: Citation `Munsky2008IEEE' on page 9 undefined on input line 305.
 
 LaTeX Warning: Citation `Tapia2012CDC' on page 9 undefined on input line 305.
 
-
-LaTeX Warning: Reference `Props' on page 9 undefined on input line 308.
-
 [9] [10]
-
-LaTeX Warning: Reference `sec:Quantification' on page 11 undefined on input lin
-e 367.
-
 
 LaTeX Warning: Reference `XXX' on page 11 undefined on input line 367.
 
@@ -538,66 +424,26 @@ pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./ParameterPerturbation.pdf)
 File: ParameterPerturbation.pdf Graphic file (type pdf)
 
 <use ParameterPerturbation.pdf>
-Package pdftex.def Info: ParameterPerturbation.pdf used on input line 393.
+Package pdftex.def Info: ParameterPerturbation.pdf used on input line 395.
 (pdftex.def)             Requested size: 390.0pt x 254.80753pt.
 
 
-LaTeX Warning: Reference `Parameter' on page 12 undefined on input line 403.
+LaTeX Warning: Reference `XXX' on page 12 undefined on input line 407.
 
+[12] [13 <./ParameterPerturbation.pdf>] [14]
 
-LaTeX Warning: Reference `Parameter' on page 12 undefined on input line 403.
-
-
-LaTeX Warning: Reference `Parameter' on page 12 undefined on input line 403.
-
-
-LaTeX Warning: Reference `Parameter' on page 12 undefined on input line 405.
-
-
-LaTeX Warning: Reference `Parameter' on page 12 undefined on input line 405.
-
-
-LaTeX Warning: Reference `Parameter' on page 12 undefined on input line 405.
-
-
-LaTeX Warning: Reference `Parameter' on page 12 undefined on input line 405.
-
-[12] [13 <./ParameterPerturbation.pdf>]
-
-LaTeX Warning: Reference `Parameter' on page 14 undefined on input line 407.
-
-
-LaTeX Warning: Reference `Parameter' on page 14 undefined on input line 407.
-
-
-LaTeX Warning: Reference `Parameter' on page 14 undefined on input line 407.
-
-
-LaTeX Warning: Reference `Parameter' on page 14 undefined on input line 407.
-
-
-LaTeX Warning: Citation `May2021' on page 14 undefined on input line 421.
-
-[14]
-
-LaTeX Warning: Citation `Baumschlager' on page 15 undefined on input line 423.
+LaTeX Warning: Citation `Baumschlager' on page 15 undefined on input line 425.
 
 
 LaTeX Warning: Citation `XXX - look for elowitz paper or something similar that
  tried to calibrate for single-molecule counts' on page 15 undefined on input l
-ine 423.
+ine 425.
 
 
-LaTeX Warning: Citation `Kampen1961' on page 15 undefined on input line 427.
+LaTeX Warning: Citation `Kampen1961' on page 15 undefined on input line 429.
 
 
-LaTeX Warning: Citation `XXX' on page 15 undefined on input line 427.
-
-
-LaTeX Warning: Reference `Volume' on page 15 undefined on input line 432.
-
-
-LaTeX Warning: Reference `Volume' on page 15 undefined on input line 432.
+LaTeX Warning: Citation `XXX' on page 15 undefined on input line 429.
 
 [15]
 
@@ -606,40 +452,20 @@ usion: found PDF version <1.6>, but at most version <1.5> allowed
 <Granularity.pdf, id=144, 1166.29721pt x 525.22223pt>
 File: Granularity.pdf Graphic file (type pdf)
  <use Granularity.pdf>
-Package pdftex.def Info: Granularity.pdf used on input line 438.
+Package pdftex.def Info: Granularity.pdf used on input line 440.
 (pdftex.def)             Requested size: 390.0pt x 175.62395pt.
 
-
-LaTeX Warning: Reference `Volume' on page 16 undefined on input line 450.
-
-
-LaTeX Warning: Reference `Volume' on page 16 undefined on input line 453.
-
-[16 <./Granularity.pdf>]
-
-LaTeX Warning: Reference `Volume' on page 17 undefined on input line 455.
-
-
+[16]
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./TimeDelay.pdf): PDF inclus
 ion: found PDF version <1.6>, but at most version <1.5> allowed
-<TimeDelay.pdf, id=193, 1142.55862pt x 512.45653pt>
+<TimeDelay.pdf, id=148, 1142.55862pt x 512.45653pt>
 File: TimeDelay.pdf Graphic file (type pdf)
  <use TimeDelay.pdf>
-Package pdftex.def Info: TimeDelay.pdf used on input line 465.
+Package pdftex.def Info: TimeDelay.pdf used on input line 467.
 (pdftex.def)             Requested size: 390.0pt x 174.92102pt.
 
-
-LaTeX Warning: Reference `Time' on page 17 undefined on input line 480.
-
-
-LaTeX Warning: Reference `Time' on page 17 undefined on input line 480.
-
-[17] [18 <./TimeDelay.pdf>]
-
-LaTeX Warning: Reference `Time' on page 19 undefined on input line 483.
-
-
+[17 <./Granularity.pdf>] [18 <./TimeDelay.pdf>]
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./DelayAndGranularity.pdf): 
 PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
@@ -647,120 +473,48 @@ PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
 File: DelayAndGranularity.pdf Graphic file (type pdf)
 
 <use DelayAndGranularity.pdf>
-Package pdftex.def Info: DelayAndGranularity.pdf used on input line 494.
+Package pdftex.def Info: DelayAndGranularity.pdf used on input line 496.
 (pdftex.def)             Requested size: 390.0pt x 221.25777pt.
- [19 <./DelayAndGranularity.pdf>]
-
-LaTeX Warning: Reference `DG' on page 20 undefined on input line 504.
-
-
-LaTeX Warning: Reference `DG' on page 20 undefined on input line 504.
-
-
-LaTeX Warning: Reference `DG' on page 20 undefined on input line 504.
-
-
-LaTeX Warning: Reference `DG' on page 20 undefined on input line 504.
-
-
-LaTeX Warning: Reference `DG' on page 20 undefined on input line 506.
-
-
-LaTeX Warning: Reference `DG' on page 20 undefined on input line 506.
-
-
+ [19] [20 <./DelayAndGranularity.pdf>]
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./StaticControl.pdf): PDF in
 clusion: found PDF version <1.6>, but at most version <1.5> allowed
-<StaticControl.pdf, id=291, 1173.01237pt x 705.73967pt>
+<StaticControl.pdf, id=294, 1173.01237pt x 705.73967pt>
 File: StaticControl.pdf Graphic file (type pdf)
 
 <use StaticControl.pdf>
-Package pdftex.def Info: StaticControl.pdf used on input line 511.
+Package pdftex.def Info: StaticControl.pdf used on input line 513.
 (pdftex.def)             Requested size: 390.0pt x 234.63934pt.
-
-
-LaTeX Warning: Reference `CtrlP' on page 20 undefined on input line 521.
-
-
-LaTeX Warning: Reference `CtrlP' on page 20 undefined on input line 521.
-
-
-LaTeX Warning: Reference `CtrlP' on page 20 undefined on input line 521.
-
-[20] [21 <./StaticControl.pdf>]
-
-LaTeX Warning: Reference `CtrlP' on page 22 undefined on input line 523.
-
-
+ [21] [22 <./StaticControl.pdf>]
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./DynamicControl.pdf): PDF i
 nclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<DynamicControl.pdf, id=353, 2729.6077pt x 2376.83981pt>
+<DynamicControl.pdf, id=356, 2729.6077pt x 2376.83981pt>
 File: DynamicControl.pdf Graphic file (type pdf)
 
 <use DynamicControl.pdf>
-Package pdftex.def Info: DynamicControl.pdf used on input line 527.
+Package pdftex.def Info: DynamicControl.pdf used on input line 529.
 (pdftex.def)             Requested size: 390.0pt x 339.57362pt.
 
 
-LaTeX Warning: Reference `CR' on page 22 undefined on input line 535.
-
-
-LaTeX Warning: Reference `CR' on page 22 undefined on input line 535.
-
-
-LaTeX Warning: Reference `CR' on page 22 undefined on input line 535.
-
-
-LaTeX Warning: Reference `CR' on page 22 undefined on input line 547.
-
-
-LaTeX Warning: Reference `CR' on page 22 undefined on input line 547.
-
-
-LaTeX Warning: Reference `CR' on page 22 undefined on input line 547.
-
-
-LaTeX Warning: Reference `CR' on page 22 undefined on input line 549.
-
-
-LaTeX Warning: Reference `CR' on page 22 undefined on input line 549.
-
-[22] [23 <./DynamicControl.pdf>]
-
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Frequency.pdf): PDF inclus
 ion: found PDF version <1.6>, but at most version <1.5> allowed
-<Frequency.pdf, id=438, 796.69746pt x 573.01878pt>
+<Frequency.pdf, id=357, 796.69746pt x 573.01878pt>
 File: Frequency.pdf Graphic file (type pdf)
  <use Frequency.pdf>
-Package pdftex.def Info: Frequency.pdf used on input line 554.
+Package pdftex.def Info: Frequency.pdf used on input line 556.
 (pdftex.def)             Requested size: 390.0pt x 280.50186pt.
-
-
-LaTeX Warning: Reference `CRG' on page 24 undefined on input line 566.
-
-
-LaTeX Warning: Reference `CRG' on page 24 undefined on input line 566.
-
-
-LaTeX Warning: Reference `CRG' on page 24 undefined on input line 566.
-
-
-LaTeX Warning: Citation `May2021' on page 24 undefined on input line 573.
-
-[24] [25 <./Frequency.pdf>] [26] [27] [28] [29] (./paper.aux)
+ [23]
+[24 <./DynamicControl.pdf>] [25 <./Frequency.pdf>] [26] [27] [28] [29]
+(./paper.aux)
 
 LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
  3677 strings out of 492995
  49017 string characters out of 6132704
- 114441 words of memory out of 5000000
+ 114738 words of memory out of 5000000
  7168 multiletter control sequences out of 15000+600000
  13979 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -782,7 +536,7 @@ ve/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/
 7/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2017/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2017/t
 exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on paper.pdf (29 pages, 1200525 bytes).
+Output written on paper.pdf (29 pages, 1200424 bytes).
 PDF statistics:
  548 PDF objects out of 1000 (max. 8388607)
  315 compressed objects within 4 object streams
