@@ -54,6 +54,8 @@
 %\usepackage{iopams}  
 \begin{document}
 
+\def\brian[#1]{{\color{red} #1 }}
+
 \title{Exploiting Intrinsic Noise to Control Cell Differentiation Dynamics in the Presence of Time Delays, Inexact Models, and Extrinsic Variability}
 \maketitle
 
@@ -68,7 +70,6 @@
 %\end{indented}
 
 \begin{abstract}
-
 Previous research has focused on robust control performance in the presence of noise, but understanding controllers that exploit noise remains incomplete. 
 Motivated by Maxwells-Demon, we previously proposed a difficult control problem which requires the exploitation of noise in a stochastic system to break symmetry between two signals. We found multiple such controllers which could exploit noise to break symmetry between two cells under a variety of system information.
 This work extends that analysis to include stochastic systems that trace a moving target, are affected by time delay, intrinsic noise, or measurement uncertainty.
@@ -145,10 +146,21 @@ Using discrete stochastic models based on the chemical master equation, we demon
 %Figure\ \ref{cartoons}C(left) presents heat maps for two control laws, which a single external UV excitation signal based on observed cellular state.  Figure\ \ref{cartoons}C(right) shows the corresponding achievable marginal stationary distributions. Effective control was possible with both Fully Aware Feedback Controllers (FAC, Figure\ \ref{cartoons}C(top)) and Partially Aware Feedback Controllers (PAC, Figure\ \ref{cartoons}C(bottom)), even when the control model was an approximate simplification of the actual process dynamics.
 
 \section{Methods}
-In May et al. \cite{May2021}, we developed two models for the description of an optogenetically controlled gene expression system.  These first model consisted of six species to describe the light-activated association of two T7 split domains (species 1 and 2) which combine to form an active T7 polymerase (species 3) under optogenetic excitation. These active polymerase could then associate with inactive T7 promoters (species 4), resulting in the formation of an active allele (species 5) that could then transcribe and translated to produce the desired protein product (species 6). The second, much simpler, single-species model was developed by assuming quasi-steady equilibrium for the first five species. Both models were independently parameterized using the same experimental data from Baumschlager et al. \cite{XXX}. Furthermore, an extension was made to each model to incorporate a secondary self-activated promoter-gene construct, where the expression rate was determined by a Hill function \ref{prodRate}. Through simulations, we showed that a feedback control law could be designed to force multiple cells to different and individually chosen equilibrium states using a single optogenetic control signal, and we also showed that although this control law was parametrized using the simple model, it could be used effectively to control the behavior of the more complicated system, thus demonstrating that control performance could remain high despite inaccuracies in the model. In the current work, we adopt the simpler of the two models and extend our analyses  to consider the effects of additional model inaccuracies, including coarse-grained model approximations, parameter errors, and time delays, and we also explore the possibility that a single optogenetic control signal could drive the system to track temporally-changing reference signals. Section \ref{sec:Model} introduces the model; Section \ref{sec:Stochastic} develops a Master Equation description of the models probabilistic dynamics; Section \ref{sec:Quantification} defines a control objective and optimizes that metric to obtain a baseline control law; and finally Sections \ref{sec:Scaling} and \ref{sec:Delay} introduces uncertainties into the model related t the granularity of the model approximation or the introduction of time delays, respectively. 
+In May et al. \cite{May2021}, we developed two models for the description of an optogenetically controlled gene expression system.
+These first model consisted of six species to describe the light-activated association of two T7 split domains (species 1 and 2) which combine to form an active T7 polymerase (species 3) under optogenetic excitation. 
+The active polymerase could then associate with inactive T7 promoters (species 4), resulting in the formation of an active allele (species 5) that could then transcribe and translated to produce the desired protein product (species 6). 
+The second, much simpler, single-species model was developed by assuming quasi-steady equilibrium for the first five species. 
+Both models were independently parameterized using the same experimental data from Baumschlager et al. \cite{XXX}. 
+Furthermore, an extension was made to each model to incorporate a secondary self-activated promoter-gene construct, where the expression rate was determined by a Hill function \ref{prodRate}.
+Through simulations, we showed that a feedback control law could be designed to force multiple cells to different and individually chosen equilibrium states using a single optogenetic control signal. 
+We also showed that when this control law was parametrized using the simple model, it could be used effectively to control the behavior of the more complicated system, thus demonstrating that control performance could remain high despite inaccuracies in the model.
+In the current work, we adopt the simpler of the two models and extend our analyses to consider the effects of additional model inaccuracies, including coarse-grained model approximations, parameter errors, and time delays, and we also explore the possibility that a single optogenetic control signal could drive the system to track temporally-changing reference signals.
+Section \ref{sec:Model} introduces the model; Section \ref{sec:Stochastic} develops a Master Equation description of the models probabilistic dynamics; Section \ref{sec:Quantification} defines a control objective and optimizes that metric to obtain a baseline control law; and finally Sections \ref{sec:Scaling} and \ref{sec:Delay} introduces uncertainties into the model related t the granularity of the model approximation or the introduction of time delays, respectively. 
 
 \subsection{Model}\label{sec:Model}
-To assess the impact of model approximations on the implementation of noise-enhanced control strategies, we begin with the one-species model proposed by May et al. \cite{May2021} (refer to Fig. \ref{cartoons}A). This model comprises two reactions for production and degradation of the key protein. The nonlinear, UV-dependent production is defined by the following equation:
+To assess the impact of model approximations on the implementation of noise-enhanced control strategies, we begin with the one-species model proposed by May et al. \cite{May2021} (Fig. \ref{cartoons}A). 
+This model comprises two reactions for production and degradation of the key protein. 
+The nonlinear, UV-dependent production is defined by the following equation:
 \begin{equation}
 \nu_1(x,t)= \kappa\frac{x^\eta}{x^\eta+\beta^\eta}+ k_0 + u(UV(t)),
 \label{prodRate}
@@ -162,11 +174,11 @@ To assess the impact of model approximations on the implementation of noise-enha
 %
 where $x$ is the instantaneous protein level; $\kappa$ is the maximum strength of the auto-regulation promoter; $\beta$ is the concentration at which auto-regulation promoter reaches its half maximal strength; $\eta$ is the cooperativity in the auto-regulation promoter; $k_0$ is the leakage rate from both promoters; and $u(UV(t))$ is the UV-dependent strength of the T7 promoter. 
 Feedback enables the external modulation of the light input using the state of the system, thereby controlling the T7 promoter strength as a function of state rather than time and eliminating the explicit time dependance in $u(UV(t))$.
- Protein degradation is assumed to be a first order process with rate $\gamma$:
+Protein degradation is assumed to be a first order process with rate $\gamma$:
 \begin{equation}
 \nu_2(x) = \gamma x.
 \end{equation}
-the baseline parameters describing the auto-regulation promoter, $\kappa$, $\eta$, $\beta$, and $k_0$, and the degradation rate $\gamma$ are presented in Table 1~\cite{May2021}. 
+All baseline parameters describing the auto-regulation promoter, $\kappa$, $\eta$, $\beta$, and $k_0$, and the degradation rate $\gamma$ are presented in Table 1~\cite{May2021} and are fixed throughout the current study.
 
 \begin{table}[]
 \caption{Baseline Model Parameters}
@@ -187,10 +199,8 @@ $u$              & dynamic & Molecules per Minute \\ \hline
 \end{table}
 
 \subsection{Stochastic analyses of the model}\label{sec:Stochastic}
-%Solving discrete stochastic representations of chemical dynamics is critical to the development of noise-exploiting controllers, and can be analyzed using the Stochastic Simulation Algorithm (SSA) , or the Finite State Projection (FSP).
-%To recast the above ODE formulation into the discrete stochastic representation, 
-To describe the discrete behavior of the above model for a population system with $N_{\rm c}$ cells, we define the current state of the system as the tuple of the non-negative numbers of proteins in each cell: $\mathbf{X}_i = [x_{1},x_{2},\ldots,x_{N_c}]_i\in \mathbb{Z}_{\ge 0}$, where the index $i$ denotes the enumeration of the state within the countably infinite set of all possible states, $\mathbf{X}_i\in\mathcal{X}=\{\mathbf{X}_1,\mathbf{X}_2,\ldots\}$.
-The stoichiometry vector, $\mathbf{s}_{\mu}$, for reaction number $\mu$ is then defined as the change in state following that reaction event (e.g., $\mathbf{X}_i \rightarrow \mathbf{X}_i + \mathbf{s}_\mu$), where the $2N_c$ possible reactions are defined in pairs corresponding to production ($\mu\in\{1,3,5,\ldots\}$) and degradation ($\mu\in\{2,4,6,\ldots\}$) as:
+To describe the discrete stochastic behavior of the above model for a population system with $N_{\rm c}$ cells, we define the current state of the system as the tuple of the non-negative numbers of proteins in each cell: $\mathbf{X}_i = [x_{1},x_{2},\ldots,x_{N_c}]_i\in \mathbb{Z}_{\ge 0}$, where the index $i$ denotes the enumeration of the state within the countably infinite set of all possible states, $\mathbf{X}_i\in\mathcal{X}=\{\mathbf{X}_1,\mathbf{X}_2,\ldots\}$.
+The stoichiometry vector, $\mathbf{s}_{\mu}$, for reaction number $\mu$ is then defined as the change in state following that reaction event (e.g., $\mathbf{X}_i \rightarrow \mathbf{X}_i + \mathbf{s}_\mu$). Specifically, the $2N_c$ possible reactions are defined in pairs corresponding to production ($\mu\in\{1,3,5,\ldots\}$) and degradation ($\mu\in\{2,4,6,\ldots\}$) as:
 \begin{align}
 \mathbf{s}_1 &= \mathbf{e}_1,\ \mathbf{s}_2 = -\mathbf{e}_1,\nonumber\\ 
 \mathbf{s}_3 &= \mathbf{e}_2,\ \mathbf{s}_4 = -\mathbf{e}_2,\nonumber\\
@@ -205,8 +215,11 @@ w_3(\mathbf{X}) &= u(\mathbf{X},t)  + \kappa \frac{x_2^\eta}{x_2^{\eta}+\beta^{\
 w_{\rm 2N_c-1}(\mathbf{X}) &= u(\mathbf{X},t)  + \kappa \frac{x_N^\eta}{x_N^{\eta}+\beta^{\eta}} + k_0,\ w_{\rm 2N_c}(\mathbf{X}) = \gamma x_N.\label{Props}
  \end{align}
 
+These definitions of the stoichiometry and propensity functions allow us to implement the Gillespie stochastic simulation algorithm\cite{Gillespie1992, Gillespie1977} to generate representative trajectories of the stochastic process. 
 
-The stoichiometry and propensities allow us to use the Gillespie stochastic simulation algorithm\cite{Gillespie1992, Gillespie1977} to generate representative trajectories of the stochastic process. However, a direct analysis of the chemical master equation (CME) is necessary for performance quantification and optimal controller design. The CME, based on the same stoichiometry and propensity functions, is a linear ODE that describes the time-dependent changes in probability mass due to the specified reaction propensities and stoichiometries. It can be expressed as:
+\brian[Add a short paragraph explaining the basic SSA. This should include explicit statement of how the two RVs are generated: the time of the next reaction and the choice of which reaction occurs. This is needed since you will modify it below for the delayed reaction SSA.]
+
+However, a more direct analysis of the chemical master equation (CME) is necessary for performance quantification and optimal controller design. The high dimensional CME is a linear ODE that describes the time-dependent changes in probability mass of all possible states. Using the specified reaction propensities and stoichiometries, the CME can be expressed as:
 \begin{equation}
 \frac{d}{dt}P(\mathbf{X}_i)=\sum_{\mu=1}^{2{\rm N_c}}
 \left(
@@ -220,7 +233,7 @@ For convenience, the CME can also be formulated more compactly in matrix/vector 
 \end{equation}
 where $\mathbf{P} = [P(\mathbf{X}_1), P(\mathbf{X}_2), \ldots ]^T$ is the enumerated probability mass vector for all possible states of the system; $\mathbf{A}_0$ is the infinitesimal generator of the stochastic process due to the autoregulation promoter and degradation events;  $\textbf{u}^{\mathcal{C}} =[u^{\mathcal{C}}(\mathbf{X}_1), u^{\mathcal{C}}(\mathbf{X}_2), \ldots ]^T$ is the collection of control inputs associated with each state; and $\textbf{Bu}^{\mathcal{C}}$ is the contribution that these control inputs make to the infinitesimal generator when included into the feedback process. 
  
-More specifically, the open-loop infinitesimal generator, $\mathbf{A}_0$, is constructed according to:
+More specifically, the zero-control infinitesimal generator, $\mathbf{A}_0$, is constructed according to:
 \begin{equation}
 [\mathbf{A}_0]_{ij} = \left\{
 \begin{array}{rl}
@@ -240,18 +253,19 @@ and the feedback infinitesimal generator, $\mathbf{Bu}^{\mathcal{C}}$, of the co
 \end{array}\right.
 \label{InfB}
 \end{equation}
-where ${u}^{\mathcal{C}}(\mathbf{X}_j)$ is the specification of the $\mathcal{C}$ controller in terms of the state, or its partial observations.
+where ${u}^{\mathcal{C}}(\mathbf{X}_j)$ is the specification of the controller, $\mathcal{C}$, in terms of the current instantaneous state, or its partial observations.
 
 For a given controller, the equilibrium distribution of the system ($\mathbf{P}^*$) can be found by solving Eq.\ \ref{CME} and is given by:
 \begin{equation}
 \mathbf{P}^*={\rm null}(\mathbf{A}+\textbf{Bu}^{\mathcal{C}}).\label{SSDist}
 \end{equation}
 
+\brian[Add a paragraph introducing the FSP truncation and include some justification.]
 
 \subsection{Quantification and optimization of control performance}\label{sec:Quantification}
-%To quantify the performance of the controlled system, Score metrics of steady state distributions were made in order to enable optimization of the system by adjusting controllers.
-
-In the SIMO control of the multiple cell process, any input signal applied to one cell affects all cells in the population. Thus, it is not possible to independently control individual cells without impacting others. An effective controller must strike a balance among the desired behaviors of all cells in the system.
+Using optogenetic control, it is assumed that only a single light input would be applied at a given time and that it would be applied uniformly to multiple cells at the same intensity. 
+In this single-input-multiple-output (SIMO) control process, any input signal applied to one cell affects all cells in the population. 
+Thus, it is not possible to independently control individual cells without impacting others, so an effective controller must strike a balance among the desired behaviors of all cells in the system.
 
 To quantify performance success, we define the {\em steady state performance error}, $J$, as the expected steady state Euclidean distance of the process from the specified target state, $\mathbf{T}$:
  \begin{equation}
@@ -264,17 +278,19 @@ J^2&= \lim_{t\rightarrow \infty}\mathbb{E}\{|\mathbf{X}(t)-\mathbf{T}|_2^2\}, \n
 &=\mathbf{C}\mathbf{P}^*,
 \label{Euclid}
 \end{align}
-where $\mathbf{C}$ is simply a vector that contains the squared Euclidian distance of each state from the specified target T, i.e., $C_i = |\mathbf{X}_i-\mathbf{T}|_2^2$. As a result of this calculation, $J$ is a non-negative scalar that is zero if any only if $\mathbf{P}^*$ is a delta distribution located exactly at the target vector $\mathbf{T}$.
-
+where $\mathbf{C}$ is simply a vector that contains the squared Euclidian distance of each state from the specified target T, i.e., $C_i = |\mathbf{X}_i-\mathbf{T}|_2^2$. 
+As a result of this calculation, $J$ is a non-negative scalar that is zero if any only if $\mathbf{P}^*$ is a delta distribution located exactly at the target vector $\mathbf{T}$.
 
 We consider two controller designs: the fully aware controller ($\mathbf{u}^{FAC}$) that bases its control signal  on simultaneous protein count observations from both cells, and the partially aware controller ($\mathbf{u}^{PAC}$) that relies only on observations from a single cell:
 \begin{equation}
-\mathbf{u}^{FAC}=u(x_1,x_2)
+\mathbf{u}^{FAC}=u(x_1,x_2),
 \end{equation}
 \begin{equation}
-\mathbf{u}^{PAC}=u(x_2)
+\mathbf{u}^{PAC}=u(x_2),
 \end{equation}
-where $x_1$ and $x_2$ are discrete integers greater than or equal to zero that represent the number of proteins in cell one and cell two. In \cite{May2021}, we optimized each of these controllers $\mathbf{u}^{FAC}$ and $\mathbf{u}^{PAC}$ to minimize $J$ for a single target state $\mathbf{T} = [XXX,XXX]$, and these controllers are assumed to be fixed for the current study unless noted otherwise. 
+where $x_1$ and $x_2$ are discrete integers greater than or equal to zero that represent the number of proteins in cell one and cell two. 
+In \cite{May2021}, we optimized each of these two controllers to find the control laws $\mathbf{u}^{FAC}$ and $\mathbf{u}^{PAC}$ that minimize $J$ for a single target state $\mathbf{T} = [XXX,XXX]$. 
+These controllers are assumed to be fixed for the current study unless noted otherwise. 
 
 \subsection{Scaling for system granularity}\label{sec:Scaling}
 %Previous studies have addressed the computational challenge of analyzing discrete stochastic chemical kinetics by projecting the FSP onto lower-dimensional spaces using techniques such as time scale separations \cite{Peles2006}, Krylov subspaces \cite{Macnemara&Sidje?}, coarse meshes \cite{Munsky2008IEEE,Tapia2012CDC}, or principle orthogonal decompositions \cite{Vo2019}. 
@@ -285,7 +301,11 @@ where $x_1$ and $x_2$ are discrete integers greater than or equal to zero that r
 %It would be convenient to create a parameter that could increase or decrease the intrinsic noise of a system without changing the overall dynamics of the system. This would enable the analysis of models with more or less noise without the need of new unique models each time.  A rescaling of the system could decrease the intrinsic noise while maintaining the same general behavior. 
 %To accomplish this rescaling, let $M$ denote the size of the origional unscaled system and let $M'$ denote the size of the newly scaled system.
 
-In realistic applications, models are never exact, but are often chosen as simplifications of known processes. For example, when analyzing discrete stochastic chemical kinetics, it is common to project the CME onto lower-dimensional spaces using finite state projection\cite{XXX}, time scale separations \cite{Peles2006}, Krylov subspaces \cite{Macnemara&Sidje?}, principle orthogonal decompositions \cite{Vo2019}, or other coarse meshes \cite{Munsky2008IEEE,Tapia2012CDC}. Similarly, measurements are also always inexact and in many cases may only provide information about relative change -- for example, although fluorescent proteins usually cannot be counted exactly, one may reasonably assume that a cell's total fluorescence intensity varies linearly with the fluorescent protein concentration. To explore how mismatches in assumed system scale (e.g., arising from model approximations or relative measurements) affect the controllability of the cellular process, we define a granularity parameter ($\alpha=M'/M$) that linearly scales each species' population to increase ($\alpha>1$) or decrease ($\alpha<1$), while maintaining the dynamics and general behavior of the model. To apply the granularity parameter, we assume that each propensity function, $w_{\mu}$, from Eqns.\ \ref{Props} is rescaled to a different level of discreteness by substituting
+In realistic applications, models are never exact, but are often chosen as simplifications of known processes. 
+For example, when analyzing discrete stochastic chemical kinetics, it is common to project the CME onto lower-dimensional spaces using finite state projection\cite{XXX}, time scale separations \cite{Peles2006}, Krylov subspaces \cite{Macnemara&Sidje?}, principle orthogonal decompositions \cite{Vo2019}, or other coarse meshes \cite{Munsky2008IEEE,Tapia2012CDC}. 
+Similarly, measurements are also always inexact and in many cases may only provide information about relative changes -- for example, although fluorescent proteins usually cannot be counted exactly, one may reasonably assume that a cell's total fluorescence intensity varies linearly with the fluorescent protein concentration. 
+To explore how mismatches in assumed system scale (e.g., arising from model approximations or relative measurements) affect the controllability of the cellular process, we define a granularity parameter ($\alpha=M'/M$) that linearly scales each species' population to increase ($\alpha>1$) or decrease ($\alpha<1$), while maintaining the dynamics and general behavior of the model. 
+To apply this granularity parameter, we assume that each propensity function, $w_{\mu}$ (Eqns.\ \ref{Props}) is rescaled to a different level of discreteness by substituting
 \begin{equation}
 w'(\mathbf{X})=w(\mathbf{X}/\alpha).
 \end{equation}
@@ -294,8 +314,7 @@ For example, the production and degradation of protein in cell one would become:
 w'_1(\mathbf{X}) &= u(\mathbf{X}/\alpha,t)  + \kappa \frac{(x_1/\alpha)^\eta}{(x_1/\alpha)^{\eta}+\beta^{\eta}} + k_0 \nonumber \\
  w'_2(\mathbf{X}) &= \gamma x_1/\alpha.
 \end{align}
-% XXX - Please check this against what you did computationally. 
-We note that in order to reuse a control law that has been defined for one level granularity and apply it to a system at another level of granularity, the inputs to the controller must also be scaled by $1/\alpha$ before computing the appropriate functions of that state, e.g., ${u}^{\mathcal{C}} = {u}^{\mathcal{C}}(\mathbf{X}/\alpha)$. Because identification of the original control formulation, $\mathbf{u}^{FAC}(x_1,x_2)$ and $\mathbf{u}^{PAC}(x_1)$ only considered integer values for $(x_1,x_2)$, fractional number inputs for after rescaling $(x_1/\alpha,x_2/\alpha)$ are handled by 2D cubic interpolation of the nearest values.
+We note that in order to reuse a control law that has been defined for one level granularity and apply it to a system at another level of granularity, the inputs to the controller must also be scaled by $1/\alpha$ before computing the  control level assigned to the current state, e.g., ${u}^{\mathcal{C}} = {u}^{\mathcal{C}}(\mathbf{X}/\alpha)$. Because identification of the original control formulation, $\mathbf{u}^{FAC}(x_1,x_2)$ and $\mathbf{u}^{PAC}(x_1)$ only considered integer values for $(x_1,x_2)$, control signal values at fractional state values after rescaling $(x_1/\alpha,x_2/\alpha)$ are calculated using 2D cubic interpolation from the control values at the nearest integer state values.
 %\begin{equation}
 %u'=u(x_0 / \alpha, x_1 / \alpha) 
 %\end{equation}
@@ -305,13 +324,18 @@ We note that in order to reuse a control law that has been defined for one level
 Finally, to provide a consistent metric for relative scoring, the definition of the performance score is also adjusted according to scale magnitudes. For example, in the two cell system the new steady state performance error would become:
 \begin{align}
 (J^2)' &= \sum_{i=0}^{M'}  \sum_{j=0}^{M'}P^*(x_1=i,x_2=j) ((i/\alpha - \mathbf T_1)^2 + (j/\alpha -\mathbf T_2)^2),\nonumber \\
-& =\mathbf{C}'\mathbf{P}^*
+& =\mathbf{C}'\mathbf{P}^*.
 \label{EuclidV}
 \end{align}
+We reiterate that the system parameters and control law were defined and fixed using the the base granularity ($\alpha=1$), and these are not recomputed or refit upon changing the system granularity.
 
 \subsection{Observation and actuation time delays}\label{sec:Delay}
 
-Delays are inherent in optogenetic control systems due to biochemical reactions involved in observations, data analysis, decision making, and actuation dynamics. To investigate the effects of time delay on control actuation, we devised a time-delay stochastic simulation algorithm. This algorithm records the state history after each stochastic jump, enabling reconstruction of the population history of the species and control input.  Using this information, the time-delayed control signal at time $t$ can be specified as: 
+Delays are inherent in any realistic control systems, and it this case delays would be expected to arise due to the time needed for various biochemical reactions such as formation of complete polymerases, activation of promoters, transcription and transport of mature mRNA, and the translation and maturation of protein. 
+Additional delays would also arise from data analysis, decision making, and actuation dynamics. 
+To investigate the effects of time delay on control actuation, we devised a simple time-delay stochastic simulation algorithm. 
+This algorithm records the state history after each stochastic jump, enabling reconstruction of the population history of the species and control input.  
+Using this information, the time-delayed control signal at time $t$ can be specified as: 
 
 \begin{equation}
 u_{\tau}(t)=\left\{
@@ -321,7 +345,12 @@ u_{\tau}(t)=\left\{
 \end{array}\right. 
 \label{timeDelaySSA}
 \end{equation}
-where $\tau$ is the time delay between observation and actuation, and ${u}^{\mathcal{C}}$ is the previously optimized control law (e.g., $\mathbf{u}^{\rm FAC}$ or $\mathbf{u}^{\rm PAC}$). We note that the time delay stochastic process was only simulated using the SSA because to our knowledge an appropriate direct FSP/CME integration procedure has not yet been developed.
+where $\tau$ is the time delay between observation and actuation, and ${u}^{\mathcal{C}}$ is the previously optimized control law (e.g., $\mathbf{u}^{\rm FAC}$ or $\mathbf{u}^{\rm PAC}$). 
+When running the stochastic simulation algorithm under this fluctuating control signal, a slight modification is needed to the SSA.
+\brian[Explain how you modify the SSA for the delayed reaction SSA.  Look through the literature to cite someone else who has implenented a similar method.]
+
+
+We note that the time delay stochastic process was only simulated using the SSA because to our knowledge an appropriate direct FSP/CME integration procedure has not yet been developed.
 
 %\subsection{Parameter Scalings and Sensitivity}
 %Finally, to explore the sensitivity of the control performance to inaccuracies in model parameters for one or more cells, we calculate the control performance score ($J$), over a range for each parameter scaled linearly with a scaling parameter ($\zeta$) while holding all other parameters constant. 
@@ -334,9 +363,12 @@ where $\tau$ is the time delay between observation and actuation, and ${u}^{\mat
 %In either case, steady state distributions of the perturbed models are solved using the FSP.
 % XXX - I don't think that we need this section in Methods -- but perhaps some of the text should be moved to the results if needed.
 
-\subsection{Dynamic Setpoint Control}
+\subsection{Dynamic Setpoint Control}\label{sec:Dynamic}
+Because optimizing the control law for a static set point as described in Section \ref{sec:Quantification} requires differentiation of the CME (Eq. \ref{XXX}) with respect to the control signal at each state, this calculation is approaching the limits of currently feasibility.
+Extending these calculations to optimize controllers for a dynamically moving set point is much harder and would likely require intractable numerical simulation or development of new mathematical approaches that are beyond the scope of the current study. 
+To circumvent this challenge, we instead propose a simple alternative to sweep over a set of many different steady state controllers in piecewise fashion to mimic a dynamically moving path.
 
-Although the control to a static set point is at the limits of currently feasible calculations, the extension to dynamically moving set point is much harder and requires untractible numerical simulation or further mathematical exploration. These solutions require numerical simulations which scale poorly with the number of states and quickly become impossible to perform. Therefore, a simple alternative is to sweep over a set of steady state controllers in Piecewise fashion that mimics a dynamically moving path.
+\brian[I cannot understand the following section -- please rewrite.]
 
 We developed a dynamic set point controller which periodically sweeps over a predefined path in state space in a discrete number of steps. Let the path $\bf{r}$ be given by
 \begin{equation}
@@ -351,6 +383,7 @@ And the path can be walked over in time using
 \begin{equation}
 r(t)=\bf{r}(x_n(t))
 \end{equation}
+
 
 \section{Results}
 
