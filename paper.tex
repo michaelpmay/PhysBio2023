@@ -40,41 +40,35 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 
-%\documentclass[12pt]{iopart}
-\documentclass[12pt]{article}
+\documentclass[12pt]{iopart}
+%\documentclass[12pt]{article}
 %\usepackage{amsmath}
-\usepackage{cite}
-\usepackage{amsmath,amssymb,amsfonts}
-\usepackage{algorithmic}
+%\usepackage{cite}
+\usepackage{amssymb,amsfonts}
+%\usepackage{algorithmic}
 \usepackage{graphicx}
-\usepackage{textcomp}
+%\usepackage{textcomp}
 \usepackage{xcolor}
-\usepackage{graphicx}
+%\usepackage{graphicx}
 %Uncomment next line if AMS fonts required
 %\usepackage{iopams}  
 \begin{document}
 
 \def\brian[#1]{{\color{red} #1 }}
 
-\title{Exploiting Intrinsic Noise to Control Cell Differentiation Dynamics in the Presence of Time Delays, Inexact Models, and Extrinsic Variability}
+\title[Heterogeneous Control of Cell Differentiation Dynamics]{Exploiting Intrinsic Noise to Achieve Heterogeneous Control of Cell Differentiation Dynamics in the Presence of Time Delays, Model Uncertainties, and Extrinsic Variability}
 \maketitle
 
 \author{M P May$^1$, B Munsky$^{1,2}$}
 
-%\address{$^1$ School of Bioengineering, Colorado State University, Fort Collins, Co}
-%\address{$^2$ Dept. of Chemical and Biological Engineering, Colorado State University, Fort Collins, Co}
-
-%\vspace{10pt}
-%\begin{indented}
-%\item[]August 2017
-%\end{indented}
+\address{$^1$ School of Bioengineering, Colorado State University, Fort Collins, CO, USA}
+\address{$^2$ Department of Chemical and Biological Engineering, Colorado State University, Fort Collins, CO, USA}
 
 \begin{abstract}
 Previous research has focused on robust control performance in the presence of noise, but understanding controllers that exploit noise remains incomplete. 
 Motivated by Maxwells-Demon, we previously proposed a difficult control problem which requires the exploitation of noise in a stochastic system to break symmetry between two signals. We found multiple such controllers which could exploit noise to break symmetry between two cells under a variety of system information.
 This work extends that analysis to include stochastic systems that trace a moving target, are affected by time delay, intrinsic noise, or measurement uncertainty.
  We find that noise-exploiting controllers can remain highly effective despite coarse approximations to the model's scale or incorrect estimations of key model parameters, and these controllers can even retain performance for significant time delays.  Together, these findings suggest that noise-exploiting control should be possible where models are always approximate, where parameters are always uncertain, and where observations are corrupted by errors.
-
 
 
 \end{abstract}
@@ -186,12 +180,12 @@ All baseline parameters describing the auto-regulation promoter, $\kappa$, $\eta
 \begin{tabular}{|c|c|c|}
 \hline
 Parameter & Value   & units                     \\ \hline \hline
-$\kappa$         & 0.406   & Molecules Per Minute \\ \hline
+$\kappa$         & 0.406   & 1/min \\ \hline
 $\beta$          & 20.0    & Molecules            \\  \hline
-$\eta $           & 8.00    & unit less          \\  \hline
-$k_0$           & 0.0001  & Molecules per Minute \\  \hline
-$\gamma$         & 0.0203  & per Minute         \\  \hline
-$u$              & dynamic & Molecules per Minute \\ \hline
+$\eta $           & 8.00    & unitless          \\  \hline
+$k_0$           & 0.0001  & 1/min \\  \hline
+$\gamma$         & 0.0203  & 1/min         \\  \hline
+$u$              & dynamic & 1/min \\ \hline
 \end{tabular}
 \label{table}
 \end{center}
@@ -201,32 +195,34 @@ $u$              & dynamic & Molecules per Minute \\ \hline
 \subsection{Stochastic analyses of the model}\label{sec:Stochastic}
 To describe the discrete stochastic behavior of the above model for a population system with $N_{\rm c}$ cells, we define the current state of the system as the tuple of the non-negative numbers of proteins in each cell: $\mathbf{X}_i = [x_{1},x_{2},\ldots,x_{N_c}]_i\in \mathbb{Z}_{\ge 0}$, where the index $i$ denotes the enumeration of the state within the countably infinite set of all possible states, $\mathbf{X}_i\in\mathcal{X}=\{\mathbf{X}_1,\mathbf{X}_2,\ldots\}$.
 The stoichiometry vector, $\mathbf{s}_{\mu}$, for reaction number $\mu$ is then defined as the change in state following that reaction event (e.g., $\mathbf{X}_i \rightarrow \mathbf{X}_i + \mathbf{s}_\mu$). Specifically, the $2N_c$ possible reactions are defined in pairs corresponding to production ($\mu\in\{1,3,5,\ldots\}$) and degradation ($\mu\in\{2,4,6,\ldots\}$) as:
-\begin{align}
+\begin{eqnarray}
 \mathbf{s}_1 &= \mathbf{e}_1,\ \mathbf{s}_2 = -\mathbf{e}_1,\nonumber\\ 
 \mathbf{s}_3 &= \mathbf{e}_2,\ \mathbf{s}_4 = -\mathbf{e}_2,\nonumber\\
 &\vdots \nonumber\\ 
 \mathbf{s}_{\rm 2N_c-1} &= \mathbf{e}_{\rm N_c},\ \mathbf{s}_{\rm 2N_c} = -\mathbf{e}_{\rm N_c}, \label{Stochs}
- \end{align}
+ \end{eqnarray}
 where each $\mathbf{e}_{i}\in\mathbb{Z}^{{\rm N_ c}}$ is is a Euclidean vector (i.e., unity for the $i^{\rm th}$ entry and otherwise zero). The corresponding propensity functions are:
-\begin{align}
+\begin{eqnarray}
 w_1(\mathbf{X}) &= u(\mathbf{X},t)  + \kappa \frac{x_1^\eta}{x_1^{\eta}+\beta^{\eta}} + k_0,\ w_2(\mathbf{X}) = \gamma x_1,\nonumber\\
 w_3(\mathbf{X}) &= u(\mathbf{X},t)  + \kappa \frac{x_2^\eta}{x_2^{\eta}+\beta^{\eta}} + k_0,\ w_4(\mathbf{X}) = \gamma x_2,\nonumber\\
 &\vdots \nonumber\\
 w_{\rm 2N_c-1}(\mathbf{X}) &= u(\mathbf{X},t)  + \kappa \frac{x_N^\eta}{x_N^{\eta}+\beta^{\eta}} + k_0,\ w_{\rm 2N_c}(\mathbf{X}) = \gamma x_N.\label{Props}
- \end{align}
+ \end{eqnarray}
 
-These definitions of the stoichiometry and propensity functions allow us to implement the Gillespie stochastic simulation algorithm (SSA) \cite{Gillespie1992, Gillespie1977} to generate representative trajectories of the stochastic process.This algorithm uses discrete reactions and discrete molecule counts to sample the chemical master equation by utilizing an exponential random variable for time intervals and a categorical random variable for reaction selection. 
-The exponential random variable is given by
+These definitions of the stoichiometry and propensity functions allow us to implement the Gillespie stochastic simulation algorithm (SSA) \cite{Gillespie1992, Gillespie1977} to generate representative trajectories of the stochastic process. At each step two random numbers are generated to determine the time and the type of the next reaction. Given the current state $\mathbf{X}$, the time until the next reaction is distributed according to an exponential random with rate parameter equal to the inverse of the sum of the propensity functions:
 \begin{equation}
-\delta t(\mathbf{X},t)=log(rand \sum w_i(\mathbf{X},t) )
+Pr(\delta t = \tau) = \sum w_i(\mathbf{X}) \exp\left(- \sum{\mu=1}^{2N_c-1} w_\mu(\mathbf{X})\tau\right),
 \end{equation}
-where $\delta t$ is the time at which the next reaction occurs, and rand is a randomly generated number between 0 and 1.
-The probability of an individual reaction to fire from all possible reactions is given by
+and an instance of this random variable, $\delta t$,  can be sampled from this distribution using the expression:
 \begin{equation}
-\zeta_i(\mathbf{X},t)=\frac{w_i(\mathbf{X},t)}{\sum w_i(\mathbf{X},t)}
+\delta t = -\log\left(r_1 \sum_{\mu=1}^{2N_c-1}  w_\mu(\mathbf{X})\right),
 \end{equation}
-Where $\zeta_i(\mathbf{X},t)$ is the probability of the ith reaction to occur at state $\mathbf{X}$ and time $t$. Then the reaction that fired at time $t$ is a categorical random variable pulled from $\zeta_i(\mathbf{X},t)$. Then the SSA can be created by walking through time jumps and updating the state of the system by adding the stiochiometry of the reaction to the state of the system.
-
+where $r_1$ is a uniform random variable between zero and one.
+The probability of for the specific individual reaction $R_k$ to fire from all possible reactions is given by:
+\begin{equation}
+Pr(R_k)=\frac{w_k}{\sum w_{\mu=1}^{2N_c-1} (\mathbf{X})},
+\end{equation}
+and thus the reaction that fires at time $t+\tau$ is a categorical random variable pulled from $Pr(R_k)$.  The SSA is then simulated by stepping through time one reaction at a time and updating the state of the system by adding the stoichiometry of the reaction to the state of the system.
 
 However, a more direct analysis of the chemical master equation (CME) is necessary for performance quantification and optimal controller design. The high dimensional CME is a linear ODE that describes the time-dependent changes in probability mass of all possible states. Using the specified reaction propensities and stoichiometries, the CME can be expressed as:
 \begin{equation}
@@ -246,9 +242,9 @@ More specifically, the zero-control infinitesimal generator, $\mathbf{A}_0$, is 
 \begin{equation}
 [\mathbf{A}_0]_{ij} = \left\{
 \begin{array}{rl}
--\sum_{\mu =1}^{2N_{\rm c}} w_{\mu}(\mathbf{X}_j), &\text{for }i=j,\\
-w_{\mu}(\mathbf{X}_j), &\text{for }\mathbf{X}_i = \mathbf{X}_j+\mathbf{s}_\mu\\
-0, & \text{otherwise,}
+-\sum_{\mu =1}^{2N_{\rm c}} w_{\mu}(\mathbf{X}_j), &\textrm{for }i=j,\\
+w_{\mu}(\mathbf{X}_j), &\textrm{for }\mathbf{X}_i = \mathbf{X}_j+\mathbf{s}_\mu\\
+0, & \textrm{otherwise,}
 \end{array}\right. 
 \label{InfA}
 \end{equation}
@@ -256,9 +252,9 @@ and the feedback infinitesimal generator, $\mathbf{Bu}^{\mathcal{C}}$, of the co
 \begin{equation}
 [\mathbf{Bu^{\mathcal{C}}]}_{ij} = \left\{
 \begin{array}{rl}
-- N_{\rm c}{u}^{\mathcal{C}}(\mathbf{X}_j), &\text{for }i=j\\
-{u}^{\mathcal{C}}(\mathbf{X}_j), &\text{for }\begin{array}{ll}\mathbf{X}_i =\mathbf{X}_j + \mathbf{e}_{i_{\rm c}}, \\ \text{and } i_{\rm c} = 1,\ldots,N_{\rm c}\end{array},\\
-0, & \text{otherwise,}
+- N_{\rm c}{u}^{\mathcal{C}}(\mathbf{X}_j), &\textrm{for }i=j\\
+{u}^{\mathcal{C}}(\mathbf{X}_j), &\textrm{for }\begin{array}{ll}\mathbf{X}_i =\mathbf{X}_j + \mathbf{e}_{i_{\rm c}}, \\ \textrm{and } i_{\rm c} = 1,\ldots,N_{\rm c}\end{array},\\
+0, & \textrm{otherwise,}
 \end{array}\right.
 \label{InfB}x
 \end{equation}
@@ -269,8 +265,12 @@ For a given controller, the equilibrium distribution of the system ($\mathbf{P}^
 \mathbf{P}^*={\rm null}(\mathbf{A}+\textbf{Bu}^{\mathcal{C}}).\label{SSDist}
 \end{equation}
 
-\brian[Add a paragraph introducing the FSP truncation and include some justification.]
-Finite state projections are a powerful way to simulate master equation analysis which enables the assessment of simulation accuracy, but these simulations have challenges measuring the steady state of the system since all probability will always enter error at long enough time scales. To enable control of steady state systems, a truncated FSP which reflects probability back into the system enables this calculation.
+
+In principle, the master equation in Eq.\ \ref{CME} could contain an uncountably infinite number of states, and therefore the exact solution as well as the null vector in Eq.\ \ref{SSDist} may not be computable exactly.  To address this issue, we first truncate the system at a finite number for each species and then apply a reflecting boundary condition, resulting in a finite dimensional master equation. To assess the time interval over which this truncation is valid, we also solve the Finite State Projection\cite{Munsky:2006} for the same truncation, which allows us to compute an upper bound on the truncation error as a function of time. 
+
+\brian[We should use the FSP to compute the error of the truncation for a couple cases.  We can talk about how to do this when we meet.]
+
+%Finite state projections are a powerful way to simulate master equation analysis which enables the assessment of simulation accuracy, but these simulations have challenges measuring the steady state of the system since all probability will always enter error at long enough time scales. To enable control of steady state systems, a truncated FSP which reflects probability back into the system enables this calculation.
 
 \subsection{Quantification and optimization of control performance}\label{sec:Quantification}
 In the SIMO control of stochastic processes, a single input is applied simultaneously to all systems at once and a control signal that acts beneficially on one system destabilizes other systems. Stochastic SIMO control inputs which seek to control cells one-cell-at-a-time create increased instability and response variability in the other signals not being controlled.
@@ -280,13 +280,13 @@ To quantify performance success, we define the {\em steady state performance err
  \begin{equation}
  J = \mathbb{E}\{|\mathbf{X}-\mathbf{T}|_2\}.
  \end{equation}
-This score is calculated by applying a linear operator on steady state probability distribution $\mathbf{P}^*$ (Eq.\ \ref{SSDist}) as follows:
-\begin{align}
-J&= \lim_{t\rightarrow \infty}\mathbb{E}\{|\mathbf{X}(t)-\mathbf{T}|_2^2\}, \nonumber \\ 
+The squared score is easily calculated by applying a linear operator on steady state probability distribution $\mathbf{P}^*$ (Eq.\ \ref{SSDist}) as follows:
+\begin{eqnarray}
+J^2&= \lim_{t\rightarrow \infty}\mathbb{E}\{|\mathbf{X}(t)-\mathbf{T}|_2^2\}, \nonumber \\ 
 &=\sum_{i_1,i_2,\ldots} P^*(x_1=i_1,x_2=i_2,\ldots) \left[(i- T_1)^2 + (j- T_2)^2 +\ldots\right],\nonumber  \\
 &=\mathbf{C}\mathbf{P}^*,
 \label{Euclid}
-\end{align}
+\end{eqnarray}
 where $\mathbf{C}$ is simply a vector that contains the squared Euclidian distance of each state from the specified target T, i.e., $C_i = |\mathbf{X}_i-\mathbf{T}|_2^2$. 
 As a result of this calculation, $J$ is a non-negative scalar that is zero if any only if $\mathbf{P}^*$ is a delta distribution located exactly at the target vector $\mathbf{T}$.
 
@@ -299,26 +299,25 @@ We consider two controller designs: the fully aware controller ($\mathbf{u}^{FAC
 \end{equation}
 where $x_1$ and $x_2$ are discrete integers greater than or equal to zero that represent the number of proteins in cell one and cell two. 
 
-Optimization of $\mathbf{u}^{FAC}$ was performed using a gradient descent method to minimize $J$. This method requires calculating the negative gradient $-\frac{dJ}{d\mathbf{u}^{FAC}}$ and walking in a small step $du$ in that direction. The calculation of the gradient is given by
+Optimization of $\mathbf{u}^{FAC}$ was performed using a gradient descent method to minimize $J$. Since the square root is a monotonically increasing function, minimizing $J^2$ results in the same control as would minimizing $J$ directly. Therefore, we calculate the negative gradient $-\frac{d(J^2)}{d\mathbf{u}^{FAC}}$ and walking in a small step $du$ in that direction. The calculation of the gradient is given by
 \begin{equation}
-\frac{dJ}{d\mathbf{u}^{FAC}}=C \frac{dP}{d\mathbf{u}^{FAC}}
+\frac{d(J^2)}{d\mathbf{u}^{FAC}}=C \frac{dP}{d\mathbf{u}^{FAC}}
 \end{equation}
 Where $\frac{dP}{d\mathbf{u}^{FAC}}$ can be solved using general minimized residual calculation of
 \begin{equation}
 A \frac{dP}{d\mathbf{u}^{FAC}}=B \mathbf{u}^{FAC}
 \end{equation}
 to find $\frac{dP}{d\mathbf{u}^{FAC}}$.
-Optimization of $\mathbf{u}^{PAC}$ was done by restricting $\frac{dJ}{d\mathbf{u}^{FAC}}$ in ambient space to search a low dimensional subspace with a linear lift operator D. Then the subspace search is given by. 
+Optimization of $\mathbf{u}^{PAC}$ was done by restricting $\frac{d(J^2)}{d\mathbf{u}^{FAC}}$ in ambient space to search a low dimensional subspace with a linear lift operator D. Then the subspace search is given by. 
 \begin{equation}
-\frac{dJ}{d\mathbf{u}^{PAC}}=C \frac{dP}{d\mathbf{u}^{PAC}} = C D \frac{dP}{d\mathbf{u}^{FAC}}  
+\frac{d(J^2)}{d\mathbf{u}^{PAC}}=C \frac{dP}{d\mathbf{u}^{PAC}} = C D \frac{dP}{d\mathbf{u}^{FAC}}  
 \end{equation}
-Root mean squared error was calculated by taking the square root of the score.
-\begin{equation}
-RMSE=\sqrt{J}
-\end{equation}
-Since the square root is a monotonically increasing function, minimizing J is the same as minimizing RMSE. 
+%Root mean squared error was calculated by taking the square root of the score.
+%\begin{equation}
+%RMSE=\sqrt{J}
+%\end{equation}
 
-In \cite{May2021}, we optimized each of these two controllers to find the control laws $\mathbf{u}^{FAC}$ and $\mathbf{u}^{PAC}$ that minimize $J$ for a single target state $\mathbf{T} = [10,30]$, but in this work extend it to ant target point in the state space.
+In \cite{May2021}, we optimized each of these two controllers to find the control laws $\mathbf{u}^{FAC}$ and $\mathbf{u}^{PAC}$ that minimize $J^2$ for a single target state $\mathbf{T} = [10,30]$, but in this work extend it to any target point in the state space.
 
 
 \subsection{Scaling for system granularity}\label{sec:Scaling}
@@ -339,10 +338,10 @@ To apply this granularity parameter, we assume that each propensity function, $w
 w'(\mathbf{X})=w(\mathbf{X}/\alpha).
 \end{equation}
 For example, the production and degradation of protein in cell one would become:
-\begin{align}
+\begin{eqnarray}
 w'_1(\mathbf{X}) &= u(\mathbf{X}/\alpha,t)  + \kappa \frac{(x_1/\alpha)^\eta}{(x_1/\alpha)^{\eta}+\beta^{\eta}} + k_0 \nonumber \\
  w'_2(\mathbf{X}) &= \gamma x_1/\alpha.
-\end{align}
+\end{eqnarray}
 We note that in order to reuse a control law that has been defined for one level granularity and apply it to a system at another level of granularity, the inputs to the controller must also be scaled by $1/\alpha$ before computing the  control level assigned to the current state, e.g., ${u}^{\mathcal{C}} = {u}^{\mathcal{C}}(\mathbf{X}/\alpha)$. Because identification of the original control formulation, $\mathbf{u}^{FAC}(x_1,x_2)$ and $\mathbf{u}^{PAC}(x_1)$ only considered integer values for $(x_1,x_2)$, control signal values at fractional state values after rescaling $(x_1/\alpha,x_2/\alpha)$ are calculated using 2D cubic interpolation from the control values at the nearest integer state values.
 %\begin{equation}
 %u'=u(x_0 / \alpha, x_1 / \alpha) 
@@ -351,11 +350,11 @@ We note that in order to reuse a control law that has been defined for one level
 %u'=u(\alpha x_0)
 %\end{equation}
 Finally, to provide a consistent metric for relative scoring, the definition of the performance score is also adjusted according to scale magnitudes. For example, in the two cell system the new steady state performance error would become:
-\begin{align}
+\begin{eqnarray}
 (J^2)' &= \sum_{i=0}^{M'}  \sum_{j=0}^{M'}P^*(x_1=i,x_2=j) ((i/\alpha - \mathbf T_1)^2 + (j/\alpha -\mathbf T_2)^2),\nonumber \\
 & =\mathbf{C}'\mathbf{P}^*.
 \label{EuclidV}
-\end{align}
+\end{eqnarray}
 We reiterate that the system parameters and control law were defined and fixed using the the base granularity ($\alpha=1$), and these are not recomputed or refit upon changing the system granularity.
 
 \subsection{Observation and actuation time delays}\label{sec:Delay}
@@ -369,8 +368,8 @@ Using this information, the time-delayed control signal at time $t$ can be speci
 \begin{equation}
 u_{\tau}(t)=\left\{
 \begin{array}{rl}
-      0 ,&\text{ for }  t \leq \tau, \\
-      {u}^{\mathcal{C}}(x_1(t-\tau), x_2(t-\tau)) , &\text{ for }   t > \tau,\\
+      0 ,&\textrm{ for }  t \leq \tau, \\
+      {u}^{\mathcal{C}}(x_1(t-\tau), x_2(t-\tau)) , &\textrm{ for }   t > \tau,\\
 \end{array}\right. 
 \label{timeDelaySSA}
 \end{equation}
@@ -394,7 +393,8 @@ Because optimizing the control law for a static set point as described in Sectio
 Extending these calculations to optimize controllers for a dynamically moving set point is much harder and would likely require intractable numerical simulation or development of new mathematical approaches that are beyond the scope of the current study. 
 To circumvent this challenge, we instead propose a simple alternative to sweep though a set of controllers over time which target different static points in piecewise fashion to mimic a dynamically moving path.
 
- We start by describing a path $\bf{p}_n(x)$ in state space which walks over a two dimensional path in a discrete number of steps. Then, optimize a controller $\bf{c}_n(x)$for each target point and cycling through the controllers over time to create $\mathbf{r}(x,t)$.
+ We start by describing a path $\bf{p}_n(x)$ in state space which walks over a two dimensional path in a discrete number of steps.
+  Then, we optimize controllers $\bf{c}_n(x)$for each target point and cycling through the controllers over time to create $\mathbf{r}(x,t)$.
 Let  $\bf{p}_n(x)$ be a path taken in $n$ steps, given by
 \begin{equation}
 \bf{p}_n(x)=[p_1,...,p_n]
@@ -413,13 +413,13 @@ where $T$ is the cycling period, $f$ the cycling frequency and $n$ the number of
 \mathbf{r}(\mathbf{x},t)=\bf{c}_{i(t)}(x)
 \end{equation}
 Where $\mathbf{r}(\mathbf{x},t)$ is a function of state and time. This arbitrary form of $\mathbf{r}(\mathbf{x},t)$, enables cycling through controllers along different paths at different frequencies.
+ \brian[This is not clear.  Please re-write carefully and think about what the reader needs to know to understand and reproduce the method.]
+
+
 \section{Results}
 
-\brian[Add a paragraph or two to explain the big picture here.  Use figure 1 to remind the reader of (1) the control goals, (2) the control law, (3) the resulting distributions, (4) the objective function and (5) the optimization of the control law to minimize the error.  Refer to the methods for each such calculation.  This section is critical to make sure the reader understands what is coming next.  Then provide an outline of the remaining subsections of the results section so that the reader knows what to expect.]
-
-We developed a method to create a noise-exploiting controller by taking full advantage of master equation analysis. This method uses non-linearity in a model, feedback control of the system and the exploitation of noise to optimize a Markovian controller which minimizes the expected squared Euclidian distance from the target position. Despite the advantages of full master equation analysis, good control of stochastic systems would ideally be resistant to parameter variability from heterogenous cell populations, time delay in controller actuation, and robust to systems with intrinsically more or less noise. To answer these questions, we will examine how parameter changes, time delay, and system scale influence the control performance of the controllers.
-Then, we extend these analyses to control a dynamically moving set point which changes its phase and frequency. 
-
+We developed a method to create a noise-exploiting controller by taking full advantage of master equation analysis. This method uses non-linearity in a model, feedback control of the system and the exploitation of noise to optimize a Markovian controller which minimizes the expected squared Euclidian distance from the target position. Despite the advantages of full master equation analysis, good control of stochastic systems would ideally be resistant to parameter variability from heterogenous cell populations, time delay in controller actuation, and robust to systems with intrinsically more or less noise. To answer these questions, in the following subsections, we examine how parameter changes (e.g., incorrect models or extrinsic noise), time delays, and mismatches between system and models scale influence the performance of the controllers.
+Then, we extend these analyses to control a dynamically moving set point that seeks to control different identical cells to achieve different fluctuation phases and frequencies. 
 
 \subsection{Stochastic SIMO Optogenetic Control can Remain Effective Despite Small Parameter Errors or Extrinsic Uncertainties}
 \begin{figure*}
