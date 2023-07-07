@@ -418,6 +418,8 @@ Where $\mathbf{r}(\mathbf{x},t)$ is a function of state and time. This arbitrary
 
 \section{Results}
 
+\brian[{\bf We still need this.} Add a paragraph or two to explain the big picture here.  Use figure 1 to remind the reader of (1) the control goals, (2) the control law, (3) the resulting distributions, (4) the objective function and (5) the optimization of the control law to minimize the error.  Refer to the methods for each such calculation.  This section is critical to make sure the reader understands what is coming next.  Then provide an outline of the remaining subsections of the results section so that the reader knows what to expect.]
+
 We developed a method to create a noise-exploiting controller by taking full advantage of master equation analysis. This method uses non-linearity in a model, feedback control of the system and the exploitation of noise to optimize a Markovian controller which minimizes the expected squared Euclidian distance from the target position. Despite the advantages of full master equation analysis, good control of stochastic systems would ideally be resistant to parameter variability from heterogenous cell populations, time delay in controller actuation, and robust to systems with intrinsically more or less noise. To answer these questions, in the following subsections, we examine how parameter changes (e.g., incorrect models or extrinsic noise), time delays, and mismatches between system and models scale influence the performance of the controllers.
 Then, we extend these analyses to control a dynamically moving set point that seeks to control different identical cells to achieve different fluctuation phases and frequencies. 
 
@@ -436,7 +438,7 @@ To asses the control performance under such parameter errors, we performed sensi
 For each parameter, both the $\mathbf{u}^{\rm FAC}$ and $\mathbf{u}^{\rm PAC}$ controllers were examined across a parameter perturbation range from one-tenth to ten-fold of the original values.
 Figure \ref{Parameter}A shows the results for these parameter sweeps when a single parameter in Cell 1 is varied (all other parameters are fixed), and Fig.\ \ref{Parameter}B shows the control performance as single parameters in Cell 2 is varied. 
 Finally, \ref{Parameter}B shows the performance change when a single parameter is changed simultaneously in both Cell 1 and Cell 2 at the same time while keeping other parameters fixed.
-In each case the baseline parameters is denoted as a vertical dashed line, and lower values of the RMSE ( Eq. \ref{XXX}) denote improved performance. 
+In each case the baseline parameters is denoted as a vertical dashed line, and lower values of J (Eq. \ref{XXX}) denote improved performance. 
 Solid lines are used to show the performance using the fully aware controller (FAC) that has access to both cells, and the dashed lines show the performance for the partially aware controller (PAC) that only has access to Cell 1.
 
 Modification of parameters was found to produce a broad range of effects. 
