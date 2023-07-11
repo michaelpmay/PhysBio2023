@@ -297,7 +297,7 @@ We consider two controller designs: the fully aware controller ($\mathbf{u}^{FAC
 \begin{equation}
 \mathbf{u}^{PAC}=u(x_2),
 \end{equation}
-where $x_1$ and $x_2$ are discrete integers greater than or equal to zero that represent the number of proteins in cell one and cell two. 
+where $x_1$ and $x_2$ are discrete integers greater than or equal to zero that represent the number of proteins in cell one and cell two. Despite their differences in their observation data, both the FAC and the simpler PAC are optimized to achieve the same goal, namely to drive both cells to their respective set points.
 
 Optimization of $\mathbf{u}^{FAC}$ was performed using a gradient descent method to minimize $J$. Since the square root is a monotonically increasing function, minimizing $J^2$ results in the same control as would minimizing $J$ directly. Therefore, we calculate the negative gradient $-\frac{d(J^2)}{d\mathbf{u}^{FAC}}$ and walking in a small step $du$ in that direction. The calculation of the gradient is given by
 \begin{equation}
@@ -334,7 +334,7 @@ For example, when analyzing discrete stochastic chemical kinetics, it is common 
 Similarly, measurements are also always inexact and in many cases may only provide information about relative changes -- for example, although fluorescent proteins usually cannot be counted exactly, one may reasonably assume that a cell's total fluorescence intensity varies linearly with the fluorescent protein concentration. 
 To explore how mismatches in assumed system scale (e.g., arising from model approximations or relative measurements) affect the controllability of the cellular process, we define a granularity parameter ($\alpha=M'/M$) that linearly scales each species' population to increase ($\alpha>1$) or decrease ($\alpha<1$), while maintaining the dynamics and general behavior of the model. 
 To apply this granularity parameter, we assume that each propensity function, $w_{\mu}$ (Eqns.\ \ref{Props}) is rescaled to a different level of discreteness by substituting
-\begin{equation}
+\begin{equation}\label{eq:granscale}
 w'(\mathbf{X})=w(\mathbf{X}/\alpha).
 \end{equation}
 For example, the production and degradation of protein in cell one would become:
@@ -448,7 +448,18 @@ In other cases (such as for the promoter leakage rate, $k_0$), the effect of par
 Figure \ref{Parameter}C shows that even when parameters of both Cell 1 and Cell 2 are jointly changed, these changes could also improve or detract from control performance. 
 In particular, the analysis shows that control performance could be improved by modifying the system design either to increase the auto-regulation promoter strength ($\kappa$) or its cooperativity ($\eta$) or to decrease the promoter binding constant ($\beta$) or the protein degradation rate ($\gamma$). 
 
-\subsection{Effects of changes to system granularity}
+\subsection{Controllers trained using one assumed level of granularity can remain effective at other levels of granularity.}
+
+We next explored how the granularity of the system would affect the differential control of the process. Specifically, we define the level of granularity using the parameter $\alpha$ as described in Section \ref{sec:Scaling} and which affects the propensity functions and scoring according to equations \ref{eq:granscale}-\ref{EuclidV}. Effectively, larger $\alpha$ corresponds to systems where larger numbers of individual molecules are needed to achieve the same concentration (e.g., larger volumes), while smaller $\alpha$ corresponds to smaller population sizes (e.g., smaller volumes). We optimized the controller based on a the default assumption that $\alpha=1$, and we wished to know what would be the consequences if this same controller were to be applied to a system that has a different granularity. 
+
+To explore this tradeoff, control performance scores for the $\mathbf{u}^{\rm FAC}$ and $\mathbf{u}^{\rm PAC}$ controllers were calculated at different levels of granularity ($\alpha$) between 0.2 and 2.0.  Figure \ref{Volume} (A - F) shows the joint probability distributions (left plots) and marginal probability distributions (right plots) of the system at a low granularity ($\alpha=0.2$), the original granularity ($\alpha=1.0$), and at an increased granularity ($\alpha=2.0$). 
+
+As the system increases, the scale the size of the dynamics of the system becomes stretched over a larger region in state space. 
+This effect can be observed in the smoothness of C with respect to A despite using the same system and the same controller. 
+\brian[the previous two sentences do not make sense to me.]
+
+The effect that granularity has on the control performance depends on two competing phenomena: First, because the controller was optimized for one granularity ($\alpha = 1$), one would expect that the controller would become worse if that granularity were in correct. However, at large granularity, we find that the opposite is true - the controller actually improves when applied to an incorrect model. The reason for this potentially surprising result, is that relative amplitude of stochastic fluctuations (i.e., the standard deviation divided by the mean) in a chemical process decrease with the inverse square root of the process scale \cite{Kampen1961}. At an extreme, as the system size increases, the dynamics converge towards a deterministic process, except for certain exceptional initial conditions lying on manifolds that separate different steady state behaviors \cite{XXX}. This creates a tradeoff in noise-induced control, where noise enables differential control but is also deleterious to maintaining desired states once they have been achieved. 
+
 \begin{figure*}[t!]
 \begin{center}
 \includegraphics[width=1\textwidth]{Granularity.pdf}
@@ -458,20 +469,8 @@ In particular, the analysis shows that control performance could be improved by 
 \end{center}
 \vspace{-0.2in}
 \end{figure*}
-% XXX - This figure needs larger fonts for all the labels and axes. 
-% MMM - made the change
-% Update panel letters as written in caption
-% Add tic marks to left side of the A and C heat maps
-Stochastic fluctuations in a chemical process decrease with the inverse square root of the process scale \cite{Kampen1961}. As the system size increases, the dynamics converge towards a deterministic process, except for certain exceptional initial conditions lying on manifolds that separate attractors for different steady state behaviors \cite{XXX}. This creates a tradeoff in noise-induced control, where noise enables differential control but is also deleterious to maintaining desired states once they have been achieved. The impact of reducing noise through increased system granularity on control performance remains unclear.
-
-To gain insight on this tradeoff, control performance scores for the $\mathbf{u}^{\rm FAC}$ and $\mathbf{u}^{\rm PAC}$ controllers were calculated at different levels of granularity ($\alpha$) between 0.2 and 2.0. 
-% XXX - Why only go up to 2?  Did it become intractable?
-% MMM - Non_Sparse Calculations are intractible after 2, but sparse versions of code will work fine
-Figure \ref{Volume} (A - F) shows the joint probability distributions (left plots) and marginal probability distributions (right plots) of the system at low granularity ($\alpha=0.2$), original granularity ($\alpha=1.0$), and increased granularity ($\alpha=2.0$). As the system increases, the scale the size of the dynamics of the system becomes streched over a larger region in state space. This effect can be observed in the smoothness of C with respect to A despite using the same system and the same controller. 
 
 The noise reducing effect of granularity also improves the control performance of both controllers. Figure \ref{Volume}G shows the trend of the performance versus alpha for both the FAC (solid cyan line) and the PAC (solid magenta line) controller. This improvement in performance appears to approach a small value as the granularity goes to infinity, but since the size of the FSP increases with the square of the system size, systems much larger than $\alpha$=2 (where $\mathbf{A}_0\in \mathbb{R}^{10^4\times10^4}$) become more difficult to calculate. 
-% XXX - I would think you should be able to compute larger values of 10^6.  They would be slow, but should be doable in a few minutes per calculation.
-% MMM - constructing the FSP takes longer than solving it
 To bypass this limit in the FSP, sixteen SSA simulations were used to sample the CME of a system with a much larger volume of $\alpha$=100. Each SSA was ran for $5\times10^7$ minutes and only the last $4\times10^7$ minutes were sampled to estimate the stationary distribution and the calculate the performance score. The performance score estimates of this high granularity SSA using the FAC and PAC were 4.13 and 27.5 respectively, which are plotted as dashed lines in Fig.\ \ref{Volume}G. Although it is unclear if further performance improvements could be obtained with further increases to the system scale, for all cases considered so far, we found that both controllers monotonically improved with increased $\alpha$ and that $\mathbf{u}^{\rm FAC}$ always outperforms the $\mathbf{u}^{\rm PAC}$. 
 
 The last property of system scale is the extended time dynamics. Fig \ref{Volume}(H) shows the time taken for control performance to reach steady state as $\alpha$ increases, we can see the control performance floor decrease due to lower intrinsic noise but the time scale taken to reach steady state increases with $\alpha$.
