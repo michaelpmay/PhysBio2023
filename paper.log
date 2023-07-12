@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  12 JUL 2023 09:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  12 JUL 2023 11:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -294,10 +294,10 @@ ion: found PDF version <1.6>, but at most version <1.5> allowed
 <Frequency.pdf, id=442, 781.2588pt x 573.41731pt>
 File: Frequency.pdf Graphic file (type pdf)
 <use Frequency.pdf>
-Package pdftex.def Info: Frequency.pdf  used on input line 569.
+Package pdftex.def Info: Frequency.pdf  used on input line 568.
 (pdftex.def)             Requested size: 446.39996pt x 327.63873pt.
 [21] [22 <./Frequency.pdf>]
-Underfull \hbox (badness 2343) in paragraph at lines 594--595
+Underfull \hbox (badness 2343) in paragraph at lines 596--597
 []\OT1/cmr/m/n/12 Time delay analysis showed that increasing time delay decreas
 ed control
  []
@@ -305,9 +305,6 @@ ed control
 [23] [24] (./paper.aux)
 
 LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
@@ -337,7 +334,7 @@ texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2020/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2020/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2020/texm
 f-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on paper.pdf (24 pages, 1217885 bytes).
+Output written on paper.pdf (24 pages, 1218272 bytes).
 PDF statistics:
  554 PDF objects out of 1000 (max. 8388607)
  315 compressed objects within 4 object streams

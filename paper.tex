@@ -574,17 +574,16 @@ and Figs.\ \ref{CR}(B2, C2, and D2) show the time-averaged error distribution fo
 \end{figure*}
 
 %Slowly responding systems driven at high frequency often exhibit poor control performance which improves as the driving frequency matches the time scale of the system.  The combination of both frequency driving and noise could be catastrophic for system control performance. 
-A given control system generally cannot effectively respond to reference signals that change faster that the system's natural time scale. Since we saw previously that increasing granularity ($\alpha$) improves steady state control performance (Fig.\ \ref{Time}G) but also lengthens the systems time scale (Fig.\ \ref{Time}H), one should expect that granularity would also affect the types and speeds of signals to which the system can respond.
-To examine how driving frequency and system scale affects control performance, 64 SSA trajectories of the phase-separated dynamic controller were simulated over a two dimensional domain of points $(\alpha,f)$ for 16 cycles after reaching steady state. For each $(\alpha,f)$ pair, the average RMSE of the steady state trajectories were calculated.
+In general, a given control system cannot effectively track a reference signal that changes faster that the system's natural time scale. Since we saw previously that increasing granularity ($\alpha$) improves steady state control performance (Fig.\ \ref{Time}G) but also lengthens this time scale (Fig.\ \ref{Time}H), one should expect that granularity would also affect the types and speeds of signals to which the system can respond.
+To examine how driving frequency and system scale affects control performance, 64 or 128 SSA trajectories of the phase-separated dynamic controller were simulated over a two dimensional domain of points $(\alpha,f)$ for 16 or 32 cycles after reaching steady state. Figure \ref{CRG}(A) shows the desired reference signal for the system, and Fig \ref{CRG}(B) shows the mean of the system response when the frequency is $f=10^{-4}$ \brian[Need units] and the granularity is $\alpha = 4.0$.  Figure \ref{CRG}(C) shows the corresponding control performance over normalized periodic time as $\alpha$ is held at $4.0$ and $f$ is increased from $f=10^{-4}$ \brian[Units] to $f=10^{-2}$ \brian[Units] to $f=10^{-0}$ \brian[Units] leading to average control performances of 6.2, 16.1, and 15.0 respectively. 
+Figure \ref{CRG}D,E extends this analysis to plot the average control performance over different combinations of $\alpha$ and $f$. 
+%RMSE control performance of 128 simulations were simulated over a range of frequency between $10^-3$ and $10^-1$ Fig \ref{CRG}(D) for 32 cycles to obtain a better measurement of the true RMSE Fig \ref{CRG}(D) at $\alpha=2.0$, $\alpha=4.0$, and $\alpha=8.0$. 
+In particular, the heat map of control performance over $(f,\alpha)$ shows that the worst performance occurs at moderate $f$ near $f=10^{-2}$ and that control performance is best when granularity is high and frequency is low.
+ When examining poorly performing trajectories at moderate frequencies, a phase lag was observed in the system. In this case, although the qualitative form of the response may match to the reference signal, this phase lag resulted in worse RMSE than no controller at all.  At very large frequencies, the effect of the fast fluctuating control input is averaged, and the system barely responds. 
 
+\brian[ try adding the line at $f = 1/tau_c =  \gamma/(0.7*\alpha)$ to this plot.  Does it match the contours separating good and poor control?]
 
-%Brian got here
-
-
-Fig \ref{CRG}(A) shows the desired signal of a system when $\alpha = 4.0$, and Fig \ref{CRG}(B) shows the mean of the system response when $f=10^{-4}$. Fig \ref{CRG}(C) Shows control performance over normalized periodic time as $\alpha$ is held at $4.0$ and $f$ increases from $f=10^{-4}$ to $f=10^{-2}$ to $f=10^{-0}$ with an average RMSE of 6.2, 16.1, and 15.0 respectively. Heat maps of control performance over $(\alpha,f)$ pairs can be seen in Fig \ref{CRG} (D). RMSE control performance of 128 simulations were simulated over a range of frequency between $10^-3$ and $10^-1$ Fig \ref{CRG}(D) for 32 cycles to obtain a better measurement of the true RMSE Fig \ref{CRG}(D) at $\alpha=2.0$, $\alpha=4.0$, and $\alpha=8.0$. 
-
-Heat maps of control performance over $(f,\alpha)$ pairs showed the worst performance at moderate $f$ near $f=10^{-2}$ and that control performance was best when both granularity was high and frequency was low. When examining poorly performing trajectories from moderate frequencies, a phase lag was observed in the system, while at very large frequencies the system did not respond at all. This phase las resulted in worse RMSE than no response at all.  Since the RMSE of the system at $\alpha=4$ is less than the RMSE of the $\alpha=1$ system, control performance improved with $\alpha$. 
-
+\brian[Go through every figure and make sure that the units are shown and that they are correct. If quantities are unitless, make sure that the form of the normalization is clearly expressed.]
 
 \section{Conclusion}
 
