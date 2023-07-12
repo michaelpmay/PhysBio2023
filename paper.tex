@@ -340,7 +340,7 @@ w'(\mathbf{X})=w(\mathbf{X}/\alpha).
 For example, the production and degradation of protein in cell one would become:
 \begin{eqnarray}
 w'_1(\mathbf{X}) &= u(\mathbf{X}/\alpha,t)  + \kappa \frac{(x_1/\alpha)^\eta}{(x_1/\alpha)^{\eta}+\beta^{\eta}} + k_0 \nonumber \\
- w'_2(\mathbf{X}) &= \gamma x_1/\alpha.
+ w'_2(\mathbf{X}) &= \gamma x_1/\alpha. \label{eq:rescaling}
 \end{eqnarray}
 We note that in order to reuse a control law that has been defined for one level granularity and apply it to a system at another level of granularity, the inputs to the controller must also be scaled by $1/\alpha$ before computing the  control level assigned to the current state, e.g., ${u}^{\mathcal{C}} = {u}^{\mathcal{C}}(\mathbf{X}/\alpha)$. Because identification of the original control formulation, $\mathbf{u}^{FAC}(x_1,x_2)$ and $\mathbf{u}^{PAC}(x_1)$ only considered integer values for $(x_1,x_2)$, control signal values at fractional state values after rescaling $(x_1/\alpha,x_2/\alpha)$ are calculated using 2D cubic interpolation from the control values at the nearest integer state values.
 %\begin{equation}
@@ -502,7 +502,7 @@ Figure \ref{Time} shows the joint distributions (left) and marginal distribution
 
 \brian[What are the units in Figure 4G?]
 
-This data show that time delays exceeding $0.07 / \gamma = 0.0142$ minutes is detrimental to the FAC control performance while delays beyond $0.2 / \gamma = 0.0406$ minutes are detrimental to the PAC controller. The choice of best controller depends on the level of time delay in the system. At extreme time delays, both controllers lose their asymmetry, resulting in significantly worse scores ($J = 1041$ and $931$). The control performance of a no-feedback controller was measured which required no inputs Figure\ref{Time}(G) (red line) and achieved a score of $J = 402$. These findings indicate that, for large time delays, attempting to improve control with feedback is less effective than using a no-feedback approach.
+This data show that time delays exceeding $\tau_c^{\rm FAC} = 0.07 / \gamma = 0.0142$ minutes is detrimental to the FAC control performance while delays beyond $\tau_c^{\rm PAC} = 0.2 / \gamma = 0.0406$ minutes are detrimental to the PAC controller. \brian[Check these times.] The choice of best controller depends on the level of time delay in the system. At extreme time delays, both controllers lose their asymmetry, resulting in significantly worse scores ($J = 1041$ and $931$). The control performance of a no-feedback controller was measured which required no inputs Figure\ref{Time}(G) (red line) and achieved a score of $J = 402$. These findings indicate that, for large time delays, attempting to improve control with feedback is less effective than using a no-feedback approach.
 
 % XXX - This figure needs much larger fonts for all the labels and axes.
 % MMM - Did the change
@@ -521,15 +521,10 @@ This data show that time delays exceeding $0.07 / \gamma = 0.0142$ minutes is de
 \vspace{-0.2in}
 \end{figure*}
 
-
-% Brian got here.
-
-By increasing the granularity $\alpha$ we can change the characteristic of a system from being more noise-like to more deterministic-like. Similarly, increasing $\tau$ can decrease the quality of the control input. Generally, we would expect that increasing $\alpha$ would improve control performance, while increasing $\tau$ would decrease control performance. Therefore, joint changes in $\tau$ and $\alpha$ might reveal how the positive effect of system scale might be undone by the negative effect of time delay.
-
-FAC steady state control performance was analyzed over a two dimensional domain of points $(\tau,\alpha)$ using thirty-two stochastic simulations simulated to steady state to see if the positive effect granularity could undo the effect of negative effect of time delay. Instead, noise induced oscillations were surprisingly found at certain $(\tau,\alpha)$ pairs and worse control performance was observed when system granularity increase for some $\tau$.  Joint probability distributions at certain $(\tau,\alpha)$ pairs and their control performance can be seen in Fig \ref{DG}(A-I). Control performance measured by RMSE increased as $\alpha$ increased when $\tau=100$ but not at $\tau=1$. FAC control performance Fig \ref{DG}(J) over the domain of points shows a valley region at low $\tau$, and a plateau region at large $\tau$. This suggests that increasing system scale at large time delays is not beneficial to control performance.  Trajectories at the edge of the valley Fig \ref {DG}(J)(yellow star) showed oscillatory behavior Fig \ref {DG}(K) and trajectories within the plateau show bursty behavior. 
-
-The control performance domain Fig \ref{DG}(J) shows that low noise and high quality control inputs are both required to achieve good control. When noise is improved by increasing $\alpha$ the trajectories were observed going from very noisy to very oscillating which prevented improved control performance. Decreases in $\alpha$ should make the system respond faster and be less susceptible to time delay, but also more noisy. These competing effects in control performance can be observed in Fig \ref{DG}(J) which show that control performance is always poor at low $\alpha$.
-
+As discussed in the previous section, increasing the granularity of the system $\alpha$ reduces the randomness to improve the steady state performance but at the cost of slowing down the controller response.  To explore the joint effects of time delays and granularity, Fig,\ \ref{DG}J shows the FAC steady state control performance as a function of the time delay and system granularity $(\tau,\alpha)$ using thirty-two stochastic simulations simulated to steady state at each combination. Control performance errors measured by RMSE improved as $\alpha$ increased when the delays were small ($\tau=1$ and $\tau=10$) but not when $\tau=100$. 
+\brian[What are the units of tau in fig 5?  This section is confusing in that it is not clear to me how tau and gamma are changing relative to one another when alpha is changed. From Eq 21 it seems that gamma changes with 1/alpha.  If this is correct, does that mean that the critical time changes with $\tau_c = 1/gamma = alpha/gamma ~= 5*alpha$?  If you plot that as a thick dashed dark line in Fig 5J,  would it match to the contours? ]
+Recalling that under the system granularity rescaling (Eq.\ \ref{eq:rescaling}), as $\alpha$ changes, the effective degradation rate scales according to $\gamma' = \gamma/\alpha$.  Therefore, the critical limit for the delays should also change with the system scale according to $\tau_c^{\rm FAC} = 0.07\alpha/\gamma = XXX\alpha$. Fig \ref{DG}(J) depicts this critical line and shows that as the time delay approaches and then exceeds this level, the steady state performance become dramatically worse. 
+Finally, to understand the model of failure at these longer delays, it is interesting to examine trajectories induced by the controller just above this critical delay. For parameter set denoted by the yellow start in Fig.\ \ref {DG}(J), Fig.\ \ref {DG}(K) shows the controlled response after a long burn in period to achieve steady state. In this case, the application of feedback after a delay leads to a strong oscillatory behavior and worse performance than that achieved without any control at all. This observation further stresses the importance of considering time delays when designing such controllers.
 
 \begin{figure*}
 \begin{center}
@@ -540,6 +535,8 @@ The control performance domain Fig \ref{DG}(J) shows that low noise and high qua
 \end{center}
 \vspace{-0.2in}
 \end{figure*}
+
+\subsection{With noise-induced control, a single input can drive multiple cells to follow different temporal trajectories.}
 
 We analyzed the control performance over a domain of target points to find if some regions are easier to control than others. Stability analysis of the auto-regulated system using a moderate light input can create up to four stable points and one unstable point in the state space.  These points give rise to basins which may attract probability more easily than other points. Control performance of the stochastic system was analyzed over a domain of different set points and were optimized using more observable (FAC) or less observable (PAC) control.
 
