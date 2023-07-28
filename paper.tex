@@ -55,6 +55,7 @@
 \begin{document}
 
 \def\brian[#1]{{\color{red} #1 }}
+\def\michael[#1]{{\color{green} #1 }}
 
 \title[Heterogeneous Control of Cell Differentiation Dynamics]{Exploiting Intrinsic Noise to Achieve Heterogeneous Control of Cell Differentiation Dynamics in the Presence of Time Delays, Model Uncertainties, and Extrinsic Variability}
 \maketitle
@@ -269,7 +270,7 @@ For a given controller, the equilibrium distribution of the system ($\mathbf{P}^
 In principle, the master equation in Eq.\ \ref{CME} could contain an uncountably infinite number of states, and therefore the exact solution as well as the null vector in Eq.\ \ref{SSDist} may not be computable exactly.  To address this issue, we first truncate the system at a finite number for each species and then apply a reflecting boundary condition, resulting in a finite dimensional master equation. To assess the time interval over which this truncation is valid, we also solve the Finite State Projection\cite{Munsky:2006} for the same truncation, which allows us to compute an upper bound on the truncation error as a function of time. 
 
 \brian[We should use the FSP to compute the error of the truncation for a couple cases.  We can talk about how to do this when we meet.]
-
+\michael[ok!]
 %Finite state projections are a powerful way to simulate master equation analysis which enables the assessment of simulation accuracy, but these simulations have challenges measuring the steady state of the system since all probability will always enter error at long enough time scales. To enable control of steady state systems, a truncated FSP which reflects probability back into the system enables this calculation.
 
 \subsection{Quantification and optimization of control performance}\label{sec:Quantification}
@@ -285,7 +286,7 @@ The squared score is easily calculated by applying a linear operator on steady s
 J^2&= \lim_{t\rightarrow \infty}\mathbb{E}\{|\mathbf{X}(t)-\mathbf{T}|_2^2\}, \nonumber \\ 
 &=\sum_{i_1,i_2,\ldots} P^*(x_1=i_1,x_2=i_2,\ldots) \left[(i- T_1)^2 + (j- T_2)^2 +\ldots\right],\nonumber  \\
 &=\mathbf{C}\mathbf{P}^*,
-\label{Euclid}
+\label{Euclid} 
 \end{eqnarray}
 where $\mathbf{C}$ is simply a vector that contains the squared Euclidian distance of each state from the specified target T, i.e., $C_i = |\mathbf{X}_i-\mathbf{T}|_2^2$. 
 As a result of this calculation, $J$ is a non-negative scalar that is zero if any only if $\mathbf{P}^*$ is a delta distribution located exactly at the target vector $\mathbf{T}$.
@@ -393,28 +394,39 @@ Because optimizing the control law for a static set point as described in Sectio
 Extending these calculations to optimize controllers for a dynamically moving set point is much harder and would likely require intractable numerical simulation or development of new mathematical approaches that are beyond the scope of the current study. 
 To circumvent this challenge, we instead propose a simple alternative to sweep though a set of controllers over time which target different static points in piecewise fashion to mimic a dynamically moving path.
 
- We start by describing a path $\bf{p}_n(x)$ in state space which walks over a two dimensional path in a discrete number of steps.
-  Then, we optimize controllers $\bf{c}_n(x)$for each target point and cycling through the controllers over time to create $\mathbf{r}(x,t)$.
-Let  $\bf{p}_n(x)$ be a path taken in $n$ steps, given by
+ We start by describing a discrete path  of target points in state space which cycle at fixed frequency.
+  Then, we optimize controllers for each target point and cycling through the controllers over time to create the final controller $\mathbf{R}(\mathbf{x},t)$.
+Let $\mathbf{p}(t)$ be a continuous and cyclicly moving point in state space
 \begin{equation}
-\bf{p}_n(x)=[p_1,...,p_n]
+\mathbf{p(t)}=[x_1(t),x_2(t)]
 \end{equation}
-where each $p_i$ is a pair of points on a 2D domain and $\bf{p}_n$ is a set of point pairs. Then, we optimize a set of controllers for each pair in the path.
+where $x_1(t)$, and $x_2(t)$ are both cyclic functions of time $\in \mathbf{R}$.
+Then, $\mathbf{q}$ is a collection of points $q_i$ which evaluate the cyclic function over its natural period (T) in n steps. 
 \begin{equation}
-\bf{c}_n(x)=[c_1,...,c_n]
+\mathbf{q}=[q_1,\ldots ,q_n]=[\mathbf{p}(t_1),\ldots,\mathbf{p}(t_n)]
 \end{equation}
-where each $\mathbf{c}_i$ is a matrix of control inputs which targets $\bf{p}_i(x)$.
-Then, we cycle through each controller at a fixed frequency by changing the controller index over time. The indexing function is given by 
+where each $t_i$ comes from linearly spaced points between $0$ and $T$, in $n$ steps 
 \begin{equation}
-i(t)=\lceil \frac{n}{T} mod(t,T)\rceil = \lceil n \ f \ mod(t,\frac{1}{f})\rceil
+t_i = [t_1,\ldots,t_n]=[0,\frac{1}{n} T,\ldots,\frac{n}{n}T]
 \end{equation}
-where $T$ is the cycling period, $f$ the cycling frequency and $n$ the number of points in the path. Then the cycling controller can be created by 
- \begin{equation}
-\mathbf{r}(\mathbf{x},t)=\bf{c}_{i(t)}(x)
+Then, we optimize a set of controllers which target each $q_i$ in the discretized path.
+\begin{equation}
+\mathbf{U}_i(x)=[\mathbf{u}_1(\mathbf{x}),...,\mathbf{u}_n(\mathbf{x})]
 \end{equation}
-Where $\mathbf{r}(\mathbf{x},t)$ is a function of state and time. This arbitrary form of $\mathbf{r}(\mathbf{x},t)$, enables cycling through controllers along different paths at different frequencies.
- \brian[This is not clear.  Please re-write carefully and think about what the reader needs to know to understand and reproduce the method.]
+where $\mathbf{U}_i(x)$
 
+Then, we cycle through each controller at a fixed frequency by using a function which the cycles the controller index ($\phi(t)$) over time. \begin{equation}
+\phi(t)=\lceil \frac{n}{T} mod(t,T)\rceil = \lceil n \ f \ mod(t,\frac{1}{f})\rceil
+\end{equation}
+where $f$ the cycling frequency given by $1/T$. Then the final control equation is given by 
+ \begin{equation}
+\mathbf{R}(\mathbf{x},t)=\bf{U}_{\phi(t)}(x)
+\end{equation}
+Where $\mathbf{R}(\mathbf{x},t)$ returns the control input scalar as a function of state and time. 
+The dynamical system equation becomes
+\begin{equation}
+\frac{d}{dt}\mathbf{P}=\mathbf{A}+\mathbf{B}\bf{U}_{\phi(t)}(x)
+\end{equation}
 
 \section{Results}
 
@@ -501,6 +513,7 @@ Figure \ref{Time} shows the joint distributions (left) and marginal distribution
 \brian[Are these times correct?  Isn't gamma = 0.0203 in Table 1?  tau = 0.07 / 0.0203 (1/min) = 3.44 min. Please check this carefully.]
 
 \brian[What are the units in Figure 4G?]
+\michael[minutes]
 
 This data show that time delays exceeding $\tau_c^{\rm FAC} = 0.07 / \gamma = 0.0142$ minutes is detrimental to the FAC control performance while delays beyond $\tau_c^{\rm PAC} = 0.2 / \gamma = 0.0406$ minutes are detrimental to the PAC controller. \brian[Check these times.] The choice of best controller depends on the level of time delay in the system. At extreme time delays, both controllers lose their asymmetry, resulting in significantly worse scores ($J = 1041$ and $931$). The control performance of a no-feedback controller was measured which required no inputs Figure\ref{Time}(G) (red line) and achieved a score of $J = 402$. These findings indicate that, for large time delays, attempting to improve control with feedback is less effective than using a no-feedback approach.
 
@@ -521,8 +534,8 @@ This data show that time delays exceeding $\tau_c^{\rm FAC} = 0.07 / \gamma = 0.
 \vspace{-0.2in}
 \end{figure*}
 
-As discussed in the previous section, increasing the granularity of the system $\alpha$ reduces the randomness to improve the steady state performance but at the cost of slowing down the controller response.  To explore the joint effects of time delays and granularity, Fig,\ \ref{DG}J shows the FAC steady state control performance as a function of the time delay and system granularity $(\tau,\alpha)$ using thirty-two stochastic simulations simulated to steady state at each combination. Control performance errors measured by RMSE improved as $\alpha$ increased when the delays were small ($\tau=1$ and $\tau=10$) but not when $\tau=100$. 
-\brian[What are the units of tau in fig 5?  This section is confusing in that it is not clear to me how tau and gamma are changing relative to one another when alpha is changed. From Eq 21 it seems that gamma changes with 1/alpha.  If this is correct, does that mean that the critical time changes with $\tau_c = 1/gamma = alpha/gamma ~= 5*alpha$?  If you plot that as a thick dashed dark line in Fig 5J,  would it match to the contours? ]
+As discussed in the previous section, increasing the granularity of the system $\alpha$ reduces the randomness to improve the steady state performance but at the cost of slowing down the controller response.  To explore the joint effects of time delays and granularity, Fig,\ \ref{DG}J shows the FAC steady state control performance as a function of the time delay and system granularity $(\tau,\alpha)$ using thirty-two stochastic simulations simulated to steady state at each combination. Control performance errors measured by RMSE improved as $\alpha$ increased when the delays were small ($\tau=1 \ min$ and $\tau=10 \ min$) but not when $\tau=100 \ min$. 
+\brian[What are the units of tau in fig 5?  This section is confusing in that it is not clear to me how tau and gamma are changing relative to one another when alpha is changed. From Eq 21 it seems that gamma changes with 1/alpha.  If this is correct, does that mean that the critical time changes with $\tau_c = 1/gamma = alpha/gamma ~= 5*alpha$?  If you plot that as a thick dashed dark line in Fig 5J,  would it match to the contours? ] \michael[$tc=1/(0.7*alpha)$ matches the counters well]
 Recalling that under the system granularity rescaling (Eq.\ \ref{eq:rescaling}), as $\alpha$ changes, the effective degradation rate scales according to $\gamma' = \gamma/\alpha$.  Therefore, the critical limit for the delays should also change with the system scale according to $\tau_c^{\rm FAC} = 0.07\alpha/\gamma = XXX\alpha$. Fig \ref{DG}(J) depicts this critical line and shows that as the time delay approaches and then exceeds this level, the steady state performance become dramatically worse. 
 Finally, to understand the model of failure at these longer delays, it is interesting to examine trajectories induced by the controller just above this critical delay. For parameter set denoted by the yellow start in Fig.\ \ref {DG}(J), Fig.\ \ref {DG}(K) shows the controlled response after a long burn in period to achieve steady state. In this case, the application of feedback after a delay leads to a strong oscillatory behavior and worse performance than that achieved without any control at all. This observation further stresses the importance of considering time delays when designing such controllers.
 
@@ -530,7 +543,7 @@ Finally, to understand the model of failure at these longer delays, it is intere
 \begin{center}
 \includegraphics[width=1\textwidth]{StaticControl.pdf}
 \vspace{-0.1in}
-\caption{The FAC and PAC control methods were used to optimize control inputs and probability distributions for static set points in a 2D domain.  Optimized control inputs and probability distributions were optimized using the FAC control method(A and B) or the PAC control method (C and D). (E) Domains of control performance for the FAC method over a region of static target points show regions of good control and symmetry along the dashed line. (F) Domain of control performance over a set of static control points for the PAC control method.} 
+\caption{The FAC and PAC control methods were used to optimize control inputs and probability distributions for static set points in a 2D domain.  Optimized control inputs and probability distributions were optimized using the FAC control method(A and B) or the PAC control method (C and D). (E) Domains of control performance for the FAC method over a region of static target points show regions of good control and symmetry along the dashed line.} 
 \label{CtrlP}
 \end{center}
 \vspace{-0.2in}
@@ -539,13 +552,13 @@ Finally, to understand the model of failure at these longer delays, it is intere
 \subsection{With noise-induced control, a single input can drive multiple cells to follow different temporal trajectories.}
 
 %We next analyzed the control performance over a domain of target points to find if some states are easier to achieve than others. For a two-cell system, stability analysis of the auto-regulated system using a moderate light input can create up to four stable points and one unstable point in the state space.  These points give rise to basins which may attract probability more easily than other points.
-We next optimized the FAC controller and calculated its performance for the two-cell system over a two dimensional domain of target points $[T_1,T_2]$ between between five and forty-five. For example, Fig \ref{CtrlP} (A) shows the optimized FAC control input of the system when the target is $\mathbf{T}=[20,25]$, and Fig.\ \ref{CtrlP} (B) shows the corresponding steady state probability distribution of the controlled system.  Figure \ref{CtrlP} (C and D) show the the same thing but for a different target state of $\mathbf{T}=[XXX,XXX]$.
+We next optimized the FAC controller and calculated its performance for the two-cell system over a two dimensional domain of target points $[T_1,T_2]$ between between five and forty-five. For example, Fig \ref{CtrlP} (A) shows the optimized FAC control input of the system when the target is $\mathbf{T}=[20,25]$, and Fig.\ \ref{CtrlP} (B) shows the corresponding steady state probability distribution of the controlled system.  Figure \ref{CtrlP} (C and D) show the the same thing but for a different target state of $\mathbf{T}=[10, 25]$.
 
-\brian[Let's remove the PAC from this section.  Show only the FAC and and replace the Fig 6C/D with the FAC at a different target point. Put a new star of a different color to match to the new 6C/D.  Remove Fig 6F.  Make sure to change all the figure labels and titles and captions.]
+\brian[Let's remove the PAC from this section.  Show only the FAC and and replace the Fig 6C/D with the FAC at a different target point. Put a new star of a different color to match to the new 6C/D.  Remove Fig 6F.  Make sure to change all the figure labels and titles and captions.] \michael[ok, I also moved the settpoint score heatmap to the right]
 
-Figure \ref{CtrlP}(E) shows the FAC control performance over the entire domain of static set points, and illustrates that some regions are easier to obtain than others. For example, near the two stable fixed points at [XXX,XXX] and [XXX,XXX], the control performance is quite strong (white regions), whereas near the unstable point [20,20], the FAC results in relatively worse control. 
+Figure \ref{CtrlP}(E) shows the FAC control performance over the entire domain of static set points, and illustrates that some regions are easier to obtain than others. For example, in the space contained in the green box which also hold the four stable points of the system, the control performance is quite strong (white regions), whereas near the unstable point [20,20], the FAC results in relatively worse control. 
 
-Edge regions were difficult to control, likely due to the geometry of how control inputs move the probability. \brian[I don't understand this statement.]
+The top left and bottom right edge regions were the most difficult to control, since increases the controller input does not push probability in these directions. \brian[I don't understand this statement.] \michael[editied it better]
 
 \begin{figure*}
 \begin{center}
@@ -559,7 +572,7 @@ Edge regions were difficult to control, likely due to the geometry of how contro
 
 We developed a method (Section \ref{sec:Dynamic}) to control the system dynamics to follow a predefined path $r(x)$ by cycling through controllers optimized for individual states along that path. Specifically, we found 32 controllers along each three representative pathways, including an in-sync reference point (Fig.\ \ref{CR}B1), a phase lagged reference point (Fig.\ \ref{CR}C1),  and a  frequency separated reference point (Fig.\ \ref{CR}D1). The synchronous signal is given by Fig \ref{CR}(B1) $r_1(x)=[20 sin(2 \pi x)+10, 20 sin(2 \pi x)+10]$, the phase lagged signal Fig \ref{CR}(C1) is given by $r_2(x)=[20 sin(2 \pi x)+10, 20 cos(2 \pi x)+10]$, and the frequency changed signal Fig \ref{CR}(D1) is given by $r_3(x)=[20 sin(2 \pi x)+10, 20 sin(6 \pi x)+10]$ using 32 steps for each controller. 
 
-FSP simulations for these cyclically driven systems were slowly driven at a frequency of $1e-4$ seconds \brian[Check units. This doesn't make sense.  did you mean period?  If so, this is very fast.  Or did you mean s$^{-1}$?] and Fig.\ \ref{CR}(B2, C2, and D2) show their response distributions (shading) and median responses (lines) for the two cells x1 and x2 in red and blue, respectively. Regions with purple shading depict the exact overlap of red and blue when both cells have the same distribution of response. We observe that the single-input control system is able to effectively control the system to follow all three input trajectories, including when the two reference trajectories have different phases and frequencies (Fig \ref{CR}D3). 
+FSP simulations for these cyclically driven systems were slowly driven at a frequency of $1e^{-4} min^{-1}$  \brian[Check units. This doesn't make sense.  did you mean period?   If so, this is very fast.  Or did you mean s$^{-1}$?] \michael[it was $min^{-1}$ not s] and Fig.\ \ref{CR}(B2, C2, and D2) show their response distributions (shading) and median responses (lines) for the two cells x1 and x2 in red and blue, respectively. Regions with purple shading depict the exact overlap of red and blue when both cells have the same distribution of response. We observe that the single-input control system is able to effectively control the system to follow all three input trajectories, including when the two reference trajectories have different phases and frequencies (Fig \ref{CR}D3). 
 For all reference trajectories, the medians of the marginal distributions show good match with the desired reference signal (Fig \ref{CR}B4,C4, and D4). To quantify the overall performance, Figs.\ \ref{CR}(B3, C3,D3) show the root mean squared error as a function of time,
 and Figs.\ \ref{CR}(B2, C2, and D2) show the time-averaged error distribution for the system response relative to the time varying target. From these figures, we observe that all trajectories result in short RMSE spikes at times, and these correspond to short, transient periods when the controller passes through the regions of poor control depicted in Fig.\ \ref{CtrlP}(E). Overall, the simulations show that the synchronous control performed best with an average RSME of $6.9$ despite moving over the unstable point in the system. When the system is driven with a phase-lag, the average RSME of the score increases to $8.2$, and when driven at a different frequency, the average RMSE goes up to $8.6$.  
 
@@ -575,13 +588,14 @@ and Figs.\ \ref{CR}(B2, C2, and D2) show the time-averaged error distribution fo
 
 %Slowly responding systems driven at high frequency often exhibit poor control performance which improves as the driving frequency matches the time scale of the system.  The combination of both frequency driving and noise could be catastrophic for system control performance. 
 In general, a given control system cannot effectively track a reference signal that changes faster that the system's natural time scale. Since we saw previously that increasing granularity ($\alpha$) improves steady state control performance (Fig.\ \ref{Time}G) but also lengthens this time scale (Fig.\ \ref{Time}H), one should expect that granularity would also affect the types and speeds of signals to which the system can respond.
-To examine how driving frequency and system scale affects control performance, 64 or 128 SSA trajectories of the phase-separated dynamic controller were simulated over a two dimensional domain of points $(\alpha,f)$ for 16 or 32 cycles after reaching steady state. Figure \ref{CRG}(A) shows the desired reference signal for the system, and Fig \ref{CRG}(B) shows the mean of the system response when the frequency is $f=10^{-4}$ \brian[Need units] and the granularity is $\alpha = 4.0$.  Figure \ref{CRG}(C) shows the corresponding control performance over normalized periodic time as $\alpha$ is held at $4.0$ and $f$ is increased from $f=10^{-4}$ \brian[Units] to $f=10^{-2}$ \brian[Units] to $f=10^{-0}$ \brian[Units] leading to average control performances of 6.2, 16.1, and 15.0 respectively. 
+To examine how driving frequency and system scale affects control performance, 64 SSA trajectories of the phase-separated dynamic controller were simulated over a two dimensional domain of points $(\alpha,f)$ for 16 or 32 cycles after reaching steady state. Figure \ref{CRG}(A) shows the desired reference signal for the system, and Fig \ref{CRG}(B) shows the mean of the system response when the frequency is $f=10^{-4} min^{-1}$ \brian[Need units] \michael[added them]and the granularity is $\alpha = 4.0$.  Figure \ref{CRG}(C) shows the corresponding control performance over normalized periodic time as $\alpha$ is held at $4.0$ and $f$ is increased from $f=10^{-4}min^{-1}$ \brian[Units]  \michael[added them]to $f=10^{-2}min^{-1}$ \brian[Units]  \michael[added them]to $f=10^{-0}min^{-1}$ \brian[Units] \michael[added them] leading to average control performances of 6.2, 16.1, and 15.0 respectively. 
 Figure \ref{CRG}D,E extends this analysis to plot the average control performance over different combinations of $\alpha$ and $f$. 
 %RMSE control performance of 128 simulations were simulated over a range of frequency between $10^-3$ and $10^-1$ Fig \ref{CRG}(D) for 32 cycles to obtain a better measurement of the true RMSE Fig \ref{CRG}(D) at $\alpha=2.0$, $\alpha=4.0$, and $\alpha=8.0$. 
-In particular, the heat map of control performance over $(f,\alpha)$ shows that the worst performance occurs at moderate $f$ near $f=10^{-2}$ and that control performance is best when granularity is high and frequency is low.
+In particular, the heat map of control performance over $(f,\alpha)$ shows that the worst performance occurs at moderate $f$ near $f=10^{-2}min^{-1}$ and that control performance is best when granularity is high and frequency is low.
  When examining poorly performing trajectories at moderate frequencies, a phase lag was observed in the system. In this case, although the qualitative form of the response may match to the reference signal, this phase lag resulted in worse RMSE than no controller at all.  At very large frequencies, the effect of the fast fluctuating control input is averaged, and the system barely responds. 
 
 \brian[ try adding the line at $f = 1/tau_c =  \gamma/(0.7*\alpha)$ to this plot.  Does it match the contours separating good and poor control?]
+\michael [it didnt fit well, but ~$f = 1/tau_c =  (0.7*\alpha)/\gamma$ fits well]
 
 \brian[Go through every figure and make sure that the units are shown and that they are correct. If quantities are unitless, make sure that the form of the normalization is clearly expressed.]
 
