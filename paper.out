@@ -1,0 +1,14 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Methods}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Model}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Stochastic analyses of the model}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Quantification and optimization of control performance}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Scaling for system granularity}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.5}{Observation and actuation time delays}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.6}{Tracking Time-Varying Trajectories}{section.2}% 8
+\BOOKMARK [1][-]{section.3}{Results}{}% 9
+\BOOKMARK [2][-]{subsection.3.1}{Stochastic SIMO Optogenetic Control can Remain Effective Despite Small Parameter Errors or Extrinsic Uncertainties}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.2}{Controllers trained using one assumed level of granularity can remain effective at other levels of granularity.}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.3}{Heterogeneous control can remain effective despite moderate time delays}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.4}{With noise-induced control, a single input can drive multiple cells to follow different temporal trajectories.}{section.3}% 13
+\BOOKMARK [1][-]{section.4}{Conclusion}{}% 14
