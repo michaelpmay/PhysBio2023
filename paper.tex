@@ -286,7 +286,7 @@ We consider two controller designs: the fully aware controller ($\mathbf{u}^{FAC
 \end{equation}
 where $x_1$ and $x_2$ are discrete integers greater than or equal to zero that represent the instantaneous number of proteins in cell one and cell two. Despite their differences in their observation data, both the FAC and the simpler PAC are optimized to achieve the same goal, namely to drive both cells to their respective set points.
 
-Optimization of $\mathbf{u}^{FAC}$ was performed using a gradient descent method to minimize $J$. Since the square root is a monotonically increasing function, minimizing $J^2$ results in the same control as would minimizing $J$ directly. Therefore, we calculate the negative gradient $-\frac{d(J^2)}{d\mathbf{u}^{FAC}}$ and adjust parameters a small step $d\mathbf{u}$ in that direction. The calculation of the gradient is given by:
+Optimization of $\mathbf{u}^{FAC}$ and $\mathbf{u}^{PAC}$ were performed using a gradient descent method to minimize $J$. Since the square root is a monotonically increasing function, minimizing $J^2$ results in the same control as would minimizing $J$ directly. Therefore, we calculate the negative gradient $-\frac{d(J^2)}{d\mathbf{u}^{(.)}}$ and adjust parameters a small step $d\mathbf{u}^{(.)}$ in that direction. For example, the calculation of the gradient for the FAC controller is given by:
 \begin{equation}
 \frac{d(J^2)}{d\mathbf{u}^{FAC}}=C \frac{dP}{d\mathbf{u}^{FAC}},
 \end{equation}
@@ -460,16 +460,11 @@ However, this improvement in the steady state performance does not come without 
 \begin{center}
 \includegraphics[width=1\textwidth]{TimeDelay.pdf}
 \vspace{-0.1in}
-\caption{Stochastic simulations of the time delayed system show decreasing control performance using either the FAC or PAC. (A-C) Joint (left) and marginal distributions (right) of the at different levels of time delay for the FAC. (D-F) Joint (left) and marginal distributions(right) at three levels of time delay using the PAC.  (G) plots of RMSE control performance versus time delay for both FAC and PAC.}
+\caption{{\bf Effects of time delay on control performance.} (A-C) Joint (left, color scale shown at top) and marginal distributions (right) of the controlled system at different levels of time delay using the FAC controller. The target state, $\mathbf{T}$ is denoted by a small circles on the left panels and dashed lines on the right panels. The steady state RMSE is shown in each case. (D-F) Same as (A-C) but for the PAC controller.  (G) RMSE control performance versus time delay for both FAC (blue) and PAC (green). Letters A-F correspond to panels A-F. Dashed red line corresponds to optimal performance with no feedback (i.e., constant input). Dashed yellow line corresponds to characteristic system time, $\tau_c = 1/\gamma$.}
 \label{Time}
 \end{center}
 \vspace{-0.2in}
 \end{figure*}
-% XXX - This figure needs larger fonts for all the labels and axes. 
-% MMM- Did the change
-% Update panel letters as written in caption
-% Add tic marks to left side of the A and C heat maps
-% Fix the ref to baumschlager paper.
 
 In general, feedback control can only be effective if one can quickly make measurements, compute adjustments to the control signal, and implement the needed changes within an appropriate amount of time relative to the characteristic timescale of the system. As the time required for any of these steps increases, control performance will be degraded, perhaps even leading to large fluctuations or instability. To explore how time delays affect the noise-enhanced controllers $\mathbf{u}^{\rm FAC}$ and $\mathbf{u}^{\rm PAC}$, we generated large sets of time-delayed stochastic simulations (see Section \ref{sec:Delay}) for different lengths of the time delay. Each SSA was sub-sampled for 1000 times over 10000 minutes of simulation time after a burnin period of 10000 minutes.
 
@@ -488,9 +483,9 @@ At high time delays, both controllers lose their asymmetry, resulting in signifi
 \begin{center}
 \includegraphics[width=1\textwidth]{DelayAndGranularity.pdf}
 \vspace{-0.1in}
-\caption{Stochastic simulations of the FAC driven system and PAC driven system show different failure modes at at different $(\tau,\alpha)$ pairs. (A-I)Joint probability distributions at different $[\tau,\alpha]$ pairs. $\alpha$ across columns and $\tau$ across rows. (J) Control performance measured over a domain of $(\tau,\alpha)$ pairs show good control performance when both $\alpha$ is large and $\tau$ small. 
-\brian[Label 'J' is missing from the figure.]
-(K) Trajectories where good control was expected but not observed show oscillations instead.}
+\caption{{\bf Joint effects of granularity and time delay on control performance.} (A-I) Joint probability distributions at different combinations of $\tau$ (rows) and $\alpha$ (columns). Overall RMSE shown at top. (J) Heat-map of control performance versus $(\tau,\alpha)$. Points A-I correspond to panels A-I. Dashed yellow line shows characteristic time $\tau_c = \alpha/\gamma/$.
+\brian[Label 'J' is missing from the figure. Replace XXX below.]
+(K) Controlled system trajectory for $\alpha = XXX$ and $\tau = $ min (denoted by red star in panel J).}
 \label{DG}
 \end{center}
 \vspace{-0.2in}
@@ -508,7 +503,11 @@ Finally, to understand the model of failure at these longer delays, it is intere
 \begin{center}
 \includegraphics[width=1\textwidth]{StaticControl.pdf}
 \vspace{-0.1in}
-\caption{The FAC and PAC control methods were used to optimize control inputs and probability distributions for static set points in a 2D domain.  Optimized control inputs and probability distributions were optimized using the FAC control method(A and B) or the PAC control method (C and D). (E) Domains of control performance for the FAC method over a region of static target points show regions of good control and symmetry along the dashed line.} 
+\caption{{\bf FAC control laws and performance for different target points.} 
+(A) Optimized control input for target $\mathbf{T} = [20,25]$, with target point denoted by star. 
+(B) Corresponding steady state response distribution. Marginal distributions for $x_1$ and $x_2$  on right and below.
+(C,D) Same as (A,B) but for $\mathbf{T} = [10,25]$.
+ (E) FAC control performance (RMSE) versus targets $\mathbf{T} = [T_1,T_2]$.  Stars correspond to target points in panels A-D. Dashed diagonal shows line of symmetry.} 
 \label{CtrlP}
 \end{center}
 \vspace{-0.2in}
@@ -527,7 +526,15 @@ Figure \ref{CtrlP}(E) shows the overall steady state FAC control performance ove
 \begin{center}
 \includegraphics[width=1\textwidth]{DynamicControl.pdf}
 \vspace{-0.1in}
-\caption{Finite state projections of the slowly driven system demonstrate good control performance under a variety of phase and frequency scenario. (A) Schematic of the control problem shows targeting the number of protein in two cells using a dynamically changing reference point by cycling through a set of individual stable points and under synchronous, phase-lagged or frequency changes reference signal using only one control input. (B1-BN) shows the phase space of the reference time series, FSP solution, RMSE, reference phase space, and error residuals respectively for the synchronous control method. (C1-C5) Shows the same data for the phase-lagged control input. (D1-D5) Shows the same analysis for the frequency-changed control.}
+\caption{{\bf Tracking time-varying reference signal.}
+(A) Schematic of SIMO control to drive two cells to follow different trajectories.
+(B1) Reference signal for $x_1$ (red) and $x_2$ (blue).
+(B2) Controlled response. Distributions shown in shading. Median shown in lines. Three periods are shown after decay of transient dynamics.
+(B3) RMSE performance over time.
+(B4) Phase space of reference signal.
+(B5) Time-averaged distribution of tracking error.
+(C1-C5) Same as (B1-B5) but for phase-lagged reference signal.
+(D1-D5) Same as (B1-B5) but for reference signal with two different frequencies and phases.}
 \label{CR}
 \end{center}
 \vspace{-0.2in}
