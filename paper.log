@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.3.16)  28 JUL 2023 13:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.3.16)  30 JUL 2023 23:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -193,31 +193,28 @@ LaTeX Warning: Citation `Munsky:2006' on page 8 undefined on input line 270.
 
 [8] [9]
 
-LaTeX Warning: Citation `XXX' on page 10 undefined on input line 334.
+LaTeX Warning: Citation `XXX' on page 10 undefined on input line 336.
 
 
-LaTeX Warning: Citation `Peles2006' on page 10 undefined on input line 334.
+LaTeX Warning: Citation `Peles2006' on page 10 undefined on input line 336.
 
 
 LaTeX Warning: Citation `Macnemara&Sidje?' on page 10 undefined on input line 3
-34.
+36.
 
 
-LaTeX Warning: Citation `Vo2019' on page 10 undefined on input line 334.
+LaTeX Warning: Citation `Vo2019' on page 10 undefined on input line 336.
 
 
-LaTeX Warning: Citation `Munsky2008IEEE' on page 10 undefined on input line 334
+LaTeX Warning: Citation `Munsky2008IEEE' on page 10 undefined on input line 336
 .
 
 
-LaTeX Warning: Citation `Tapia2012CDC' on page 10 undefined on input line 334.
+LaTeX Warning: Citation `Tapia2012CDC' on page 10 undefined on input line 336.
 
 [10]
 
-LaTeX Warning: Citation `Cai2007' on page 11 undefined on input line 363.
-
-
-LaTeX Warning: Reference `XXX' on page 11 undefined on input line 393.
+LaTeX Warning: Citation `Cai2007' on page 11 undefined on input line 365.
 
 [11] [12]
 
@@ -226,74 +223,75 @@ pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./ParameterPerturbation.pdf)
 <ParameterPerturbation.pdf, id=119, 1622.02986pt x 1075.04639pt>
 File: ParameterPerturbation.pdf Graphic file (type pdf)
 <use ParameterPerturbation.pdf>
-Package pdftex.def Info: ParameterPerturbation.pdf  used on input line 441.
+Package pdftex.def Info: ParameterPerturbation.pdf  used on input line 442.
 (pdftex.def)             Requested size: 446.39996pt x 295.86012pt.
+[13 <./ParameterPerturbation.pdf>] [14]
 
-LaTeX Warning: Reference `XXX' on page 13 undefined on input line 453.
-
-[13] [14 <./ParameterPerturbation.pdf>]
-
-LaTeX Warning: Citation `Kampen1961' on page 15 undefined on input line 473.
+LaTeX Warning: Citation `Kampen1961' on page 15 undefined on input line 472.
 
 
-LaTeX Warning: Citation `XXX' on page 15 undefined on input line 473.
+LaTeX Warning: Citation `XXX' on page 15 undefined on input line 472.
 
-[15]
+
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Granularity.pdf): PDF incl
 usion: found PDF version <1.6>, but at most version <1.5> allowed
-<Granularity.pdf, id=152, 1512.47052pt x 726.18605pt>
+<Granularity.pdf, id=149, 1164.28972pt x 560.35349pt>
 File: Granularity.pdf Graphic file (type pdf)
 <use Granularity.pdf>
-Package pdftex.def Info: Granularity.pdf  used on input line 480.
-(pdftex.def)             Requested size: 446.39996pt x 214.33383pt.
+Package pdftex.def Info: Granularity.pdf  used on input line 479.
+(pdftex.def)             Requested size: 446.39996pt x 214.84325pt.
 
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./TimeDelay.pdf): PDF inclus
 ion: found PDF version <1.6>, but at most version <1.5> allowed
-<TimeDelay.pdf, id=153, 1136.39558pt x 549.0553pt>
+<TimeDelay.pdf, id=150, 1136.39558pt x 549.0553pt>
 File: TimeDelay.pdf Graphic file (type pdf)
 <use TimeDelay.pdf>
-Package pdftex.def Info: TimeDelay.pdf  used on input line 496.
+Package pdftex.def Info: TimeDelay.pdf  used on input line 495.
 (pdftex.def)             Requested size: 446.39996pt x 215.68062pt.
-[16 <./Granularity.pdf>]
+[15] [16 <./Granularity.pdf> <./TimeDelay.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./TimeDelay.pdf): PDF inclus
+ion: multiple pdfs with page group included in a single page
+>]
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./DelayAndGranularity.pdf): 
 PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<DelayAndGranularity.pdf, id=208, 1174.3875pt x 666.0413pt>
+<DelayAndGranularity.pdf, id=253, 1174.3875pt x 666.0413pt>
 File: DelayAndGranularity.pdf Graphic file (type pdf)
 <use DelayAndGranularity.pdf>
-Package pdftex.def Info: DelayAndGranularity.pdf  used on input line 529.
+Package pdftex.def Info: DelayAndGranularity.pdf  used on input line 528.
 (pdftex.def)             Requested size: 446.39996pt x 253.16946pt.
-[17 <./TimeDelay.pdf>]
+[17]
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./StaticControl.pdf): PDF in
 clusion: found PDF version <1.6>, but at most version <1.5> allowed
-<StaticControl.pdf, id=259, 1183.66214pt x 705.73967pt>
+<StaticControl.pdf, id=257, 1183.66214pt x 705.73967pt>
 File: StaticControl.pdf Graphic file (type pdf)
 <use StaticControl.pdf>
-Package pdftex.def Info: StaticControl.pdf  used on input line 547.
+Package pdftex.def Info: StaticControl.pdf  used on input line 546.
 (pdftex.def)             Requested size: 446.39996pt x 266.15935pt.
-[18 <./DelayAndGranularity.pdf>] [19 <./StaticControl.pdf>]
+[18 <./DelayAndGranularity.pdf>]
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./DynamicControl.pdf): PDF i
 nclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<DynamicControl.pdf, id=369, 2727.33922pt x 2376.83981pt>
+<DynamicControl.pdf, id=311, 2727.33922pt x 2376.83981pt>
 File: DynamicControl.pdf Graphic file (type pdf)
 <use DynamicControl.pdf>
-Package pdftex.def Info: DynamicControl.pdf  used on input line 568.
+Package pdftex.def Info: DynamicControl.pdf  used on input line 567.
 (pdftex.def)             Requested size: 446.39996pt x 389.00636pt.
-[20 <./DynamicControl.pdf>]
+[19 <./StaticControl.pdf>] [20 <./DynamicControl.pdf>]
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Frequency.pdf): PDF inclus
 ion: found PDF version <1.6>, but at most version <1.5> allowed
-<Frequency.pdf, id=445, 781.2588pt x 579.87944pt>
+<Frequency.pdf, id=443, 781.2588pt x 579.87944pt>
 File: Frequency.pdf Graphic file (type pdf)
 <use Frequency.pdf>
-Package pdftex.def Info: Frequency.pdf  used on input line 584.
+Package pdftex.def Info: Frequency.pdf  used on input line 583.
 (pdftex.def)             Requested size: 446.39996pt x 331.33105pt.
-[21] [22 <./Frequency.pdf>]
-Underfull \hbox (badness 2343) in paragraph at lines 613--614
+[21 <./Frequency.pdf>] [22]
+Underfull \hbox (badness 2343) in paragraph at lines 612--613
 []\OT1/cmr/m/n/12 Time delay analysis showed that increasing time delay decreas
 ed control
  []
@@ -310,7 +308,7 @@ Here is how much of TeX's memory you used:
  20044 multiletter control sequences out of 15000+600000
  412928 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,15n,74p,1310b,434s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,15n,74p,1313b,434s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></
@@ -330,10 +328,10 @@ texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2021/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2021/texm
 f-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on paper.pdf (24 pages, 1224244 bytes).
+Output written on paper.pdf (24 pages, 1222581 bytes).
 PDF statistics:
- 561 PDF objects out of 1000 (max. 8388607)
- 320 compressed objects within 4 object streams
+ 555 PDF objects out of 1000 (max. 8388607)
+ 316 compressed objects within 4 object streams
  0 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
