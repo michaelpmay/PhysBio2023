@@ -104,14 +104,14 @@ Keywords: Stochastic Control, Gene Regulation, Optogenetics
 \vspace{-0.3in}
 \end{figure}
 
-Uncertain fluctuations, or `noise,' is a common theme throughout many fields of engineering, and is a frequent concern when attempting to control any human-made system such as vehicles \brian[\cite{XXX}], production machinery \brian[\cite{XXX}], or chemical processes \brian[\cite{XXX}].
+Uncertain fluctuations, or `noise,' is a common theme throughout many fields of engineering, and robust control is a frequent concern when attempting to control any human-made system such as vehicles \michael[\cite{Liang2021}], chemical processes \michael[\cite{Lucia2013}], or biology \michael[\cite{Baetica2020}].
 \brian[Please look for some relevant references or a review of control under noise. I highlight several missing refs in red.]
 Noise arrises from many sources, occasionally from quantum events and thermally-induced fluctuations, but more commonly from unknown or uncharacterized physical processes, and as such, these fluctuations usually cannot be efficiently reproduced or predicted using purely physical or mechanistic models.
 Rather, statistical models are usually employed where key mechanisms or dynamics are subject to stochastic variations or inputs that act as a proxy for random or un-modeled fluctuations elsewhere in the system.
-In this context, much effort has been placed on enhancing the robustness of controlled processes, where uncertain or unpredictable variations in internal or external parameters are modeled as intrinsic or extrinsic noise \brian[\cite{XXX}].
-For many macroscopic, human-engineered systems, the resulting system dynamics can be modeled effectively simply by combining a deterministic (i.e., noise-free) model with additive noise (usually assumed to be Gaussian under arguments based on the central limit theorem) \brian[\cite{XXX}], and most current approaches seek to control the system to minimize variations that result from the noisy inputs. 
+In this context, much effort has been placed on enhancing the robustness of controlled processes, where uncertain or unpredictable variations in internal or external parameters are modeled as intrinsic or extrinsic noise \brian[cite XXX].
+For many macroscopic, human-engineered systems, the resulting system dynamics can be modeled effectively simply by combining a deterministic (i.e., noise-free) model with additive noise (usually assumed to be Gaussian under arguments based on the central limit theorem) \brian[\cite{Feng2022}], and most current approaches seek to control the system to minimize variations that result from the noisy inputs. 
 
-Analyses of noise and control theory are equally relevant to understand the basic biological processes of gene transcription regulation \brian[\cite{XXX}] or mRNA translation regulation \brian[\cite{XXX}]or to modify these processes for practical use \brian[\cite{XXX}].
+Analyses of noise and control theory are equally relevant to understand the basic biological processes of gene transcription regulation \michael[\cite{Sun2020}] or mRNA translation regulation \brian[\cite{Cialek2022}]or to modify these processes for practical use \brian[\cite{Dionisi2022,Baumschlager2017}].
 However, at this mesoscopic scale of cellular biology, where transcription factors compete to activate or deactivate individual genes or where mRNA or protein molecules are present at just a few copies (or none at all) per cell, the additive noise model is much less realistic.
 In this case, Brownian motion, discrete stochastic gene regulation, and noisy mRNA dynamics collectively generate a fundamentally stochastic environment that cells must effectively manage. 
 At this scale, the order or timing of a single reaction event (e.g., the binding of a transcription factor to a promoter) can have dramatic consequences that could last for several cellular generations (e.g., the activation or repression of a gene that promotes unfettered cell growth and differentiation). 
@@ -122,12 +122,11 @@ One emerging field that is particularly dependent on the integration of control 
 Advances in optogenetics have enhanced the ability to reliably actuate embedded systems within cells, offering the potential to exert precise temporal and spatial control on cellular components\cite{Sheets2020,Baumschlager2017,Chen2020,Lillacci2018}.
 These developments have facilitated computer-programmable regulation of cellular protein production through external optogenetic inputs and smart microscope techniques\cite{Fox2021,Baumschlager2021,Lugagne2017}. 
 These digital-synthetic actuators enable fine-tuned, computer-modulated control of cellular systems, previously unattainable, with faster response times compared to chemical diffusion\cite{Rullan2018, Baumschlager2017} . 
-Classical and modern control methods like PID control and model predictive control have been implemented in such systems \brian[\cite{XXX}] to control synthetic systems to different stable points. 
+Classical and modern control methods like PID control and model predictive control have been implemented in such systems \brian[\cite{Filo2022}] to control synthetic systems to different stable points. 
 
-While most previous control efforts focussed on deterministic ordinary differential equation (ODE) formulations of the control problem, a few pioneering theoretical works have extended these analysis to include noise and have used stochastic simulations to show how systems can be guided towards unstable points by oscillating around those points \cite{Guarino2020}. 
 It has recently been shown that new control techniques that leverage the complete probability distribution information of the system could actually harness the noise of single-cell gene regulation to achieve more complicated control objectives. 
 For example, inspired by the genetic toggle switch from Kobayashi et al.\cite{Kobayashi:2004}, Szymanska et al.~\cite{Szymanska2015} showed that noise could be exploited to achieve independent control of multiple cells using a single input, even despite uncertain parameters or time delays due to maturation of fluorescent proteins or limited observation of the regulatory proteins. 
-In May et al.~\cite{May2021}, we identified a simplified stochastic model to reproduce data measured in Baumschlager, et al. \brian[\cite{XXX}] for the expression from a transcription promoter under the optogenetic control of a UV-activated T7 polymerase (see model in Figure \ref{cartoons}A, top promoter).
+In May et al.~\cite{May2021}, we identified a simplified stochastic model to reproduce data measured in Baumschlager, et al. \brian[\cite{Baumschlager2017}] for the expression from a transcription promoter under the optogenetic control of a UV-activated T7 polymerase (see model in Figure \ref{cartoons}A, top promoter).
 We then proposed the addition of a positive auto-regulation (Figure \ref{cartoons}A, bottom promoter) to help maintain an elevated expression phenotype in the presence of UV excitation, and we demonstrated how a Single-Input-Multiple-Output (SIMO) multicellular controller could control multiple cells to arbitrary phenotypes using only a single input. 
 
 This paper extends the analysis of the SIMO multicellular control problem by examining the impact of model uncertainties and fluctuating control objectives on the control performance. 
@@ -141,7 +140,7 @@ In May et al. \cite{May2021}, we developed two models for the description of an 
 These first model consisted of six species to describe the light-activated association of two T7 split domains (species 1 and 2) which combine to form an active T7 polymerase (species 3) under optogenetic excitation. 
 The active polymerase could then associate with inactive T7 promoters (species 4), resulting in the formation of an active allele (species 5) that could then transcribe and translated to produce the desired protein product (species 6). 
 The second, much simpler, single-species model was developed by assuming quasi-steady equilibrium for the first five species. 
-Both models were independently parameterized using the same experimental data from Baumschlager et al. \brian[\cite{XXX}]. 
+Both models were independently parameterized using the same experimental data from Baumschlager et al. \brian[\cite{Baumschlager2017}]. 
 Furthermore, an extension was made to each model to incorporate a secondary self-activated promoter-gene construct, where the expression rate was determined by a Hill function \ref{prodRate}.
 Through simulations, we showed that a feedback control law could be designed to force multiple cells to different and individually chosen equilibrium states using a single optogenetic control signal. 
 We also showed that when this control law was parametrized using the simple model, it could be used effectively to control the behavior of the more complicated system, thus demonstrating that control performance could remain high despite inaccuracies in the model.
@@ -308,7 +307,7 @@ In \cite{May2021}, controllers were optimized to minimize $J^2$ for a single tar
 %To accomplish this rescaling, let $M$ denote the size of the origional unscaled system and let $M'$ denote the size of the newly scaled system.
 
 In realistic applications, models are never exact, but are often chosen as simplifications of known processes. 
-For example, when analyzing discrete stochastic chemical kinetics, it is common to project the CME onto lower-dimensional spaces using finite state projection \brian[\cite{XXX}], time scale separations \brian[\cite{Peles2006}], Krylov subspaces \brian[\cite{Macnemara&Sidje?}], principle orthogonal decompositions \brian[\cite{Vo2019}], or other coarse meshes \brian[\cite{Munsky2008IEEE,Tapia2012CDC}]. 
+For example, when analyzing discrete stochastic chemical kinetics, it is common to project the CME onto lower-dimensional spaces using finite state projection \brian[\cite{Munsky2006}], time scale separations \brian[\cite{Peles2006}], Krylov subspaces \brian[\cite{Macnemara2008}], principle orthogonal decompositions \brian[\cite{Vo2019}], or other coarse meshes \brian[\cite{Munsky2008IEEE,Tapia2012CDC}]. 
 Similarly, measurements are also always inexact and in many cases may only provide information about relative changes -- for example, although fluorescent proteins usually cannot be counted exactly, one may reasonably assume that a cell's total fluorescence intensity varies linearly with the fluorescent protein concentration. 
 To explore how mismatches in the assumed system scale (e.g., arising from model approximations or relative measurements) affect the controllability of the cellular process, we define a granularity parameter ($\alpha=M'/M$) that linearly scales each species' population to increase ($\alpha>1$) or decrease ($\alpha<1$), while maintaining the dynamics and general behavior of the model. 
 To apply this granularity parameter, we assume that each propensity function, $w_{\mu}$ (Eqns.\ \ref{Props}) is rescaled to a different level of discreteness by substituting
@@ -349,7 +348,8 @@ where $\tau$ is the time delay between observation and actuation, ${u}^{\mathcal
 We note that the time delay stochastic process was only simulated using the SSA because to our knowledge an appropriate direct FSP/CME integration procedure has not yet been developed.
 \brian[Still missing reference to the extrande method at this website
 \url{https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004923}].
-
+\michael[added Voliotis2016 to the section after this comment]
+The Extrande method \cite{Voliotis2016} was used to update the control input at an average frequency of 50 updates per minute, far exceeding the dynamics of the system.
 \subsection{Tracking Time-Varying Trajectories}\label{sec:Dynamic}
 Because optimizing the control law for a static set point as described in Section \ref{sec:Quantification} requires differentiation of the CME (Eq. \ref{CME}) with respect to the control signal at each state, this calculation is approaching the limits of current feasibility.
 Extending these calculations to optimize controllers for a dynamically moving set point is much harder and would likely require intractable numerical simulation or development of new mathematical approaches that are beyond the scope of the current study. 
@@ -436,7 +436,7 @@ To explore this tradeoff, control performance scores for the $\mathbf{u}^{\rm FA
 %\brian[the previous two sentences do not make sense to me.]
 Figure \ref{Volume}G shows the trend of the performance versus alpha for both the FAC (solid cyan line) and the PAC (solid magenta line) controller.  This improvement in performance appears to approach a small value as the granularity goes to infinity, but since the size of the FSP increases with the square of the system size, systems much larger than $\alpha$=2 (where $\mathbf{A}_0\in \mathbb{R}^{10^4\times10^4}$) become more difficult to calculate using master equation techniques. To bypass this limit in the FSP, sixteen SSA simulations were used to sample the CME of a system with a much larger volume of $\alpha$=100. Each SSA was run for $5\times10^7$ minutes and only the last $4\times10^7$ minutes were sampled to estimate the stationary distribution and calculate the performance score. The performance score estimates of this high granularity SSA using the FAC and PAC were $2.03$ and $5.24$ respectively, which are plotted as dashed lines in Figure.\ \ref{Volume}G. Although it is unclear if further performance improvements could be obtained with further increases to the system scale, for all cases considered so far, we found that both controllers monotonically improved with increased $\alpha$ and that $\mathbf{u}^{\rm FAC}$ always outperforms the $\mathbf{u}^{\rm PAC}$. 
 
-The effect that granularity has on the control performance depends on two competing phenomena: First, because the controller was optimized for one level of granularity ($\alpha = 1$), one might expect that the controller would become worse if the granularity were incorrect. However, at large granularity, we find that the opposite is true - the control performance actually improves when applied to an incorrect model. The reason for this surprising result is that relative amplitude of stochastic fluctuations (i.e., the standard deviation divided by the mean) in a chemical process decreases with the inverse square root of the process scale \brian[\cite{VanKampen}]. In other words, the process becomes more predictable and therefore more controllable. At the extreme as the system size increases, the dynamics converge towards a deterministic process, except for certain exceptional initial conditions lying on manifolds that would separate different steady state behaviors \brian[\cite{XXX}]. 
+The effect that granularity has on the control performance depends on two competing phenomena: First, because the controller was optimized for one level of granularity ($\alpha = 1$), one might expect that the controller would become worse if the granularity were incorrect. However, at large granularity, we find that the opposite is true - the control performance actually improves when applied to an incorrect model. The reason for this surprising result is that relative amplitude of stochastic fluctuations (i.e., the standard deviation divided by the mean) in a chemical process decreases with the inverse square root of the process scale \brian[\cite{VanKampen}]. In other words, the process becomes more predictable and therefore more controllable. At the extreme as the system size increases, the dynamics converge towards a deterministic process, except for certain exceptional initial conditions lying on manifolds that would separate different steady state behaviors \brian[\cite{Strasser2012}]. 
 
 However, this improvement in the steady state performance does not come without a cost. Although higher granularity reduces noise and makes it easier to maintain desired states once they have been achieved, noise is necessary to break symmetry between the two cells' dynamics in order to achieve those states in the first place. This tradeoff is illustrated in Fig.\ \ref{Volume}(H), which plots the control performance over time after changing the control goal to exchange the low- and high-target cells with one another.  From the figure, we can see although steady state control performance improves for higher values of $\alpha$, the time taken to reach that steady state performance  increases with $\alpha$, suggesting that larger-volume system may become more susceptible to times delays or less able to track variable reference trajectories.
 
@@ -484,8 +484,8 @@ At high time delays, both controllers lose their asymmetry, resulting in signifi
 \includegraphics[width=1\textwidth]{DelayAndGranularity.pdf}
 \vspace{-0.1in}
 \caption{{\bf Joint effects of granularity and time delay on control performance.} (A-I) Joint probability distributions at different combinations of $\tau$ (rows) and $\alpha$ (columns). Overall RMSE shown at top. (J) Heat-map of control performance versus $(\tau,\alpha)$. Points A-I correspond to panels A-I. Dashed yellow line shows characteristic time $\tau_c = \alpha/\gamma/$.
-\brian[Label 'J' is missing from the figure. Replace XXX below.]
-(K) Controlled system trajectory for $\alpha = XXX$ and $\tau = $ min (denoted by red star in panel J).}
+\brian[Label 'J' is missing from the figure. Replace XXX below.] \michael[added J. Replace XXX with 4.0]
+(K) Controlled system trajectory for $\alpha = 4.0$ and $\tau = $ min (denoted by red star in panel J).}
 \label{DG}
 \end{center}
 \vspace{-0.2in}
@@ -608,146 +608,10 @@ Time delay analysis (Fig. \ref{Time}) showed that increasing time delay decrease
 
 The control of cells to two slowly changing dynamic reference signals using a single global input by the use of a noise-exploiting controller showed good control performance for a variety of signals. These analysis could be extended to include faster frequency by numerical calculation or by alternative error-probability adjustments.
 
-\begin{thebibliography}{10}
-\providecommand{\url}[1]{#1}
-\csname url@samestyle\endcsname
-\providecommand{\newblock}{\relax}
-\providecommand{\bibinfo}[2]{#2}
-\providecommand{\BIBentrySTDinterwordspacing}{\spaceskip=0pt\relax}
-\providecommand{\BIBentryALTinterwordstretchfactor}{4}
-\providecommand{\BIBentryALTinterwordspacing}{\spaceskip=\fontdimen2\font plus
-\BIBentryALTinterwordstretchfactor\fontdimen3\font minus
-  \fontdimen4\font\relax}
-\providecommand{\BIBforeignlanguage}[2]{{%
-\expandafter\ifx\csname l@#1\endcsname\relax
-\typeout{** WARNING: IEEEtran.bst: No hyphenation pattern has been}%
-\typeout{** loaded for the language `#1'. Using the pattern for}%
-\typeout{** the default language instead.}%
-\else
-\language=\csname l@#1\endcsname
-\fi
-#2}}
-\providecommand{\BIBdecl}{\relax}
-\BIBdecl
 
-\bibitem{May2021}
-M.~May and B.~Munsky, ``{Exploiting noise, nonlinearity, and feedback to
-  differentially control multiple synthetic cells with a single optogenetic
-  input},'' pp. 1--28, 2021.
-eps
-\bibitem{Ng2019}
-A.~H. Ng, T.~H. Nguyen, M.~G{\'{o}}mez-Schiavon, G.~Dods, R.~A. Langan, S.~E.
-  Boyken, J.~A. Samson, L.~M. Waldburger, J.~E. Dueber, D.~Baker, and
-  H.~El-Samad, ``{Modular and tunable biological feedback control using a de
-  novo protein switch},'' pp. 265--269, 2019.
 
-\bibitem{Liu2018}
-C.~C. Liu, M.~C. Jewett, J.~W. Chin, and C.~A. Voigt, ``{Toward an orthogonal
-  central dogma},'' \emph{Nature Chemical Biology}, vol.~14, no.~2, pp.
-  103--106, 2018.
-
-\bibitem{Sheets2020}
-M.~B. Sheets, W.~W. Wong, and M.~J. Dunlop, ``{Light-Inducible Recombinases for
-  Bacterial Optogenetics},'' \emph{ACS Synthetic Biology}, vol.~9, no.~2, pp.
-  227--235, 2020.
-
-\bibitem{Groseclose2020}
-\BIBentryALTinterwordspacing
-T.~M. Groseclose, R.~E. Rondon, Z.~D. Herde, C.~A. Aldrete, and C.~J. Wilson,
-  ``{Engineered systems of inducible anti-repressors for the next generation of
-  biological programming},'' \emph{Nature Communications}, vol.~11, no.~1, pp.
-  1--15, 2020. [Online]. Available:
-  \url{http://dx.doi.org/10.1038/s41467-020-18302-1}
-\BIBentrySTDinterwordspacing
-
-\bibitem{Shin2020}
-J.~Shin, S.~Zhang, B.~S. Der, A.~A. Nielsen, and C.~A. Voigt, ``{ Programming
-  Escherichia coli to function as a digital display },'' \emph{Molecular
-  Systems Biology}, vol.~16, no.~3, pp. 1--12, 2020.
-
-\bibitem{Baumschlager2017}
-A.~Baumschlager, S.~K. Aoki, and M.~Khammash, ``{Dynamic blue light-inducible
-  T7 RNA polymerases (Opto-T7RNAPs) for precise spatiotemporal gene expression
-  control},'' \emph{ACS synthetic biology}, vol.~6, no.~11, pp. 2157--2167,
-  2017.
-
-\bibitem{Chen2020}
-\BIBentryALTinterwordspacing
-S.~Y. Chen, L.~C. Osimiri, M.~Chevalier, L.~J. Bugaj, T.~H. Nguyen, R.~A.
-  Greenstein, A.~H. Ng, J.~Stewart-Ornstein, L.~T. Neves, and H.~El-Samad,
-  ``{Optogenetic Control Reveals Differential Promoter Interpretation of
-  Transcription Factor Nuclear Translocation Dynamics},'' \emph{Cell Systems},
-  vol.~11, no.~4, pp. 336----353.e24, 2020. [Online]. Available:
-  \url{http://dx.doi.org/10.1016/j.cels.2020.08.009}
-\BIBentrySTDinterwordspacing
-
-\bibitem{Lillacci2018}
-G.~Lillacci, Y.~Benenson, and M.~Khammash, ``{Synthetic control systems for
-  high performance gene expression in mammalian cells},'' \emph{Nucleic acids
-  research}, vol.~46, no.~18, pp. 9855--9863, 2018.
-
-\bibitem{Fox2021}
-\BIBentryALTinterwordspacing
-Z.~R. Fox, S.~Fletcher, A.~Fraisse, C.~Aditya, and S.~Sosa, ``{MicroMator: Open
-  and Flexible Software for Reactive Microscopy},'' \emph{bioRxiv}, pp. 1--9,
-  2021. [Online]. Available:
-  \url{http://biorxiv.org/cgi/content/short/2021.03.12.435206v1}
-\BIBentrySTDinterwordspacing
-
-\bibitem{Baumschlager2021}
-\BIBentryALTinterwordspacing
-A.~Baumschlager and M.~Khammash, ``{Synthetic Biological Approaches for
-  Optogenetics and Tools for Transcriptional Light-Control in Bacteria},''
-  \emph{Advanced Biology}, vol.~5, no.~5, p. 2000256, 2021. [Online].
-  Available:
-  \url{https://onlinelibrary.wiley.com/doi/abs/10.1002/adbi.202000256}
-\BIBentrySTDinterwordspacing
-
-\bibitem{Lugagne2017}
-\BIBentryALTinterwordspacing
-J.~B. Lugagne, S.~{Sosa Carrillo}, M.~Kirch, A.~K{\"{o}}hler, G.~Batt, and
-  P.~Hersen, ``{Balancing a genetic toggle switch by real-time feedback control
-  and periodic forcing},'' \emph{Nature Communications}, vol.~8, no.~1, pp.
-  1--7, 2017. [Online]. Available:
-  \url{http://dx.doi.org/10.1038/s41467-017-01498-0}
-\BIBentrySTDinterwordspacing
-
-\bibitem{Rullan2018}
-\BIBentryALTinterwordspacing
-M.~Rullan, D.~Benzinger, G.~W. Schmidt, A.~Milias-Argeitis, and M.~Khammash,
-  ``{An Optogenetic Platform for Real-Time, Single-Cell Interrogation of
-  Stochastic Transcriptional Regulation},'' \emph{Molecular Cell}, vol.~70,
-  no.~4, pp. 745--756.e6, 2018. [Online]. Available:
-  \url{https://doi.org/10.1016/j.molcel.2018.04.012}
-\BIBentrySTDinterwordspacing
-
-\bibitem{Guarino2020}
-A.~Guarino, D.~Fiore, D.~Salzano, and M.~{Di Bernardo}, ``{Balancing Cell
-  Populations Endowed with a Synthetic Toggle Switch via Adaptive Pulsatile
-  Feedback Control},'' \emph{ACS Synthetic Biology}, vol.~9, no.~4, pp.
-  793--803, 2020.
-
-\bibitem{Munsky2012}
-B.~Munsky, G.~Neuert, and A.~Van~Oudenaarden, ``{Using gene expression noise to
-  understand gene regulation},'' \emph{Science}, vol. 336, no. 6078, pp.
-  183--187, 2012.
-
-\bibitem{Szymanska2015}
-P.~Szyma{\'{n}}ska, N.~Gritti, J.~M. Keegstra, M.~Soltani, and B.~Munsky,
-  ``{Using noise to control heterogeneity of isogenic populations in homogenous
-  environments},'' \emph{Physical Biology}, vol.~12, no.~4, 2015.
-
-\bibitem{Gillespie1992}
-D.~T. Gillespie, ``{A rigorous derivation of the chemical master equation},''
-  \emph{Physica A: Statistical Mechanics and its Applications}, vol. 188, no.
-  1-3, pp. 404--425, 1992.
-
-\bibitem{Gillespie1977}
-D.~T. Gillespie, ``{Exact stochastic simulation of coupled chemical reactions},''
-  \emph{The journal of physical chemistry}, vol.~81, no.~25, pp. 2340--2361,
-  1977.
-
-\end{thebibliography}
-
+\section*{References}
+\bibliographystyle{plain}
+\bibliography{refs}
 \end{document}
 

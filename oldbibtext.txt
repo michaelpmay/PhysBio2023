@@ -1,0 +1,141 @@
+\begin{thebibliography}{60}
+\providecommand{\url}[1]{#1}
+\csname url@samestyle\endcsname
+\providecommand{\newblock}{\relax}
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\BIBentrySTDinterwordspacing}{\spaceskip=0pt\relax}
+\providecommand{\BIBentryALTinterwordstretchfactor}{4}
+\providecommand{\BIBentryALTinterwordspacing}{\spaceskip=\fontdimen2\font plus
+\BIBentryALTinterwordstretchfactor\fontdimen3\font minus
+  \fontdimen4\font\relax}
+\providecommand{\BIBforeignlanguage}[2]{{%
+\expandafter\ifx\csname l@#1\endcsname\relax
+\typeout{** WARNING: IEEEtran.bst: No hyphenation pattern has been}%
+\typeout{** loaded for the language `#1'. Using the pattern for}%
+\typeout{** the default language instead.}%
+\else
+\language=\csname l@#1\endcsname
+\fi
+#2}}
+\providecommand{\BIBdecl}{\relax}
+\BIBdecl
+
+\bibitem{May2021}
+M.~May and B.~Munsky, ``{Exploiting noise, nonlinearity, and feedback to
+  differentially control multiple synthetic cells with a single optogenetic
+  input},'' pp. 1--28, 2021.
+eps
+\bibitem{Ng2019}
+A.~H. Ng, T.~H. Nguyen, M.~G{\'{o}}mez-Schiavon, G.~Dods, R.~A. Langan, S.~E.
+  Boyken, J.~A. Samson, L.~M. Waldburger, J.~E. Dueber, D.~Baker, and
+  H.~El-Samad, ``{Modular and tunable biological feedback control using a de
+  novo protein switch},'' pp. 265--269, 2019.
+
+\bibitem{Liu2018}
+C.~C. Liu, M.~C. Jewett, J.~W. Chin, and C.~A. Voigt, ``{Toward an orthogonal
+  central dogma},'' \emph{Nature Chemical Biology}, vol.~14, no.~2, pp.
+  103--106, 2018.
+
+\bibitem{Sheets2020}
+M.~B. Sheets, W.~W. Wong, and M.~J. Dunlop, ``{Light-Inducible Recombinases for
+  Bacterial Optogenetics},'' \emph{ACS Synthetic Biology}, vol.~9, no.~2, pp.
+  227--235, 2020.
+
+\bibitem{Groseclose2020}
+\BIBentryALTinterwordspacing
+T.~M. Groseclose, R.~E. Rondon, Z.~D. Herde, C.~A. Aldrete, and C.~J. Wilson,
+  ``{Engineered systems of inducible anti-repressors for the next generation of
+  biological programming},'' \emph{Nature Communications}, vol.~11, no.~1, pp.
+  1--15, 2020. [Online]. Available:
+  \url{http://dx.doi.org/10.1038/s41467-020-18302-1}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Shin2020}
+J.~Shin, S.~Zhang, B.~S. Der, A.~A. Nielsen, and C.~A. Voigt, ``{ Programming
+  Escherichia coli to function as a digital display },'' \emph{Molecular
+  Systems Biology}, vol.~16, no.~3, pp. 1--12, 2020.
+
+\bibitem{Baumschlager2017}
+A.~Baumschlager, S.~K. Aoki, and M.~Khammash, ``{Dynamic blue light-inducible
+  T7 RNA polymerases (Opto-T7RNAPs) for precise spatiotemporal gene expression
+  control},'' \emph{ACS synthetic biology}, vol.~6, no.~11, pp. 2157--2167,
+  2017.
+
+\bibitem{Chen2020}
+\BIBentryALTinterwordspacing
+S.~Y. Chen, L.~C. Osimiri, M.~Chevalier, L.~J. Bugaj, T.~H. Nguyen, R.~A.
+  Greenstein, A.~H. Ng, J.~Stewart-Ornstein, L.~T. Neves, and H.~El-Samad,
+  ``{Optogenetic Control Reveals Differential Promoter Interpretation of
+  Transcription Factor Nuclear Translocation Dynamics},'' \emph{Cell Systems},
+  vol.~11, no.~4, pp. 336----353.e24, 2020. [Online]. Available:
+  \url{http://dx.doi.org/10.1016/j.cels.2020.08.009}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Lillacci2018}
+G.~Lillacci, Y.~Benenson, and M.~Khammash, ``{Synthetic control systems for
+  high performance gene expression in mammalian cells},'' \emph{Nucleic acids
+  research}, vol.~46, no.~18, pp. 9855--9863, 2018.
+
+\bibitem{Fox2021}
+\BIBentryALTinterwordspacing
+Z.~R. Fox, S.~Fletcher, A.~Fraisse, C.~Aditya, and S.~Sosa, ``{MicroMator: Open
+  and Flexible Software for Reactive Microscopy},'' \emph{bioRxiv}, pp. 1--9,
+  2021. [Online]. Available:
+  \url{http://biorxiv.org/cgi/content/short/2021.03.12.435206v1}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Baumschlager2021}
+\BIBentryALTinterwordspacing
+A.~Baumschlager and M.~Khammash, ``{Synthetic Biological Approaches for
+  Optogenetics and Tools for Transcriptional Light-Control in Bacteria},''
+  \emph{Advanced Biology}, vol.~5, no.~5, p. 2000256, 2021. [Online].
+  Available:
+  \url{https://onlinelibrary.wiley.com/doi/abs/10.1002/adbi.202000256}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Lugagne2017}
+\BIBentryALTinterwordspacing
+J.~B. Lugagne, S.~{Sosa Carrillo}, M.~Kirch, A.~K{\"{o}}hler, G.~Batt, and
+  P.~Hersen, ``{Balancing a genetic toggle switch by real-time feedback control
+  and periodic forcing},'' \emph{Nature Communications}, vol.~8, no.~1, pp.
+  1--7, 2017. [Online]. Available:
+  \url{http://dx.doi.org/10.1038/s41467-017-01498-0}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Rullan2018}
+\BIBentryALTinterwordspacing
+M.~Rullan, D.~Benzinger, G.~W. Schmidt, A.~Milias-Argeitis, and M.~Khammash,
+  ``{An Optogenetic Platform for Real-Time, Single-Cell Interrogation of
+  Stochastic Transcriptional Regulation},'' \emph{Molecular Cell}, vol.~70,
+  no.~4, pp. 745--756.e6, 2018. [Online]. Available:
+  \url{https://doi.org/10.1016/j.molcel.2018.04.012}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Guarino2020}
+A.~Guarino, D.~Fiore, D.~Salzano, and M.~{Di Bernardo}, ``{Balancing Cell
+  Populations Endowed with a Synthetic Toggle Switch via Adaptive Pulsatile
+  Feedback Control},'' \emph{ACS Synthetic Biology}, vol.~9, no.~4, pp.
+  793--803, 2020.
+
+\bibitem{Munsky2012}
+B.~Munsky, G.~Neuert, and A.~Van~Oudenaarden, ``{Using gene expression noise to
+  understand gene regulation},'' \emph{Science}, vol. 336, no. 6078, pp.
+  183--187, 2012.
+
+\bibitem{Szymanska2015}
+P.~Szyma{\'{n}}ska, N.~Gritti, J.~M. Keegstra, M.~Soltani, and B.~Munsky,
+  ``{Using noise to control heterogeneity of isogenic populations in homogenous
+  environments},'' \emph{Physical Biology}, vol.~12, no.~4, 2015.
+
+\bibitem{Gillespie1992}
+D.~T. Gillespie, ``{A rigorous derivation of the chemical master equation},''
+  \emph{Physica A: Statistical Mechanics and its Applications}, vol. 188, no.
+  1-3, pp. 404--425, 1992.
+
+\bibitem{Gillespie1977}
+D.~T. Gillespie, ``{Exact stochastic simulation of coupled chemical reactions},''
+  \emph{The journal of physical chemistry}, vol.~81, no.~25, pp. 2340--2361,
+  1977.
+
+
+\end{thebibliography}

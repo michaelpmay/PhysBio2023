@@ -1,0 +1,95 @@
+This is BibTeX, Version 0.99d (TeX Live 2021)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: paper.aux
+The style file: plain.bst
+Database file #1: refs.bib
+Warning--entry type for "Ng2019" isn't style-file defined
+--line 251 of file refs.bib
+Repeated entry---line 367 of file refs.bib
+ : @article{ng2019
+ :                ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 534 of file refs.bib
+ : @article{Rullan2018
+ :                    ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 685 of file refs.bib
+ : @article{baumschlager2017
+ :                          ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 768 of file refs.bib
+ : @article{lillacci2018
+ :                      ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1033 of file refs.bib
+ : @article{Chen2020
+ :                  ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1587 of file refs.bib
+ : @article{Chen2020
+ :                  ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1631 of file refs.bib
+ : @article{Chen2020
+ :                  ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1662 of file refs.bib
+ : @article{Chen2020
+ :                  ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1953 of file refs.bib
+ : @article{Munsky2006
+ :                    ,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "Kobayashi:2004"
+Warning--I didn't find a database entry for "Munsky:2006"
+Warning--I didn't find a database entry for "Peles2006"
+Warning--I didn't find a database entry for "Macnemara2008"
+Warning--I didn't find a database entry for "Vo2019"
+Warning--I didn't find a database entry for "Munsky2008IEEE"
+Warning--I didn't find a database entry for "Tapia2012CDC"
+Warning--I didn't find a database entry for "Cai2007"
+Warning--I didn't find a database entry for "VanKampen"
+Warning--empty journal in May2021
+You've used 26 entries,
+            2118 wiz_defined-function locations,
+            702 strings with 9807 characters,
+and the built_in function-call counts, 9232 in all, are:
+= -- 859
+> -- 581
+< -- 2
++ -- 232
+- -- 202
+* -- 718
+:= -- 1633
+add.period$ -- 77
+call.type$ -- 26
+change.case$ -- 179
+chr.to.int$ -- 0
+cite$ -- 27
+duplicate$ -- 284
+empty$ -- 607
+format.name$ -- 202
+if$ -- 1851
+int.to.chr$ -- 0
+int.to.str$ -- 26
+missing$ -- 25
+newline$ -- 132
+num.names$ -- 52
+pop$ -- 142
+preamble$ -- 1
+purify$ -- 153
+quote$ -- 0
+skip$ -- 206
+stack$ -- 0
+substring$ -- 491
+swap$ -- 35
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 104
+warning$ -- 1
+while$ -- 71
+width$ -- 28
+write$ -- 283
+(There were 9 error messages)
