@@ -1,29 +1,39 @@
 \begin{thebibliography}{10}
 
+\bibitem{Liang2021}
+Shuai Liang, Bin Xu, and Jinrui Ren.
+\newblock Kalman-filter-based robust control for hypersonic flight vehicle with
+  measurement noises.
+\newblock {\em Aerospace Science and Technology}, 112, 5 2021.
+
+\bibitem{Lucia2013}
+Sergio Lucia, Tiago Finkler, and Sebastian Engell.
+\newblock Multi-stage nonlinear model predictive control applied to a
+  semi-batch polymerization reactor under uncertainty.
+\newblock {\em Journal of Process Control}, 23:1306--1319, 2013.
+
 \bibitem{Baetica2020}
 Ania~Ariadna Baetica, Yoke~Peng Leong, and Richard~M. Murray.
 \newblock Guidelines for designing the antithetic feedback motif.
 \newblock {\em Physical Biology}, 17, 9 2020.
 
-\bibitem{Baumschlager2017}
-Armin Baumschlager, Stephanie~K Aoki, and Mustafa Khammash.
-\newblock Dynamic blue light-inducible t7 rna polymerases (opto-t7rnaps) for
-  precise spatiotemporal gene expression control.
-\newblock {\em ACS synthetic biology}, 6:2157--2167, 2017.
+\bibitem{Bhattacharyya2017}
+SP~Bhattacharyya.
+\newblock Robust control under parametric uncertainty: An overview and recent
+  results.
+\newblock {\em Annual Reviews in Control}, 44:45--77, 2017.
 
-\bibitem{Baumschlager2021}
-Armin Baumschlager and Mustafa Khammash.
-\newblock Synthetic biological approaches for optogenetics and tools for
-  transcriptional light-control in bacteria.
-\newblock {\em Advanced Biology}, 5:2000256, 2021.
+\bibitem{Feng2022}
+Yu~Feng and Hongda Sun.
+\newblock Robust optimal control for discrete-time lti systems over multiple
+  additive white gaussian noise channels.
+\newblock {\em IEEE Transactions on Automatic Control}, 2022.
 
-\bibitem{Chen2020}
-Susan~Y. Chen, Lindsey~C. Osimiri, Michael Chevalier, Lukasz~J. Bugaj,
-  Taylor~H. Nguyen, R.~A. Greenstein, Andrew~H. Ng, Jacob Stewart-Ornstein,
-  Lauren~T. Neves, and Hana El-Samad.
-\newblock Optogenetic control reveals differential promoter interpretation of
-  transcription factor nuclear translocation dynamics.
-\newblock {\em Cell Systems}, 11:336--353.e24, 2020.
+\bibitem{Sun2020}
+Mengyi Sun and Jianzhi Zhang.
+\newblock Allele-specific single-cell rna sequencing reveals different
+  architectures of intrinsic and extrinsic gene expression noises.
+\newblock {\em Nucleic Acids Research}, 48:533--547, 1 2020.
 
 \bibitem{Cialek2022}
 Charlotte~A. Cialek, Gabriel Galindo, Tatsuya Morisaki, Ning Zhao, Taiowa~A.
@@ -38,76 +48,11 @@ Sara Dionisi, Karol Piera, Armin Baumschlager, and Mustafa Khammash.
   on a split t7 rna polymerase.
 \newblock {\em ACS Synthetic Biology}, 11:2650--2661, 8 2022.
 
-\bibitem{Feng2022}
-Yu~Feng and Hongda Sun.
-\newblock Robust optimal control for discrete-time lti systems over multiple
-  additive white gaussian noise channels.
-\newblock {\em IEEE Transactions on Automatic Control}, 2022.
-
-\bibitem{Filo2022}
-Maurice Filo, Sant Kumar, and Mustafa Khammash.
-\newblock A hierarchy of biomolecular proportional-integral-derivative feedback
-  controllers for robust perfect adaptation and dynamic performance.
-\newblock {\em Nature Communications}, 13, 12 2022.
-
-\bibitem{Fox2021}
-Zachary~R Fox, Steven Fletcher, Achille Fraisse, Chetan Aditya, and Sebastián
-  Sosa.
-\newblock Micromator: Open and flexible software for reactive microscopy.
-\newblock {\em bioRxiv}, pages 1--9, 2021.
-
-\bibitem{Gillespie1977}
-Daniel~T Gillespie.
-\newblock Exact stochastic simulation of coupled chemical reactions.
-\newblock {\em The journal of physical chemistry}, 81:2340--2361, 1977.
-
-\bibitem{Gillespie1992}
-Daniel~T. Gillespie.
-\newblock A rigorous derivation of the chemical master equation.
-\newblock {\em Physica A: Statistical Mechanics and its Applications},
-  188:404--425, 1992.
-
-\bibitem{Liang2021}
-Shuai Liang, Bin Xu, and Jinrui Ren.
-\newblock Kalman-filter-based robust control for hypersonic flight vehicle with
-  measurement noises.
-\newblock {\em Aerospace Science and Technology}, 112, 5 2021.
-
-\bibitem{Lillacci2018}
-Gabriele Lillacci, Yaakov Benenson, and Mustafa Khammash.
-\newblock Synthetic control systems for high performance gene expression in
-  mammalian cells.
-\newblock {\em Nucleic acids research}, 46:9855--9863, 2018.
-
-\bibitem{Liu2018}
-Chang~C. Liu, Michael~C. Jewett, Jason~W. Chin, and Chris~A. Voigt.
-\newblock Toward an orthogonal central dogma.
-\newblock {\em Nature Chemical Biology}, 14:103--106, 2018.
-
-\bibitem{Lucia2013}
-Sergio Lucia, Tiago Finkler, and Sebastian Engell.
-\newblock Multi-stage nonlinear model predictive control applied to a
-  semi-batch polymerization reactor under uncertainty.
-\newblock {\em Journal of Process Control}, 23:1306--1319, 2013.
-
-\bibitem{Lugagne2017}
-Jean~Baptiste Lugagne, Sebastián~Sosa Carrillo, Melanie Kirch, Agnes Köhler,
-  Gregory Batt, and Pascal Hersen.
-\newblock Balancing a genetic toggle switch by real-time feedback control and
-  periodic forcing.
-\newblock {\em Nature Communications}, 8:1--7, 2017.
-
-\bibitem{May2021}
-Michael May and Brian Munsky.
-\newblock Exploiting noise , nonlinearity , and feedback to differentially
-  control multiple synthetic cells with a single optogenetic input.
-\newblock pages 1--28, 2021.
-
-\bibitem{Munsky2006}
-Brian Munsky and Mustafa Khammash.
-\newblock The finite state projection algorithm for the solution of the
-  chemical master equation.
-\newblock {\em Journal of Chemical Physics}, 124, 2006.
+\bibitem{Baumschlager2017}
+Armin Baumschlager, Stephanie~K Aoki, and Mustafa Khammash.
+\newblock Dynamic blue light-inducible t7 rna polymerases (opto-t7rnaps) for
+  precise spatiotemporal gene expression control.
+\newblock {\em ACS synthetic biology}, 6:2157--2167, 2017.
 
 \bibitem{Ng2019}
 Andrew~H. Ng, Taylor~H. Nguyen, Mariana Gómez-Schiavon, Galen Dods, Robert~A.
@@ -116,12 +61,10 @@ Andrew~H. Ng, Taylor~H. Nguyen, Mariana Gómez-Schiavon, Galen Dods, Robert~A.
 \newblock Modular and tunable biological feedback control using a de novo
   protein switch, 2019.
 
-\bibitem{Rullan2018}
-Marc Rullan, Dirk Benzinger, Gregor~W Schmidt, Andreas Milias-Argeitis, and
-  Mustafa Khammash.
-\newblock An optogenetic platform for real-time, single-cell interrogation of
-  stochastic transcriptional regulation.
-\newblock {\em Molecular cell}, 70:745--756, 2018.
+\bibitem{Liu2018}
+Chang~C. Liu, Michael~C. Jewett, Jason~W. Chin, and Chris~A. Voigt.
+\newblock Toward an orthogonal central dogma.
+\newblock {\em Nature Chemical Biology}, 14:103--106, 2018.
 
 \bibitem{Sheets2020}
 Michael~B. Sheets, Wilson~W. Wong, and Mary~J. Dunlop.
@@ -134,17 +77,58 @@ Jonghyeon Shin, Shuyi Zhang, Bryan~S Der, Alec~AK Nielsen, and Christopher~A
 \newblock Programming escherichia coli to function as a digital display.
 \newblock {\em Molecular Systems Biology}, 16:1--12, 2020.
 
-\bibitem{Strasser2012}
-Michael Strasser, Fabian~J. Theis, and Carsten Marr.
-\newblock Stability and multiattractor dynamics of a toggle switch based on a
-  two-stage model of stochastic gene expression.
-\newblock {\em Biophysical Journal}, 102:19--29, 1 2012.
+\bibitem{Chen2020}
+Susan~Y. Chen, Lindsey~C. Osimiri, Michael Chevalier, Lukasz~J. Bugaj,
+  Taylor~H. Nguyen, R.~A. Greenstein, Andrew~H. Ng, Jacob Stewart-Ornstein,
+  Lauren~T. Neves, and Hana El-Samad.
+\newblock Optogenetic control reveals differential promoter interpretation of
+  transcription factor nuclear translocation dynamics.
+\newblock {\em Cell Systems}, 11:336--353.e24, 2020.
 
-\bibitem{Sun2020}
-Mengyi Sun and Jianzhi Zhang.
-\newblock Allele-specific single-cell rna sequencing reveals different
-  architectures of intrinsic and extrinsic gene expression noises.
-\newblock {\em Nucleic Acids Research}, 48:533--547, 1 2020.
+\bibitem{Lillacci2018}
+Gabriele Lillacci, Yaakov Benenson, and Mustafa Khammash.
+\newblock Synthetic control systems for high performance gene expression in
+  mammalian cells.
+\newblock {\em Nucleic acids research}, 46:9855--9863, 2018.
+
+\bibitem{Fox2021}
+Zachary~R Fox, Steven Fletcher, Achille Fraisse, Chetan Aditya, and Sebastián
+  Sosa.
+\newblock Micromator: Open and flexible software for reactive microscopy.
+\newblock {\em bioRxiv}, pages 1--9, 2021.
+
+\bibitem{Baumschlager2021}
+Armin Baumschlager and Mustafa Khammash.
+\newblock Synthetic biological approaches for optogenetics and tools for
+  transcriptional light-control in bacteria.
+\newblock {\em Advanced Biology}, 5:2000256, 2021.
+
+\bibitem{Lugagne2017}
+Jean~Baptiste Lugagne, Sebastián~Sosa Carrillo, Melanie Kirch, Agnes Köhler,
+  Gregory Batt, and Pascal Hersen.
+\newblock Balancing a genetic toggle switch by real-time feedback control and
+  periodic forcing.
+\newblock {\em Nature Communications}, 8:1--7, 2017.
+
+\bibitem{Rullan2018}
+Marc Rullan, Dirk Benzinger, Gregor~W Schmidt, Andreas Milias-Argeitis, and
+  Mustafa Khammash.
+\newblock An optogenetic platform for real-time, single-cell interrogation of
+  stochastic transcriptional regulation.
+\newblock {\em Molecular cell}, 70:745--756, 2018.
+
+\bibitem{Filo2022}
+Maurice Filo, Sant Kumar, and Mustafa Khammash.
+\newblock A hierarchy of biomolecular proportional-integral-derivative feedback
+  controllers for robust perfect adaptation and dynamic performance.
+\newblock {\em Nature Communications}, 13, 12 2022.
+
+\bibitem{Kobayashi2004}
+Hideki Kobayashi, Mads Kærn, Michihiro Araki, Kristy Chung, Timothy~S Gardner,
+  Charles~R Cantor, and James~J Collins.
+\newblock Programmable cells: Interfacing natural and engineered gene networks.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  101:8414--8419, 2004.
 
 \bibitem{Szymanska2015}
 Paulina Szymańska, Nicola Gritti, Johannes~M. Keegstra, Mohammad Soltani, and
@@ -153,10 +137,83 @@ Paulina Szymańska, Nicola Gritti, Johannes~M. Keegstra, Mohammad Soltani, and
   homogenous environments.
 \newblock {\em Physical Biology}, 12, 2015.
 
+\bibitem{May2021}
+Michael May and Brian Munsky.
+\newblock Exploiting noise , nonlinearity , and feedback to differentially
+  control multiple synthetic cells with a single optogenetic input.
+\newblock pages 1--28, 2021.
+
+\bibitem{Gillespie1992}
+Daniel~T. Gillespie.
+\newblock A rigorous derivation of the chemical master equation.
+\newblock {\em Physica A: Statistical Mechanics and its Applications},
+  188:404--425, 1992.
+
+\bibitem{Gillespie1977}
+Daniel~T Gillespie.
+\newblock Exact stochastic simulation of coupled chemical reactions.
+\newblock {\em The journal of physical chemistry}, 81:2340--2361, 1977.
+
+\bibitem{Munsky2006}
+Brian Munsky and Mustafa Khammash.
+\newblock The finite state projection algorithm for the solution of the
+  chemical master equation.
+\newblock {\em Journal of Chemical Physics}, 124, 2006.
+
+\bibitem{Peles2006}
+Slaven Pele{\v{s}}, Brian Munsky, and Mustafa Khammash.
+\newblock Reduction and solution of the chemical master equation using time
+  scale separation and finite state projection.
+\newblock {\em The Journal of chemical physics}, 125(20), 2006.
+
+\bibitem{Macnamara2008}
+Shev MacNamara, Alberto~M Bersani, Kevin Burrage, and Roger~B Sidje.
+\newblock Stochastic chemical kinetics and the total quasi-steady-state
+  assumption: application to the stochastic simulation algorithm and chemical
+  master equation.
+\newblock {\em The Journal of chemical physics}, 129(9), 2008.
+
+\bibitem{Vo2019}
+Huy~D Vo, Zachary Fox, Ania Baetica, and Brian Munsky.
+\newblock Bayesian estimation for stochastic gene expression using
+  multifidelity models.
+\newblock {\em The Journal of Physical Chemistry B}, 123(10):2217--2234, 2019.
+
+\bibitem{Munsky2008IEEE}
+Brian Munsky and Mustafa Khammash.
+\newblock The finite state projection approach for the analysis of stochastic
+  noise in gene networks.
+\newblock {\em IEEE Transactions on Automatic Control}, 53(Special
+  Issue):201--214, 2008.
+
+\bibitem{Tapia2012}
+Jos{\'e}~Juan Tapia, James~R Faeder, and Brian Munsky.
+\newblock Adaptive coarse-graining for transient and quasi-equilibrium analyses
+  of stochastic gene regulation.
+\newblock In {\em 2012 IEEE 51st IEEE Conference on Decision and Control
+  (CDC)}, pages 5361--5366. IEEE, 2012.
+
+\bibitem{Cai2007}
+Xiaodong Cai.
+\newblock Exact stochastic simulation of coupled chemical reactions with
+  delays.
+\newblock {\em The Journal of chemical physics}, 126(12), 2007.
+
 \bibitem{Voliotis2016}
 Margaritis Voliotis, Philipp Thomas, Ramon Grima, and Clive~G. Bowsher.
 \newblock Stochastic simulation of biomolecular networks in dynamic
   environments.
 \newblock {\em PLoS Computational Biology}, 12, 6 2016.
+
+\bibitem{VanKampen1992}
+Nicolaas~Godfried Van~Kampen.
+\newblock {\em Stochastic processes in physics and chemistry}, volume~1.
+\newblock Elsevier, 1992.
+
+\bibitem{Strasser2012}
+Michael Strasser, Fabian~J. Theis, and Carsten Marr.
+\newblock Stability and multiattractor dynamics of a toggle switch based on a
+  two-stage model of stochastic gene expression.
+\newblock {\em Biophysical Journal}, 102:19--29, 1 2012.
 
 \end{thebibliography}
