@@ -75,21 +75,9 @@ We also demonstrate how SIMO controllers could drive multi-cell systems to follo
 Together, these findings suggest that noise-exploiting control should be possible even in the practical case where models are aways approximate, where parameters are always uncertain, and where observations are corrupted by errors.
 
 \end{abstract}
-Keywords: Stochastic Control, Gene Regulation, Optogenetics
+Keywords: Stochastic Gene Regulation, Optogenetic Feedback Control, Chemical Master Equation
 
-%
-% Uncomment for keywords
-%\vspace{2pc}
-%\noindent{\it Keywords}: Stochastic control, optogenetic, synthetic biology
-%
-% Uncomment for Submitted to journal title message
-%\submitto{\JPA}
-%
-% Uncomment if a separate title page is required
 \maketitle
-% 
-% For two-column output uncomment the next line and choose [10pt] rather than [12pt] in the \documentclass declaration
-%\ioptwocol
 
 \section{Introduction}
 \begin{figure}
@@ -104,9 +92,7 @@ Keywords: Stochastic Control, Gene Regulation, Optogenetics
 \vspace{-0.3in}
 \end{figure}
 
-Uncertain fluctuations, or `noise,' is a common theme throughout many fields of engineering, and robust control is a frequent concern when attempting to control any human-made system such as vehicles \cite{Liang2021}, chemical processes \cite{Lucia2013}, or biology \cite{Baetica2020}.
-\brian[Please look for some relevant references or a review of control under noise. I highlight several missing refs in red.]
-Noise arrises from many sources, occasionally from quantum events and thermally-induced fluctuations, but more commonly from unknown or uncharacterized physical processes, and as such, these fluctuations usually cannot be efficiently reproduced or predicted using purely physical or mechanistic models.
+Uncertain fluctuations, or `noise,' is a common theme throughout many fields of engineering, and robust control is a frequent concern when attempting to control any human-made system such as vehicles \cite{Liang2021}, chemical processes \cite{Lucia2013}, or biology \cite{Baetica2020}. Noise arrises from many sources, occasionally from quantum events and thermally-induced fluctuations, but more commonly from unknown or uncharacterized physical processes, and as such, these fluctuations usually cannot be efficiently reproduced or predicted using purely physical or mechanistic models.
 Rather, statistical models are usually employed where key mechanisms or dynamics are subject to stochastic variations or inputs that act as a proxy for random or un-modeled fluctuations elsewhere in the system.
 In this context, much effort has been placed on enhancing the robustness of controlled processes, where uncertain or unpredictable variations in internal or external parameters are modeled as intrinsic or extrinsic noise \cite{Bhattacharyya2017}.
 For many macroscopic, human-engineered systems, the resulting system dynamics can be modeled effectively simply by combining a deterministic (i.e., noise-free) model with additive noise (usually assumed to be Gaussian under arguments based on the central limit theorem) \cite{Feng2022}, and most current approaches seek to control the system to minimize variations that result from the noisy inputs. 
@@ -254,10 +240,9 @@ For a given controller, the equilibrium distribution of the system ($\mathbf{P}^
 \mathbf{P}^*={\rm null}(\mathbf{A}+\textbf{Bu}^{\mathcal{C}}).\label{SSDist}
 \end{equation}
 
-In principle, the master equation in Eq.\ \ref{CME} could contain an uncountably infinite number of states, and therefore the exact solution as well as the null vector in Eq.\ \ref{SSDist} may not be computable exactly.  To address this issue, we first truncate the system at a finite number for each species and then apply a reflecting boundary condition, resulting in a finite dimensional master equation. To assess the time interval over which this truncation is valid, we also solve the Finite State Projection \cite{Munsky2006} for the same truncation, which allows us to compute an upper bound on the truncation error as a function of time. 
+In principle, the master equation in Eq.\ \ref{CME} could contain an uncountably infinite number of states, and therefore the exact solution as well as the null vector in Eq.\ \ref{SSDist} may not be computable exactly.  To address this issue, we first truncate the system at a finite number for each species and then apply a reflecting boundary condition, resulting in a finite dimensional master equation. 
+%To assess the time interval over which this truncation is valid, we also solve the Finite State Projection \cite{Munsky2006} for the same truncation, which allows us to compute an upper bound on the truncation error as a function of time. 
 
-\brian[We should use the FSP to compute the error of the truncation for a couple cases.  We can talk about how to do this when we meet.]
-\michael[ok!]
 
 \subsection{Quantification and optimization of control performance}\label{sec:Quantification}
 In the SIMO control of stochastic processes, a single input is applied simultaneously to all systems at once, and therefore a control signal that acts beneficially on one cell may destabilize other cells. 
@@ -339,11 +324,8 @@ u_{\tau}(t)=\left\{
 \label{timeDelaySSA}
 \end{equation}
 where $\tau$ is the time delay between observation and actuation, ${u}^{\mathcal{C}}$ is the previously optimized control law (e.g., $\mathbf{u}^{\rm FAC}$ or $\mathbf{u}^{\rm PAC}$), and $x$ gathered from the state history. 
-We note that the time delay stochastic process was only simulated using the SSA because to our knowledge an appropriate direct FSP/CME integration procedure has not yet been developed.
-\brian[Still missing reference to the extrande method at this website
-\url{https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004923}].
-\michael[added Voliotis2016 to the section after this comment]
-The Extrande method \cite{Voliotis2016} was used to update the control input at an average frequency of 50 updates per minute, far exceeding the dynamics of the system.
+We note that the time delay stochastic process was only simulated using the SSA because to our knowledge an appropriate direct FSP/CME integration procedure has not yet been developed. The Extrande method \cite{Voliotis2016} was used to update the control input at an average frequency of 50 updates per minute, far exceeding the dynamics of the system.
+
 \subsection{Tracking Time-Varying Trajectories}\label{sec:Dynamic}
 Because optimizing the control law for a static set point as described in Section \ref{sec:Quantification} requires differentiation of the CME (Eq. \ref{CME}) with respect to the control signal at each state, this calculation is approaching the limits of current feasibility.
 Extending these calculations to optimize controllers for a dynamically moving set point is much harder and would likely require intractable numerical simulation or development of new mathematical approaches that are beyond the scope of the current study. 
@@ -358,46 +340,22 @@ and for each individual target $\mathbf{T}_i$, we optimize to find a correspondi
 \hat{i}(t) = \textrm{argmin}_i \left| \mathbf{T}(t) -  \mathbf{T}_i\right|_2,
 \end{equation}
 and assign that controller.
-%
-%controllers for each target point and cycling through the controllers over time to create the final controller $\mathbf{R}(\mathbf{x},t)$.
-%Let $\mathbf{p}(t)$ be a continuous and cyclicly moving point in state space
-%\begin{equation}
-%\mathbf{p(t)}=[x_1(t),x_2(t)]
-%\end{equation}
-%where $x_1(t)$, and $x_2(t)$ are both cyclic functions of time $\in \mathbf{R}$.
-%Then, $\mathbf{q}$ is a collection of points $q_i$ which evaluate the cyclic function over its natural period (T) in n steps. 
-%\begin{equation}
-%\mathbf{q}=[q_1,\ldots ,q_n]=[\mathbf{p}(t_1),\ldots,\mathbf{p}(t_n)]
-%\end{equation}
-%where each $t_i$ comes from linearly spaced points between $0$ and $T$, in $n$ steps 
-%\begin{equation}
-%t_i = [t_1,\ldots,t_n]=[0,\frac{1}{n} T,\ldots,\frac{n}{n}T]
-%\end{equation}
-%Then, we optimize a set of controllers which target each $q_i$ in the discretized path.
-%\begin{equation}
-%\mathbf{U}_i(\mathbf{x})=[\mathbf{u}_1(\mathbf{x}),...,\mathbf{u}_n(\mathbf{x})]
-%\end{equation}
-%Next, we cycle through each controller at a fixed frequency by using ($\phi(t)$). 
-%\begin{equation}
-%\phi(t)=\lceil \frac{n}{T} mod(t,T)\rceil = \lceil n \ f \ mod(t,\frac{1}{f})\rceil
-%\end{equation}
-%where $f$ the cycling frequency given by $1/T$. 
-%Then the final control equation is given by 
-% \begin{equation}
-%\mathbf{R}(\mathbf{x},t)=\bf{U}_{\phi(t)}(x)
-%\end{equation}
-%Where $\mathbf{R}(\mathbf{x},t)$ returns the control input scalar as a function of state and time. 
 Under this piecewise constant controller law, the full time-varying CME becomes
 \begin{equation}
 \frac{d}{dt}\mathbf{P}=\mathbf{A}+\mathbf{B}\mathbf{u}_{\hat{i}(t)}(\mathbf{x}).
 \end{equation}
+
+\subsection{Computational details}
+\brian[Add section here describing the computer resources used and how long computations took for each type of analysis: What Matlab version and toolboxes, what cluster used (number/type of processors), OS,  ]
+
+\subsection{Code and data availability}
+All codes and data needed to reproduce figures is provided at \url{https://github.com/MunskyGroup/May_2023_Exploiting_Intrinsic_Noise}.  A frozen version of this repository will be provided via Zenodo upon acceptance of the manuscript.
+
 \section{Results}
 
-%\brian[{\bf We still need this.} Add a paragraph or two to explain the big picture here.  Use figure 1 to remind the reader of (1) the control goals, (2) the control law, (3) the resulting distributions, (4) the objective function and (5) the optimization of the control law to minimize the error.  Refer to the methods for each such calculation.  This section is critical to make sure the reader understands what is coming next.  Then provide an outline of the remaining subsections of the results section so that the reader knows what to expect.]
+Using the analyses described in the Methods section, we focus on a single-input-multiple-output (SIMO) controller where {\em all cells receive the same input} at every instant of time. For this, the control signal depends upon the observed state, e.g., $u(t) = \mathbf{u}(\mathbf{x})$ as illustrated in Fig. \ref{cartoons}(I,III). These controllers have been optimized to break symmetry so that multiple cells can be controlled to different target pstates as illustrated in Fig. \ref{cartoons}(II,IV), and we quantify performance according to the RMSE error introduced in Eq. \ref{Euclid}. To explore how such controllers may perform in realistic settings (e.g., where the models are approximate or the parameter are unknown or extrinsically variable), we now fix the parameters of those controllers and explore performance robustness to different types of model uncertainties, including parameter errors or variations (Section \ref{sec:ResPars}), incorrect assumptions on system scales (Section \ref{sec:ResGran}) and time delays (Section \ref{sec:ResTime}). Finally, in Section \ref{sec:ResTraj}, we extend the control analysis to consider the performance of the controller for tracking variable reference signals with different frequencies and phases.
 
-As developed in the Methods section, we focus on a SIMO controller where {\em all cells receive the same input} at every instant of time. For this, the control signal depends upon the observed state, e.g., $u(t) = \mathbf{u}(\mathbf{x})$ as developed above and illustrated in Fig. \ref{cartoons}(I,III). These controllers have been optimized to break symmetry so that multiple cells can be controlled to different targets as illustrated in Fig. \ref{cartoons}(II,IV), and we quantify performance according to the RMSE error introduced in Eq. \ref{Euclid}. To explore how such controllers may perform in realistic settings where the models are approximate and parameter are unknown or extrinsically variable, we now fix the parameters of those controllers and explore performance robustness to different types of model uncertainties, including parameter errors or variations (Section \ref{sec:ResPars}), incorrect assumptions on system scales (Section \ref{sec:ResGran}) and time delays (Section \ref{sec:ResTime}). Finally, in Section \ref{sec:ResTraj}, we extend the control analysis to consider the performance of the controller for tracking variable reference signals with different frequencies and phases.
-
- \subsection{Stochastic SIMO Optogenetic Control can Remain Effective Despite Small Parameter Errors or Extrinsic Uncertainties}\label{sec:ResPars}
+ \subsection{Stochastic SIMO Optogenetic control can remain effective despite small parameter errors or extrinsic uncertainties}\label{sec:ResPars}
 \begin{figure*}
 \begin{center}
 \includegraphics[width=1\textwidth]{ParameterPerturbation.pdf}
@@ -425,16 +383,13 @@ In particular, the analysis shows that control performance could be improved by 
 We next explored how the granularity of the system would affect the differential control of the multi-cell system. Specifically, we define the level of granularity using the parameter $\alpha$ as described in Section \ref{sec:Scaling} and which affects the propensity functions and scoring according to Eqns.\ \ref{eq:granscale}-\ref{EuclidV}. Effectively, larger $\alpha$ corresponds to systems where larger numbers of individual molecules are needed to achieve the same concentration (e.g., larger volumes), while smaller $\alpha$ corresponds to situations where smaller population sizes can achieve that concentration (e.g., smaller volumes). We previously optimized the controllers $\mathbf{u}^{\rm FAC}$ and $\mathbf{u}^{\rm PAC}$ based on a the default assumption that $\alpha=1$, and we wished to know what would be the consequences if this same controller were to be applied to a system that has a different granularity. 
 
 To explore this tradeoff, control performance scores for the $\mathbf{u}^{\rm FAC}$ and $\mathbf{u}^{\rm PAC}$ controllers were calculated at different levels of granularity ($\alpha$) between 0.2 and 2.0.  Figure \ref{Volume} (A - F) shows the joint probability distributions (left plots) and marginal probability distributions (right plots) of the system at a low granularity ($\alpha=0.2$), the original granularity ($\alpha=1.0$), and at an increased granularity ($\alpha=2.0$). 
-%As the system increases, the scale the size of the dynamics of the system becomes stretched over a larger region in state space. 
-%This effect can be observed in the smoothness of C with respect to A despite using the same system and the same controller. 
-%\brian[the previous two sentences do not make sense to me.]
 Figure \ref{Volume}G shows the trend of the performance versus alpha for both the FAC (solid cyan line) and the PAC (solid magenta line) controller.  This improvement in performance appears to approach a small value as the granularity goes to infinity, but since the size of the FSP increases with the square of the system size, systems much larger than $\alpha$=2 (where $\mathbf{A}_0\in \mathbb{R}^{10^4\times10^4}$) become more difficult to calculate using master equation techniques. To bypass this limit in the FSP, sixteen SSA simulations were used to sample the CME of a system with a much larger volume of $\alpha$=100. Each SSA was run for $5\times10^7$ minutes and only the last $4\times10^7$ minutes were sampled to estimate the stationary distribution and calculate the performance score. The performance score estimates of this high granularity SSA using the FAC and PAC were $2.03$ and $5.24$ respectively, which are plotted as dashed lines in Figure.\ \ref{Volume}G. Although it is unclear if further performance improvements could be obtained with further increases to the system scale, for all cases considered so far, we found that both controllers monotonically improved with increased $\alpha$ and that $\mathbf{u}^{\rm FAC}$ always outperforms the $\mathbf{u}^{\rm PAC}$. 
 
 The effect that granularity has on the control performance depends on two competing phenomena: First, because the controller was optimized for one level of granularity ($\alpha = 1$), one might expect that the controller would become worse if the granularity were incorrect. However, at large granularity, we find that the opposite is true - the control performance actually improves when applied to an incorrect model. The reason for this surprising result is that relative amplitude of stochastic fluctuations (i.e., the standard deviation divided by the mean) in a chemical process decreases with the inverse square root of the process scale \cite{VanKampen1992}. In other words, the process becomes more predictable and therefore more controllable. At the extreme as the system size increases, the dynamics converge towards a deterministic process, except for certain exceptional initial conditions lying on manifolds that would separate different steady state behaviors \cite{Strasser2012}. 
 
 However, this improvement in the steady state performance does not come without a cost. Although higher granularity reduces noise and makes it easier to maintain desired states once they have been achieved, noise is necessary to break symmetry between the two cells' dynamics in order to achieve those states in the first place. This tradeoff is illustrated in Fig.\ \ref{Volume}(H), which plots the control performance over time after changing the control goal to exchange the low- and high-target cells with one another.  From the figure, we can see although steady state control performance improves for higher values of $\alpha$, the time taken to reach that steady state performance  increases with $\alpha$, suggesting that larger-volume system may become more susceptible to times delays or less able to track variable reference trajectories.
 
-\begin{figure*}[t!]
+\begin{figure}[t!]
 \begin{center}
 \includegraphics[width=1\textwidth]{Granularity.pdf}
 \vspace{-0.1in}
@@ -442,12 +397,8 @@ However, this improvement in the steady state performance does not come without 
 \label{Volume}
 \end{center}
 \vspace{-0.2in}
-\end{figure*}
+\end{figure}
 
-
- % XXX - update this to explain what you see in this new figure. 
-
-%These data suggest that increasing granularity increases steady state control performance even if the controller itself depends on noise for its implementation. Also, designing a controller to work for a system of one volume size can result in a controller that works even for another much larger volume.  This has practical significance, because it is relatively easy to search over a control law defined on a small $M\times M$ grid of states (e.g., when $M$=50 as in \cite{May2021}), but to implement the controller for a larger system which may be computationally prohibitive. This result implies that it may be possible to optimize controller using coarse-grained FSP analyses for small granularity problems and adapt these via interpolation for use with larger, more realistic systems, that exceed the computational limit of standard FSP computations.  
 
 \subsection{Heterogeneous control can remain effective despite moderate time delays}\label{sec:ResTime}
 \begin{figure*}
@@ -462,23 +413,14 @@ However, this improvement in the steady state performance does not come without 
 
 In general, feedback control can only be effective if one can quickly make measurements, compute adjustments to the control signal, and implement the needed changes within an appropriate amount of time relative to the characteristic timescale of the system. As the time required for any of these steps increases, control performance will be degraded, perhaps even leading to large fluctuations or instability. To explore how time delays affect the noise-enhanced controllers $\mathbf{u}^{\rm FAC}$ and $\mathbf{u}^{\rm PAC}$, we generated large sets of time-delayed stochastic simulations (see Section \ref{sec:Delay}) for different lengths of the time delay. Each SSA was sub-sampled for 1000 times over 10000 minutes of simulation time after a burnin period of 10000 minutes.
 
-Figure \ref{Time} shows the joint distributions (left) and marginal distributions (right) at varying levels of time-delay, with panels A-C showing results for the FAC controller and panels D-F showing results for the PAC controller. Figure \ref{Time}G summarizes these results by plotting the score of both controllers versus the time delay. From the figures, it is clear that performance is rapidly degraded as the delay approaches and then exceeds the characteristic time ($\tau_c = 1 / \gamma = 49$ min) set by the degradation rate of the process (yellow dashed line). At very small time delays ($\tau< 3.4$ min), the FAC outperforms the PAC  but at moderate time delays ($\tau > 3.4$ min) the PAC outperforms the FAC.
-%
-%These data show that time delays greater than $\tau = 0.1 / \gamma = 4.9$ min begin to degrade FAC control performance and plateau at $\tau_c = 1.0 / \gamma = 49$ min.  \brian[Check these times.] \michael[rewrote the sentence]The choice of best controller depends on the level of time delay in the system.
-At high time delays, both controllers lose their asymmetry, resulting in significantly worse performances ($RMSE = 32$ and $23$) and even perform worse than under a simple constant control input without feedback (depicted by a horizontal red line in Fig.\ \ref{Time}G). 
-% XXX - This figure needs much larger fonts for all the labels and axes.
-% MMM - Did the change
-% There are errors in the parameter names.  What is 'alpha'?
-% remove the A,B,C,D,E.
-% replace I, II, III with A, B, C
-% what is parameter $\mu$? Is that an error?  Please use $\mu$ for reaction index as in the methods section.
+Figure \ref{Time} shows the joint distributions (left) and marginal distributions (right) at varying levels of time-delay, with panels A-C showing results for the FAC controller and panels D-F showing results for the PAC controller. Figure \ref{Time}G summarizes these results by plotting the score of both controllers versus the time delay. From the figures, it is clear that performance is rapidly degraded as the delay approaches and then exceeds the characteristic time ($\tau_c = 1 / \gamma = 49$ min) set by the degradation rate of the process (yellow dashed line). At very small time delays ($\tau< 3.4$ min), the FAC outperforms the PAC, but at moderate time delays ($\tau > 3.4$ min), the PAC outperforms the FAC.
+At high time delays, both controllers lose their asymmetry, resulting in substantially worse performances ($RMSE = 32$ and $23$) and even perform worse than under a simple constant control input without feedback (depicted by a horizontal red line in Fig.\ \ref{Time}G). 
 
 \begin{figure*}
 \begin{center}
 \includegraphics[width=1\textwidth]{DelayAndGranularity.pdf}
 \vspace{-0.1in}
 \caption{{\bf Joint effects of granularity and time delay on control performance.} (A-I) Joint probability distributions at different combinations of $\tau$ (rows) and $\alpha$ (columns). Overall RMSE shown at top. (J) Heat-map of control performance versus $(\tau,\alpha)$. Points A-I correspond to panels A-I. Dashed yellow line shows characteristic time $\tau_c = \alpha/\gamma/$.
-\brian[Label 'J' is missing from the figure. Replace XXX below.] \michael[added J. Replace XXX with 4.0]
 (K) Controlled system trajectory for $\alpha = 4.0$ and $\tau = $ min (denoted by red star in panel J).}
 \label{DG}
 \end{center}
@@ -486,14 +428,12 @@ At high time delays, both controllers lose their asymmetry, resulting in signifi
 \end{figure*}
 
 As discussed in the previous section, increasing the granularity of the system $\alpha$ reduces the randomness to improve the steady state performance but at the cost of slowing down the controller response.  To explore the joint effects of time delays and granularity, Fig,\ \ref{DG}J shows the FAC steady state control performance as a function of the time delay and system granularity $(\tau,\alpha)$ using thirty-two stochastic simulations simulated to steady state at each combination. Control performance errors measured by RMSE improved as $\alpha$ increased when the delays were small ($\tau=1 \ $ min and $\tau=10 \ $ min) but not when $\tau=100 \ $ min. 
-%
-%\brian[What are the units of tau in Figure5?  This section is confusing in that it is not clear to me how tau and gamma are changing relative to one another when alpha is changed. From Eq 21 it seems that gamma changes with 1/alpha.  If this is correct, does that mean that the critical time changes with $\tau_c = 1/gamma = alpha/gamma ~= 5*alpha$?  If you plot that as a thick dashed dark line in Figure5J,  would it match to the contours? ] \michael[$tc=1/(0.7*alpha)$ matches the counters well]
 
-Recalling that under the system granularity rescaling (Eq.\ \ref{eq:rescaling}), as $\alpha$ changes, the effective degradation rate scales according to $\gamma' = \gamma/\alpha$.  Therefore, the critical limit for the delays should also change with the system scale according to $\tau_c = 1\alpha/\gamma$. Figure\ref{DG}(J) depicts this characteristic line and shows that as the time delay approaches and then exceeds this level, the steady state performance becomes dramatically worse. 
+Recalling that under the system granularity rescaling (Eq.\ \ref{eq:rescaling}), as $\alpha$ changes, the effective degradation rate scales according to $\gamma' = \gamma/\alpha$.  Therefore, the critical limit for the delays should also change with the system scale according to $\tau_c = \alpha/\gamma$. Figure\ref{DG}(J) depicts this characteristic line and shows that as the time delay approaches and then exceeds this level, the steady state performance becomes dramatically worse. 
 
 Finally, to understand the model of failure at these longer delays, it is interesting to examine trajectories induced by the controller just below this characteristic delay. For parameter set denoted by the red star in Figure.\ \ref {DG}(J), Figure.\ \ref {DG}(K) shows the controlled response after a long burn in period to achieve steady state. In this case, the application of feedback after a delay leads to a strong oscillatory behavior and worse performance than that achieved without any control at all. This observation further stresses the importance of considering time delays when designing such controllers.
 
-\begin{figure*}
+\begin{figure}
 \begin{center}
 \includegraphics[width=1\textwidth]{StaticControl.pdf}
 \vspace{-0.1in}
@@ -505,16 +445,12 @@ Finally, to understand the model of failure at these longer delays, it is intere
 \label{CtrlP}
 \end{center}
 \vspace{-0.2in}
-\end{figure*}
+\end{figure}
 
 \subsection{With noise-induced control, a single input can drive multiple cells to follow different temporal trajectories.}\label{sec:ResTraj}
 
-%We next analyzed the control performance over a domain of target points to find if some states are easier to achieve than others. For a two-cell system, stability analysis of the auto-regulated system using a moderate light input can create up to four stable points and one unstable point in the state space.  These points give rise to basins which may attract probability more easily than other points.
 We next optimized the FAC controller and calculated its performance for the two-cell system over a two dimensional domain of discrete target points $\mathbf{T}_i = [T_{i1},T_{i2}]$ between between five and forty-five. For example, Fig.\ \ref{CtrlP} (A) shows the optimized FAC control input of the system when the target is $\mathbf{T}=[20,25]$, and Fig.\ \ref{CtrlP} (B) shows the corresponding steady state probability distribution of the controlled system. Figure \ref{CtrlP} (C and D) show the the same thing but for a different target state of $\mathbf{T}=[10, 25]$.
-%\brian[Let's remove the PAC from this section.  Show only the FAC and and replace the Figure6C/D with the FAC at a different target point. Put a new star of a different color to match to the new 6C/D.  Remove Figure6F.  Make sure to change all the figure labels and titles and captions.] \michael[ok, I also moved the settpoint score heatmap to the right]
-Figure \ref{CtrlP}(E) shows the overall steady state FAC control performance over the entire domain of static set points, and illustrates that some regions are easier to attain than others. 
-%For example, in the space contained in the dashed-green box which also hold the four stable points of the system, the control performance is quite strong, whereas near the unstable point (dashed-blue box), the FAC results in relatively worse control. 
-%For example, the top left and bottom right edge regions were the most difficult to control, since the control input does not push probability in these directions. \brian[I don't understand this statement.] \michael[editied it better]
+Figure \ref{CtrlP}(E) shows the overall steady state FAC control performance over the entire domain of static set points, and illustrates that some regions are easier to attain than others. For example, the top-left and bottom-right edge regions (i.e., where one species is well above its high equilibrium point and the other is well below its low equilibrium point) are the most difficult to control, while other target points near the two equilibrium points are more easily obtained.
 
 \begin{figure*}
 \begin{center}
@@ -546,7 +482,7 @@ and a frequency separated reference point (Fig.\ \ref{CR}D1) where
 $$
 T^{\rm D}_1(t)=20 \sin(2 \pi f t)+10,\textrm{ and } T^{\rm D}_2(t) =20 \cos(2 \pi f t)+10.
 $$
-For each reference signal, the driving frequency was defined as $f=10^{-4}$ cycles per minute.
+For each reference signal, a slow driving frequency was applied at $f=10^{-4}$ cycles per minute.
 
 All FSP simulations were calculated under the time varying control law, and Figs.\ \ref{CR}(B2, C2, and D2) show the corresponding response distributions (shading) and median responses (lines) for two cells $x_1$ and $x_2$ in red and blue, respectively. 
 Regions with purple shading depict the exact overlap of red and blue, when both cells have the same distribution of response. 
@@ -570,7 +506,6 @@ Figure \ref{CRG}(A) shows the desired reference signal for the system, and Fig.\
 Figure \ref{CRG}(C) shows the corresponding control performance over normalized periodic time as $\alpha$ is held at $4.0$ and $f$ is increased from $f=10^{-4}$ cycles/min to $f=10^{-2}$ cycles/min and $f=10^{-0}$ cycles/min leading to average control performances of 6.2, 16.1, and 15.0 respectively. 
 Figure \ref{CRG}D,E extends this analysis to plot the average control performance over different combinations of $\alpha$ and $f$. 
 The characteristic frequency (given by the predicted $\tau_c^{-1}$ over a range of $\alpha$) is plotted as the yellow dashed line.
-%RMSE control performance of 128 simulations were simulated over a range of frequency between $10^-3$ and $10^-1$ Figure\ref{CRG}(D) for 32 cycles to obtain a better measurement of the true RMSE Figure\ref{CRG}(D) at $\alpha=2.0$, $\alpha=4.0$, and $\alpha=8.0$. 
 In particular, the heat map of control performance over $(f,\alpha)$ shows that the worst performance occurs at moderate $f$ near $f=10^{-2}$ cycles/min and that control performance is best when granularity is high and frequency is low \ref{CRG}(E).  More specifically, we find that strong performance was attainable only if the driving frequency was kept lower than a characteristic frequency $f_c \equiv 1 / \tau_c = \gamma/\alpha$, which is denoted by the dashed line in Fig. \ref{CRG}E.
 
 
@@ -601,8 +536,6 @@ Our results suggest a promising alternative in which one could learn or optimize
 Time delay analysis (Fig. \ref{Time}) showed that increasing time delay decreased control performance. However, we also found that not every controller was equally affected by time delays. In particular, we found that at intermediate and larger time delays, a partially aware controller that has  less information can outperform a fully aware controller (Fig. \ref{Time}G). We believe this is happening because a controller with more information can afford to be more aggressive to implement its control, and time delay can cause this aggression to backfire.
 
 The control of cells to two slowly changing dynamic reference signals using a single global input by the use of a noise-exploiting controller showed good control performance for a variety of signals. These analysis could be extended to include faster frequency by numerical calculation or by alternative error-probability adjustments.
-
-
 
 \section*{References}
 \bibliographystyle{unsrt}
